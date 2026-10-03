@@ -15,8 +15,8 @@ class AppPlaybackServiceAdaptersTest {
     fun `preparer forwards stream info and returns plugin success unchanged`() = runTest {
         val streamInfo = StreamInfo(url = "https://example.test/input.m3u8")
         val prepared = StreamInfo(url = "https://example.test/prepared.m3u8")
-        val operations = FakeSTTITEN IP TVPluginPlaybackOperations(Result.Success(prepared), "unused")
-        val adapter = STTITEN IP TVPluginPlaybackServiceAdapter(operations)
+        val operations = FakeSTTITENIPTVPluginPlaybackOperations(Result.Success(prepared), "unused")
+        val adapter = STTITENIPTVPluginPlaybackServiceAdapter(operations)
 
         val result = adapter.prepare(streamInfo)
 
@@ -28,8 +28,8 @@ class AppPlaybackServiceAdaptersTest {
     fun `preparer returns plugin error unchanged`() = runTest {
         val streamInfo = StreamInfo(url = "https://example.test/input.m3u8")
         val error = Result.Error("Plugin rejected playback")
-        val operations = FakeSTTITEN IP TVPluginPlaybackOperations(error, "unused")
-        val adapter = STTITEN IP TVPluginPlaybackServiceAdapter(operations)
+        val operations = FakeSTTITENIPTVPluginPlaybackOperations(error, "unused")
+        val adapter = STTITENIPTVPluginPlaybackServiceAdapter(operations)
 
         val result = adapter.prepare(streamInfo)
 
@@ -44,11 +44,11 @@ class AppPlaybackServiceAdaptersTest {
             title = "Input",
             headers = mapOf("Authorization" to "Bearer token")
         )
-        val operations = FakeSTTITEN IP TVPluginPlaybackOperations(
+        val operations = FakeSTTITENIPTVPluginPlaybackOperations(
             Result.Success(StreamInfo(url = "https://example.test/unused.m3u8")),
             "https://example.test/rewritten.m3u8"
         )
-        val adapter = STTITEN IP TVPluginPlaybackServiceAdapter(operations)
+        val adapter = STTITENIPTVPluginPlaybackServiceAdapter(operations)
 
         val result = adapter.rewrite(request)
 
@@ -78,10 +78,10 @@ class AppPlaybackServiceAdaptersTest {
         assertThat(launcher.refreshCalls).isEqualTo(1)
     }
 
-    private class FakeSTTITEN IP TVPluginPlaybackOperations(
+    private class FakeSTTITENIPTVPluginPlaybackOperations(
         private val prepareResult: Result<StreamInfo>,
         private val rewriteResult: String?
-    ) : STTITEN IP TVPluginPlaybackOperations {
+    ) : STTITENIPTVPluginPlaybackOperations {
         val preparedStreamInfos = mutableListOf<StreamInfo>()
         val castRequests = mutableListOf<CastMediaRequest>()
 

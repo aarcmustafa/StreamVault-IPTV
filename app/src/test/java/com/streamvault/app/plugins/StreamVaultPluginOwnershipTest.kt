@@ -2,11 +2,11 @@ package com.streamvault.app.plugins
 
 import com.google.common.truth.Truth.assertThat
 import com.streamvault.data.local.entity.PluginProviderOwnershipEntity
-import com.streamvault.feature.system.api.STTITEN IP TVPluginComponent
-import com.streamvault.feature.system.api.STTITEN IP TVPluginOwner
+import com.streamvault.feature.system.api.STTITENIPTVPluginComponent
+import com.streamvault.feature.system.api.STTITENIPTVPluginOwner
 import org.junit.Test
 
-class STTITEN IP TVPluginOwnershipTest {
+class STTITENIPTVPluginOwnershipTest {
     @Test
     fun `manifest rename retains sole provider owned by the same component`() {
         val ownership = ownership(
@@ -17,7 +17,7 @@ class STTITEN IP TVPluginOwnershipTest {
         )
 
         val selected = selectPluginOwnership(
-            STTITEN IP TVPluginOwner(
+            STTITENIPTVPluginOwner(
                 "com.example.plugin",
                 "PluginService",
                 "new-id"
@@ -30,7 +30,7 @@ class STTITEN IP TVPluginOwnershipTest {
 
     @Test
     fun `manifest rename never adopts an ambiguous component mapping`() {
-        val owner = STTITEN IP TVPluginOwner(
+        val owner = STTITENIPTVPluginOwner(
             "com.example.plugin",
             "PluginService",
             "new-id"
@@ -55,7 +55,7 @@ class STTITEN IP TVPluginOwnershipTest {
         val orphaned = orphanedPluginOwnerships(
             listOf(ownership),
             setOf(
-                STTITEN IP TVPluginComponent(
+                STTITENIPTVPluginComponent(
                     ownership.packageName,
                     ownership.serviceClassName
                 )
@@ -73,7 +73,7 @@ class STTITEN IP TVPluginOwnershipTest {
         val orphaned = orphanedPluginOwnerships(
             listOf(installed, removed),
             setOf(
-                STTITEN IP TVPluginComponent(
+                STTITENIPTVPluginComponent(
                     installed.packageName,
                     installed.serviceClassName
                 )

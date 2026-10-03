@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.tv.material3.MaterialTheme
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.streamvault.core.ui.theme.STTITEN IP TVTheme
-import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
+import com.streamvault.feature.system.api.InstalledSTTITENIPTVPlugin
 import com.streamvault.feature.system.api.SystemScaffoldContent
 import com.streamvault.feature.system.presentation.downloads.DownloadsContent
 import com.streamvault.feature.system.presentation.downloads.DownloadsUiState
@@ -139,7 +139,7 @@ class SystemPresentationVariantTest {
         onInstallFromLocalUri = {},
         onInstallFromUrl = {},
         onRefreshPlugins = {},
-        onSetPluginEnabled = { _: InstalledSTTITEN IP TVPlugin, _: Boolean -> },
+        onSetPluginEnabled = { _: InstalledSTTITENIPTVPlugin, _: Boolean -> },
         onOpenPluginConfiguration = {},
         onClosePluginConfiguration = {},
         onRefreshPluginConfiguration = {},

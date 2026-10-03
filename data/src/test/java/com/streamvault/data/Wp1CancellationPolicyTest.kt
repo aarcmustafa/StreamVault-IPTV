@@ -41,7 +41,7 @@ class Wp1CancellationPolicyTest {
             .that(xtream).doesNotContain("runCatching { requestSeriesInfo(")
 
         val plugins = root.resolve(
-            "app/src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt"
+            "app/src/main/java/com/streamvault/app/plugins/STTITENIPTVPluginManager.kt"
         ).readText()
         assertWithMessage("Plugin IPC must not use raw runCatching")
             .that(plugins).doesNotContain("runCatching {\n            messengerClient.send(")

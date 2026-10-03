@@ -26,14 +26,14 @@ import com.streamvault.domain.model.DownloadItem
 import com.streamvault.domain.model.DownloadStatus
 import com.streamvault.domain.model.DownloadStorageConfig
 import com.streamvault.domain.sync.Section
-import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
+import com.streamvault.feature.system.api.InstalledSTTITENIPTVPlugin
 import com.streamvault.feature.system.api.PluginConfigurationAction
 import com.streamvault.feature.system.api.PluginConfigurationField
 import com.streamvault.feature.system.api.PluginConfigurationOption
 import com.streamvault.feature.system.api.PluginConfigurationSchema
 import com.streamvault.feature.system.api.PluginConfigurationSection
-import com.streamvault.feature.system.api.STTITEN IP TVPluginContract
-import com.streamvault.feature.system.api.STTITEN IP TVPluginManifest
+import com.streamvault.feature.system.api.STTITENIPTVPluginContract
+import com.streamvault.feature.system.api.STTITENIPTVPluginManifest
 import com.streamvault.feature.system.api.SystemScaffoldContent
 import com.streamvault.feature.system.api.WelcomeSyncProgress
 import com.streamvault.feature.system.navigation.SystemRoutePatterns
@@ -290,17 +290,17 @@ class SystemPresentationGoldenTest {
         onClearMessage = {},
     )
 
-    private fun pluginFixture() = InstalledSTTITEN IP TVPlugin(
+    private fun pluginFixture() = InstalledSTTITENIPTVPlugin(
         packageName = "com.example.streamvault.plugin",
         serviceClassName = "com.example.streamvault.PluginService",
         appLabel = "Example plugin",
-        manifest = STTITEN IP TVPluginManifest(
+        manifest = STTITENIPTVPluginManifest(
             id = "example",
             name = "Example plugin",
             versionName = "2.4.1",
             description = "Companion provider synchronization",
-            capabilities = listOf(STTITEN IP TVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
-            configurationMode = STTITEN IP TVPluginContract.CONFIGURATION_MODE_HOST_SCHEMA,
+            capabilities = listOf(STTITENIPTVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
+            configurationMode = STTITENIPTVPluginContract.CONFIGURATION_MODE_HOST_SCHEMA,
         ),
         enabled = true,
     )

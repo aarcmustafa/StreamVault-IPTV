@@ -1,9 +1,9 @@
 package com.streamvault.feature.system.presentation.plugins
 
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
-import com.streamvault.feature.system.api.STTITEN IP TVPluginContract
-import com.streamvault.feature.system.api.STTITEN IP TVPluginManifest
+import com.streamvault.feature.system.api.InstalledSTTITENIPTVPlugin
+import com.streamvault.feature.system.api.STTITENIPTVPluginContract
+import com.streamvault.feature.system.api.STTITENIPTVPluginManifest
 import com.streamvault.feature.system.api.SystemPluginManagementPort
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -108,14 +108,14 @@ class PluginsViewModelTest {
         assertThat(viewModel.uiState.value.syncProgress).isNull()
     }
 
-    private fun pluginFixture() = InstalledSTTITEN IP TVPlugin(
+    private fun pluginFixture() = InstalledSTTITENIPTVPlugin(
         packageName = "com.example.plugin",
         serviceClassName = "com.example.PluginService",
         appLabel = "Example plugin",
-        manifest = STTITEN IP TVPluginManifest(
+        manifest = STTITENIPTVPluginManifest(
             id = "example",
             name = "Example plugin",
-            capabilities = listOf(STTITEN IP TVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA)
+            capabilities = listOf(STTITENIPTVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA)
         ),
         enabled = false
     )

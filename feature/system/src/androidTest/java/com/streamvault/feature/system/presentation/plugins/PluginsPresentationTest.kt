@@ -12,13 +12,13 @@ import androidx.compose.ui.semantics.SemanticsActions
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
 import com.streamvault.core.ui.theme.STTITEN IP TVTheme
-import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
+import com.streamvault.feature.system.api.InstalledSTTITENIPTVPlugin
 import com.streamvault.feature.system.api.PluginConfigurationAction
 import com.streamvault.feature.system.api.PluginConfigurationField
 import com.streamvault.feature.system.api.PluginConfigurationSchema
 import com.streamvault.feature.system.api.PluginConfigurationSection
-import com.streamvault.feature.system.api.STTITEN IP TVPluginContract
-import com.streamvault.feature.system.api.STTITEN IP TVPluginManifest
+import com.streamvault.feature.system.api.STTITENIPTVPluginContract
+import com.streamvault.feature.system.api.STTITENIPTVPluginManifest
 import com.streamvault.feature.system.api.SystemScaffoldContent
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
@@ -165,8 +165,8 @@ class PluginsPresentationTest {
 
     private fun noOpActions(
         onRefreshPlugins: () -> Unit = {},
-        onSetPluginEnabled: (InstalledSTTITEN IP TVPlugin, Boolean) -> Unit = { _, _ -> },
-        onOpenPluginConfiguration: (InstalledSTTITEN IP TVPlugin) -> Unit = {},
+        onSetPluginEnabled: (InstalledSTTITENIPTVPlugin, Boolean) -> Unit = { _, _ -> },
+        onOpenPluginConfiguration: (InstalledSTTITENIPTVPlugin) -> Unit = {},
         onSavePluginConfiguration: () -> Unit = {},
     ) = PluginsActions(
         onUpdateInstallUrl = {},
@@ -183,15 +183,15 @@ class PluginsPresentationTest {
         onClearMessage = {},
     )
 
-    private fun pluginFixture() = InstalledSTTITEN IP TVPlugin(
+    private fun pluginFixture() = InstalledSTTITENIPTVPlugin(
         packageName = "com.example.plugin",
         serviceClassName = "com.example.PluginService",
         appLabel = "Example plugin",
-        manifest = STTITEN IP TVPluginManifest(
+        manifest = STTITENIPTVPluginManifest(
             id = "example",
             name = "Example plugin",
-            capabilities = listOf(STTITEN IP TVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
-            configurationMode = STTITEN IP TVPluginContract.CONFIGURATION_MODE_HOST_SCHEMA,
+            capabilities = listOf(STTITENIPTVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
+            configurationMode = STTITENIPTVPluginContract.CONFIGURATION_MODE_HOST_SCHEMA,
         ),
         enabled = false,
     )

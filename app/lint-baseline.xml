@@ -585,7 +585,7 @@
         errorLine1="            context.contentResolver.openInputStream(uri).use { input ->"
         errorLine2="                                    ~~~~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt"
+            file="src/main/java/com/streamvault/app/plugins/STTITENIPTVPluginManager.kt"
             line="321"
             column="37"/>
     </issue>
@@ -3877,7 +3877,7 @@
         errorLine1="                    prefs.edit().putBoolean(enabledKey(plugin.owner), desiredEnabled).apply()"
         errorLine2="                    ~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt"
+            file="src/main/java/com/streamvault/app/plugins/STTITENIPTVPluginManager.kt"
             line="253"
             column="21"/>
     </issue>
@@ -3888,7 +3888,7 @@
         errorLine1="                            prefs.edit().putBoolean(enabledKey(plugin.owner), true).apply()"
         errorLine2="                            ~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt"
+            file="src/main/java/com/streamvault/app/plugins/STTITENIPTVPluginManager.kt"
             line="262"
             column="29"/>
     </issue>
@@ -3899,7 +3899,7 @@
         errorLine1="                        prefs.edit().putBoolean(enabledKey(plugin.owner), false).apply()"
         errorLine2="                        ~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt"
+            file="src/main/java/com/streamvault/app/plugins/STTITENIPTVPluginManager.kt"
             line="268"
             column="25"/>
     </issue>
@@ -3910,7 +3910,7 @@
         errorLine1="        prefs.edit().putBoolean(enabledKey(plugin.owner), enabled).apply()"
         errorLine2="        ~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt"
+            file="src/main/java/com/streamvault/app/plugins/STTITENIPTVPluginManager.kt"
             line="300"
             column="9"/>
     </issue>
@@ -3921,7 +3921,7 @@
         errorLine1="                data = Uri.parse(&quot;package:${context.packageName}&quot;)"
         errorLine2="                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt"
+            file="src/main/java/com/streamvault/app/plugins/STTITENIPTVPluginManager.kt"
             line="968"
             column="24"/>
     </issue>
@@ -3932,7 +3932,7 @@
         errorLine1="        val editor = prefs.edit()"
         errorLine2="                     ~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt"
+            file="src/main/java/com/streamvault/app/plugins/STTITENIPTVPluginManager.kt"
             line="1057"
             column="22"/>
     </issue>
@@ -3943,7 +3943,7 @@
         errorLine1="        prefs.edit().putBoolean(pendingMutationKey(owner), enabled).commit()"
         errorLine2="        ~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt"
+            file="src/main/java/com/streamvault/app/plugins/STTITENIPTVPluginManager.kt"
             line="1075"
             column="9"/>
     </issue>
@@ -3954,7 +3954,7 @@
         errorLine1="        prefs.edit().remove(pendingMutationKey(owner)).apply()"
         errorLine2="        ~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt"
+            file="src/main/java/com/streamvault/app/plugins/STTITENIPTVPluginManager.kt"
             line="1083"
             column="9"/>
     </issue>
@@ -3965,7 +3965,7 @@
         errorLine1="        val editor = prefs.edit()"
         errorLine2="                     ~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt"
+            file="src/main/java/com/streamvault/app/plugins/STTITENIPTVPluginManager.kt"
             line="1089"
             column="22"/>
     </issue>

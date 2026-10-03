@@ -1,14 +1,14 @@
 package com.streamvault.feature.system.presentation.plugins
 
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
+import com.streamvault.feature.system.api.InstalledSTTITENIPTVPlugin
 import com.streamvault.feature.system.api.PluginActionResult
 import com.streamvault.feature.system.api.PluginConfigurationField
 import com.streamvault.feature.system.api.PluginConfigurationSchema
 import com.streamvault.feature.system.api.PluginConfigurationSection
 import com.streamvault.feature.system.api.PluginConfigurationSnapshot
-import com.streamvault.feature.system.api.STTITEN IP TVPluginContract
-import com.streamvault.feature.system.api.STTITEN IP TVPluginManifest
+import com.streamvault.feature.system.api.STTITENIPTVPluginContract
+import com.streamvault.feature.system.api.STTITENIPTVPluginManifest
 import com.streamvault.feature.system.api.SystemPluginManagementPort
 import com.streamvault.domain.model.Result
 import kotlinx.coroutines.Dispatchers
@@ -102,7 +102,7 @@ class PluginConfigurationDraftTest {
         assertThat(viewModel.uiState.value.userMessage).isEqualTo("Plugin settings saved")
     }
 
-    private fun configurationSnapshot(plugin: InstalledSTTITEN IP TVPlugin) =
+    private fun configurationSnapshot(plugin: InstalledSTTITENIPTVPlugin) =
         PluginConfigurationSnapshot(
             plugin = plugin,
             schema = PluginConfigurationSchema(
@@ -139,15 +139,15 @@ class PluginConfigurationDraftTest {
             }
         )
 
-    private fun pluginFixture() = InstalledSTTITEN IP TVPlugin(
+    private fun pluginFixture() = InstalledSTTITENIPTVPlugin(
         packageName = "com.example.plugin",
         serviceClassName = "com.example.PluginService",
         appLabel = "Example plugin",
-        manifest = STTITEN IP TVPluginManifest(
+        manifest = STTITENIPTVPluginManifest(
             id = "example",
             name = "Example plugin",
-            capabilities = listOf(STTITEN IP TVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
-            configurationMode = STTITEN IP TVPluginContract.CONFIGURATION_MODE_HOST_SCHEMA
+            capabilities = listOf(STTITENIPTVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
+            configurationMode = STTITENIPTVPluginContract.CONFIGURATION_MODE_HOST_SCHEMA
         ),
         enabled = false
     )

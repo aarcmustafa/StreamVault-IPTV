@@ -53,7 +53,7 @@ import androidx.tv.material3.ButtonDefaults
 import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Text
 import com.streamvault.core.navigation.AppDestination
-import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
+import com.streamvault.feature.system.api.InstalledSTTITENIPTVPlugin
 import com.streamvault.feature.system.api.PluginConfigurationAction
 import com.streamvault.feature.system.api.PluginConfigurationField
 import com.streamvault.feature.system.api.PluginConfigurationSection
@@ -133,8 +133,8 @@ internal data class PluginsActions(
     val onInstallFromLocalUri: (Uri) -> Unit,
     val onInstallFromUrl: () -> Unit,
     val onRefreshPlugins: () -> Unit,
-    val onSetPluginEnabled: (InstalledSTTITEN IP TVPlugin, Boolean) -> Unit,
-    val onOpenPluginConfiguration: (InstalledSTTITEN IP TVPlugin) -> Unit,
+    val onSetPluginEnabled: (InstalledSTTITENIPTVPlugin, Boolean) -> Unit,
+    val onOpenPluginConfiguration: (InstalledSTTITENIPTVPlugin) -> Unit,
     val onClosePluginConfiguration: () -> Unit,
     val onRefreshPluginConfiguration: () -> Unit,
     val onSavePluginConfiguration: () -> Unit,
@@ -424,7 +424,7 @@ private fun PluginInstallUrlDialog(
 
 @Composable
 private fun PluginCard(
-    plugin: InstalledSTTITEN IP TVPlugin,
+    plugin: InstalledSTTITENIPTVPlugin,
     busy: Boolean,
     onEnabledChange: (Boolean) -> Unit,
     onOpenConfiguration: () -> Unit

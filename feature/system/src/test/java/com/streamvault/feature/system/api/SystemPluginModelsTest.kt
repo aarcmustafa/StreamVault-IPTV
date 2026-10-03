@@ -6,8 +6,8 @@ import org.junit.Test
 class SystemPluginModelsTest {
     @Test
     fun pluginOwnerKeyIsBundleSafeAndUnambiguous() {
-        val left = STTITEN IP TVPluginOwner("ab", "c", "d").toBundleSafeKey()
-        val right = STTITEN IP TVPluginOwner("a", "bc", "d").toBundleSafeKey()
+        val left = STTITENIPTVPluginOwner("ab", "c", "d").toBundleSafeKey()
+        val right = STTITENIPTVPluginOwner("a", "bc", "d").toBundleSafeKey()
 
         assertThat(left).isNotEqualTo(right)
         assertThat(left).isEqualTo("2:ab1:c1:d")
@@ -15,17 +15,17 @@ class SystemPluginModelsTest {
 
     @Test
     fun manifestConfigurationCapabilitiesPreserveCurrentRules() {
-        val activityManifest = STTITEN IP TVPluginManifest(
+        val activityManifest = STTITENIPTVPluginManifest(
             id = "activity",
             name = "Activity",
-            capabilities = listOf(STTITEN IP TVPluginContract.CAPABILITY_CONFIGURATION_ACTIVITY),
+            capabilities = listOf(STTITENIPTVPluginContract.CAPABILITY_CONFIGURATION_ACTIVITY),
             configurationActivityAction = "com.example.CONFIGURE",
-            configurationMode = STTITEN IP TVPluginContract.CONFIGURATION_MODE_ACTIVITY,
+            configurationMode = STTITENIPTVPluginContract.CONFIGURATION_MODE_ACTIVITY,
         )
-        val hostManifest = STTITEN IP TVPluginManifest(
+        val hostManifest = STTITENIPTVPluginManifest(
             id = "host",
             name = "Host",
-            capabilities = listOf(STTITEN IP TVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
+            capabilities = listOf(STTITENIPTVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
         )
 
         assertThat(activityManifest.supportsConfigurationActivity).isTrue()

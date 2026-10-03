@@ -1,11 +1,11 @@
 package com.streamvault.app.system
 
 import android.net.Uri
-import com.streamvault.app.plugins.STTITEN IP TVPluginManager
+import com.streamvault.app.plugins.STTITENIPTVPluginManager
 import com.streamvault.domain.model.Result
 import com.streamvault.domain.provider.ProviderSource
 import com.streamvault.domain.provider.ProviderSourceRegistry
-import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
+import com.streamvault.feature.system.api.InstalledSTTITENIPTVPlugin
 import com.streamvault.feature.system.api.PluginActionResult
 import com.streamvault.feature.system.api.PluginConfigurationSnapshot
 import com.streamvault.feature.system.api.SystemPluginManagementPort
@@ -15,10 +15,10 @@ import kotlinx.serialization.json.JsonObject
 
 @Singleton
 class AppSystemPluginManagementAdapter @Inject constructor(
-    private val pluginManager: STTITEN IP TVPluginManager,
+    private val pluginManager: STTITENIPTVPluginManager,
     private val providerSourceRegistry: ProviderSourceRegistry,
 ) : SystemPluginManagementPort {
-    override suspend fun discoverPlugins(): List<InstalledSTTITEN IP TVPlugin> =
+    override suspend fun discoverPlugins(): List<InstalledSTTITENIPTVPlugin> =
         pluginManager.discoverPlugins()
 
     override suspend fun providerSources(): List<ProviderSource> = providerSourceRegistry.sources()
@@ -28,28 +28,28 @@ class AppSystemPluginManagementAdapter @Inject constructor(
     override suspend fun installApkFromUrl(url: String): Result<Unit> = pluginManager.installApkFromUrl(url)
 
     override suspend fun setPluginEnabled(
-        plugin: InstalledSTTITEN IP TVPlugin,
+        plugin: InstalledSTTITENIPTVPlugin,
         enabled: Boolean,
         onProgress: (String) -> Unit,
     ): PluginActionResult = pluginManager.setPluginEnabled(plugin, enabled, onProgress)
 
-    override fun openPluginConfiguration(plugin: InstalledSTTITEN IP TVPlugin): PluginActionResult =
+    override fun openPluginConfiguration(plugin: InstalledSTTITENIPTVPlugin): PluginActionResult =
         pluginManager.openPluginConfiguration(plugin)
 
     override suspend fun loadPluginConfiguration(
-        plugin: InstalledSTTITEN IP TVPlugin,
+        plugin: InstalledSTTITENIPTVPlugin,
     ): Result<PluginConfigurationSnapshot> = pluginManager.loadPluginConfiguration(plugin)
 
-    override suspend fun loadPluginConfigurationValues(plugin: InstalledSTTITEN IP TVPlugin): Result<JsonObject> =
+    override suspend fun loadPluginConfigurationValues(plugin: InstalledSTTITENIPTVPlugin): Result<JsonObject> =
         pluginManager.loadPluginConfigurationValues(plugin)
 
     override suspend fun savePluginConfiguration(
-        plugin: InstalledSTTITEN IP TVPlugin,
+        plugin: InstalledSTTITENIPTVPlugin,
         valuesJson: String,
     ): PluginActionResult = pluginManager.savePluginConfiguration(plugin, valuesJson)
 
     override suspend fun runPluginConfigurationAction(
-        plugin: InstalledSTTITEN IP TVPlugin,
+        plugin: InstalledSTTITENIPTVPlugin,
         actionId: String,
     ): PluginActionResult = pluginManager.runPluginConfigurationAction(plugin, actionId)
 }

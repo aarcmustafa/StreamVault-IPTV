@@ -15,13 +15,13 @@ abstract class PlaybackIntegrationModule {
     @Binds
     @Singleton
     abstract fun bindPlaybackStreamPreparer(
-        adapter: STTITEN IP TVPluginPlaybackServiceAdapter
+        adapter: STTITENIPTVPluginPlaybackServiceAdapter
     ): PlaybackStreamPreparer
 
     @Binds
     @Singleton
     abstract fun bindCastUrlRewriter(
-        adapter: STTITEN IP TVPluginPlaybackServiceAdapter
+        adapter: STTITENIPTVPluginPlaybackServiceAdapter
     ): CastUrlRewriter
 
     @Binds
