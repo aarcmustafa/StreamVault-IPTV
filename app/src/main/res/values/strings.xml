@@ -10,6 +10,13 @@
     <string name="action_clear">Clear</string>
     <string name="action_delete">Delete</string>
     <string name="action_done">Done</string>
+    <string name="action_space">Space</string>
+    <string name="add_group_move_down">Move Down</string>
+    <string name="add_group_move_up">Move Up</string>
+    <string name="tv_input_setup_success_body">Setup completed successfully</string>
+    <string name="tv_input_setup_success_hint">Your TV input is ready</string>
+    <string name="tv_input_setup_success_title">Success</string>
+    <string name="tv_input_setup_try_scan_again">Scan Again</string>
     <string name="vod_classic_categories_title">Categories</string>
     <string name="welcome_enter_app">Enter App</string>
     <string name="welcome_feature_library">Library</string>
