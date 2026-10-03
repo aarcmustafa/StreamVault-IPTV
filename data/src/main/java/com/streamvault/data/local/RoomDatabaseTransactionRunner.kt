@@ -8,8 +8,8 @@ import javax.inject.Singleton
 class RoomDatabaseTransactionRunner @Inject constructor(
     private val database: STTITEN_IP_TVDatabase
 ) {
-    suspend operator fun invoke(block: suspend () -> Unit) {
-        database.withTransaction {
+    suspend fun <R> runInTransaction(block: suspend () -> R): R {
+        return database.withTransaction {
             block()
         }
     }
