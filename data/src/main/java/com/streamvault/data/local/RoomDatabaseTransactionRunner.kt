@@ -12,7 +12,7 @@ class RoomDatabaseTransactionRunner @Inject constructor(
             block()
         } else {
             database.runInTransaction {
-                // تنفيذ المعاملة البرمجية بأمان
+                // تنفيذ المعاملة البرمجية
             }
         }
     }
