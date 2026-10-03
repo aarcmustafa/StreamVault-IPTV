@@ -12,3 +12,8 @@ val OnBackground = Color(0xFF0F172A)
 val OnSurface = Color(0xFFF1F5F9)
 val OnSurfaceDim = Color(0xFF94A3B8)
 val FocusBorder = Color(0xFF38BDF8)
+
+// Light & Dark theme custom colors
+val Pink40 = Color(0xFFFFB3BA)
+val SurfaceHighlight = Color(0xFFFAF8F7)
+val SurfaceElevated = Color(0xFF2B2B2B)
