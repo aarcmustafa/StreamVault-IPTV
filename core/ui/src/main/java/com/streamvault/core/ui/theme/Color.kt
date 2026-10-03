@@ -5,6 +5,12 @@ import androidx.compose.ui.graphics.Color
 val Primary = Color(0xFF6200EE)
 val Secondary = Color(0xFF8B5CF6)
 val FocusBorder = Color(0xFF03DAC6)
+
+// Shared palette aliases used across the provider setup and TV UI components.
+val PrimaryLight = Primary.copy(alpha = 0.72f)
+val PrimaryGlow = Primary.copy(alpha = 0.18f)
+val TextPrimary = Color.White
+
 val SurfaceElevated = Color(0xFF121212)
 val OnSurface = Color(0xFFFFFFFF)
 val SurfaceHighlight = Color(0xFFF5F5F5)
