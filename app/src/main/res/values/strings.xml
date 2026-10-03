@@ -13,6 +13,13 @@
     <string name="action_space">Space</string>
     <string name="add_group_move_down">Move Down</string>
     <string name="add_group_move_up">Move Up</string>
+    <string name="add_group_reorder_title">Reorder Group</string>
+    <string name="badge_fav">Favorite</string>
+    <string name="card_locked">Locked</string>
+    <string name="tv_input_setup_retry_scan">Retry Scan</string>
+    <string name="tv_input_setup_scanning_body">Scanning in progress...</string>
+    <string name="tv_input_setup_scanning_title">Scanning</string>
+    <string name="tv_input_setup_source_format">Source Format</string>
     <string name="tv_input_setup_success_body">Setup completed successfully</string>
     <string name="tv_input_setup_success_hint">Your TV input is ready</string>
     <string name="tv_input_setup_success_title">Success</string>
