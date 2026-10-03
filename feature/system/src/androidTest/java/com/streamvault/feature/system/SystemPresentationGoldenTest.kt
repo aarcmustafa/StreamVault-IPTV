@@ -20,7 +20,7 @@ import com.streamvault.core.ui.components.shell.CoreAppScreenScaffold
 import com.streamvault.core.ui.components.shell.NavigationChrome
 import com.streamvault.core.ui.components.shell.UiDestination
 import com.streamvault.core.ui.design.AppColors
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.domain.model.DownloadContentType
 import com.streamvault.domain.model.DownloadItem
 import com.streamvault.domain.model.DownloadStatus
@@ -221,7 +221,7 @@ class SystemPresentationGoldenTest {
         content: @androidx.compose.runtime.Composable () -> Unit,
     ) {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 MaterialTheme {
                     Box(
                         modifier = Modifier

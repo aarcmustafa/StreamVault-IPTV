@@ -10,7 +10,7 @@ import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.domain.model.AppTimeFormat
 import com.streamvault.domain.model.Channel
 import com.streamvault.domain.model.Program
@@ -38,7 +38,7 @@ class EpgScreenBehaviorTest {
         val events = mutableListOf<String>()
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 LiveGuideToolbarRow(
                     selectedCategoryName = "Sports",
                     labels = LiveGuideToolbarLabels(
@@ -68,7 +68,7 @@ class EpgScreenBehaviorTest {
         var actionCount = 0
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 LiveGuideMessageState(
                     title = "Guide unavailable",
                     subtitle = "Try again later",
@@ -87,7 +87,7 @@ class EpgScreenBehaviorTest {
     @Test
     fun guidePreviewPane_rendersPlaceholderState() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 LiveGuidePreviewPane(
                     previewPlayerEngine = null,
                     isPreviewLoading = false,
@@ -107,7 +107,7 @@ class EpgScreenBehaviorTest {
     @Test
     fun guidePreviewPane_rendersFocusedChannelWithoutSchedule() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 LiveGuidePreviewPane(
                     previewPlayerEngine = null,
                     isPreviewLoading = false,
@@ -136,7 +136,7 @@ class EpgScreenBehaviorTest {
         )
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 CompositionLocalProvider(LocalLiveTimeFormat provides AppTimeFormat.TWENTY_FOUR_HOUR) {
                     LiveGuidePreviewPane(
                         previewPlayerEngine = null,
@@ -170,7 +170,7 @@ class EpgScreenBehaviorTest {
         val events = mutableListOf<String>()
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 LiveGuideGridRow(
                     channel = channel,
                     isFavorite = true,

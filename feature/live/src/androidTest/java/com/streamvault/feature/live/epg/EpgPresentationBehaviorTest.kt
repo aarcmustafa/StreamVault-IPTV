@@ -4,7 +4,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.feature.live.presentation.epg.LiveGuideHeroBadge
 import com.streamvault.feature.live.presentation.epg.LiveGuideMessageState
 import org.junit.Rule
@@ -20,7 +20,7 @@ class EpgPresentationBehaviorTest {
     @Test
     fun guideHeroBadge_rendersLiveStateText() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 LiveGuideHeroBadge(text = "LIVE NOW", highlight = true)
             }
         }
@@ -31,7 +31,7 @@ class EpgPresentationBehaviorTest {
     @Test
     fun guideMessageState_rendersActionableEmptyStateCopy() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 LiveGuideMessageState(
                     title = "Guide unavailable",
                     subtitle = "Try refreshing the schedule.",

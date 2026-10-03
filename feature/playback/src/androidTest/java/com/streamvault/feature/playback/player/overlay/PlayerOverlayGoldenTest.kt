@@ -17,7 +17,7 @@ import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.domain.model.Channel
 import com.streamvault.player.PlayerError
 import com.streamvault.player.TrackType
@@ -35,7 +35,7 @@ class PlayerOverlayGoldenTest {
     @Test
     fun playerControlsOverlay_vod_matchesGolden() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 val playButtonFocusRequester = remember { FocusRequester() }
                 Box(
                     modifier = Modifier
@@ -89,7 +89,7 @@ class PlayerOverlayGoldenTest {
     fun channelInfoOverlay_placesBackButtonAtTopLeft() {
         var backButtonClicks = 0
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 ChannelInfoOverlay(
                     currentChannel = Channel(id = 4L, name = "Nickelodeon", number = 4),
                     displayChannelNumber = 4,
@@ -136,7 +136,7 @@ class PlayerOverlayGoldenTest {
     @Test
     fun playerNoticeBanner_matchesGolden() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -157,7 +157,7 @@ class PlayerOverlayGoldenTest {
     @Test
     fun playerErrorOverlay_matchesGolden() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -180,7 +180,7 @@ class PlayerOverlayGoldenTest {
     @Test
     fun playerTrackSelectionDialog_matchesGolden() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -206,7 +206,7 @@ class PlayerOverlayGoldenTest {
     @Test
     fun playerResumePrompt_matchesGolden() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -227,7 +227,7 @@ class PlayerOverlayGoldenTest {
     @Test
     fun playerNumericInputOverlay_matchesGolden() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()

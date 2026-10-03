@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.tv.material3.MaterialTheme
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.feature.system.api.InstalledSTTITENIPTVPlugin
 import com.streamvault.feature.system.api.SystemScaffoldContent
 import com.streamvault.feature.system.presentation.downloads.DownloadsContent
@@ -43,7 +43,7 @@ class SystemPresentationVariantTest {
                 LocalLayoutDirection provides LayoutDirection.Rtl,
                 LocalDensity provides Density(density = 1f, fontScale = 1.3f),
             ) {
-                STTITEN IP TVTheme {
+                STTITENIPTVTheme {
                     MaterialTheme {
                         WelcomeContent(
                             hasProviders = false,
@@ -72,7 +72,7 @@ class SystemPresentationVariantTest {
                 LocalLayoutDirection provides LayoutDirection.Rtl,
                 LocalDensity provides Density(density = 1f, fontScale = 1.3f),
             ) {
-                STTITEN IP TVTheme {
+                STTITENIPTVTheme {
                     MaterialTheme {
                         Column(modifier = Modifier.fillMaxSize()) {
                             DownloadsContent(
@@ -105,7 +105,7 @@ class SystemPresentationVariantTest {
                 LocalLayoutDirection provides LayoutDirection.Rtl,
                 LocalDensity provides Density(density = 1f, fontScale = 1.3f),
             ) {
-                STTITEN IP TVTheme {
+                STTITENIPTVTheme {
                     MaterialTheme {
                         PluginsContent(
                             uiState = com.streamvault.feature.system.presentation.plugins.PluginsUiState(

@@ -29,7 +29,7 @@ import com.streamvault.core.ui.components.shell.StatusPill
 import com.streamvault.core.ui.design.AppColors
 import com.streamvault.app.ui.test.TestFixtures
 import com.streamvault.app.ui.test.assertAgainstGolden
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -43,7 +43,7 @@ class PremiumRouteGoldenTest {
     @Test
     fun live_route_matchesGolden() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -117,7 +117,7 @@ class PremiumRouteGoldenTest {
     @Test
     fun saved_guide_and_settings_routes_matchGolden() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()

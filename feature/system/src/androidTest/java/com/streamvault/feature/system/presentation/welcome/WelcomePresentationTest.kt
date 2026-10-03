@@ -10,7 +10,7 @@ import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.domain.sync.Section
 import com.streamvault.feature.system.api.WelcomeSyncProgress
 import org.junit.Rule
@@ -28,7 +28,7 @@ class WelcomePresentationTest {
         var setupClicks = 0
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 WelcomeContent(
                     hasProviders = false,
                     syncProgress = null,
@@ -54,7 +54,7 @@ class WelcomePresentationTest {
     @Test
     fun loadingStateRetainsTitleAndSubtitle() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 WelcomeContent(
                     hasProviders = null,
                     syncProgress = null,
@@ -73,7 +73,7 @@ class WelcomePresentationTest {
     @Test
     fun activeProgressRetainsSectionLabelAndIndexedCount() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 WelcomeContent(
                     hasProviders = true,
                     syncProgress = WelcomeSyncProgress(

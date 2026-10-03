@@ -16,7 +16,7 @@ import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.player.PlayerChapter
 import org.junit.Rule
 import org.junit.Test
@@ -32,7 +32,7 @@ class VodPlayerControlsOverlayGoldenTest {
     fun chapterAwareOverlay_exposesVideoFirstActions() {
         var backButtonClicks = 0
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 val focusRequester = remember { FocusRequester() }
                 VodPlayerControlsOverlay(
                     visible = true,
@@ -94,7 +94,7 @@ class VodPlayerControlsOverlayGoldenTest {
     @Test
     fun narrowOverlay_keepsSettingsAndCloseVisible_withoutChapters() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 val focusRequester = remember { FocusRequester() }
                 VodPlayerControlsOverlay(
                     visible = true,

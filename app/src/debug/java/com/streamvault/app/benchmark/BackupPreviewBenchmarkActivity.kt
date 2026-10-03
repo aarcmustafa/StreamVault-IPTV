@@ -7,7 +7,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.domain.manager.BackupConflictStrategy
 import com.streamvault.feature.settings.presentation.BackupImportPreviewDialog
 
@@ -20,7 +20,7 @@ class BackupPreviewBenchmarkActivity : ComponentActivity() {
         }
 
         setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 var plan by remember { mutableStateOf(BackupPreviewBenchmarkFixture.plan) }
                 BackupImportPreviewDialog(
                     preview = BackupPreviewBenchmarkFixture.preview,

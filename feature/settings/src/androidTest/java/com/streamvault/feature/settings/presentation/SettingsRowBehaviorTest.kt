@@ -13,7 +13,7 @@ import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.unit.dp
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
@@ -26,7 +26,7 @@ class SettingsRowBehaviorTest {
         var checked by mutableStateOf(false)
         var changes = 0
         rule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 SwitchSettingsRow("Keep screen awake", "During playback", checked, {
                     checked = it
                     changes++
@@ -47,7 +47,7 @@ class SettingsRowBehaviorTest {
     @Test fun disabledChoiceCannotInvokeItsCallback() {
         var changes = 0
         rule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 ClickableSettingsRow("Preferred variant", "Enable grouping first", { changes++ }, enabled = false)
             }
         }
@@ -57,7 +57,7 @@ class SettingsRowBehaviorTest {
 
     @Test fun longChoiceValuesRemainReadableInANarrowColumn() {
         rule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 Column(Modifier.width(300.dp)) {
                     ClickableSettingsRow("Preferred audio language",
                         "Use the original audio language when the preferred language is unavailable", {})
@@ -71,7 +71,7 @@ class SettingsRowBehaviorTest {
 
     @Test fun constrainedSettingsWidthKeepsTheContentVisible() {
         rule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 Box(Modifier.width(590.dp).height(480.dp)) {
                     SettingsAdaptiveLayout(navigation = { compact ->
                         SettingsNavigationRail(

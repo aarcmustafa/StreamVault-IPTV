@@ -19,7 +19,7 @@ import com.streamvault.core.ui.components.shell.AppHeroHeader
 import com.streamvault.core.ui.components.shell.AppSectionHeader
 import com.streamvault.core.ui.components.shell.ContentMetadataStrip
 import com.streamvault.core.ui.components.shell.StatusPill
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.domain.model.Channel
 import com.streamvault.domain.model.Movie
 import com.streamvault.domain.model.Series
@@ -90,7 +90,7 @@ class CatalogPresentationGoldenTest {
 
     private fun captureGolden(name: String, content: @androidx.compose.runtime.Composable () -> Unit) {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 MaterialTheme {
                     Box(
                         Modifier

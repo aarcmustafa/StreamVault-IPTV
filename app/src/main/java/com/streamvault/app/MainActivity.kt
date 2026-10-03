@@ -20,7 +20,7 @@ import com.streamvault.core.navigation.PlayerNavigationRequest
 import com.streamvault.core.navigation.ExternalNavigationRequest
 import com.streamvault.core.navigation.AppDestination
 import com.streamvault.feature.playback.cast.CastManager
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.app.ui.time.LocalAppTimeFormat
 import com.streamvault.app.ui.time.toUiTimeFormat
 import com.streamvault.feature.live.presentation.time.LocalLiveTimeFormat
@@ -238,7 +238,7 @@ class MainActivity : ComponentActivity(), CatalogPlatformHost {
                 LocalLiveTimeFormat provides appTimeFormat,
                 LocalUiTimeFormat provides appTimeFormat.toUiTimeFormat()
             ) {
-                STTITEN IP TVTheme(themeId = appTheme.storageValue) {
+                STTITENIPTVTheme(themeId = appTheme.storageValue) {
                     when (val state = databaseStartupState) {
                         DatabaseStartupState.Opening -> DatabaseStartupScreen(state = state)
                         is DatabaseStartupState.Failed -> DatabaseStartupScreen(

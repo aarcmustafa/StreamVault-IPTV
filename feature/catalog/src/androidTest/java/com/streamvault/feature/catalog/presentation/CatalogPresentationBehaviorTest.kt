@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.tv.material3.MaterialTheme
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.domain.model.Movie
 import com.streamvault.domain.model.Series
 import com.streamvault.feature.catalog.presentation.components.MovieCard
@@ -63,7 +63,7 @@ class CatalogPresentationBehaviorTest {
                 LocalLayoutDirection provides LayoutDirection.Rtl,
                 LocalDensity provides Density(density = 1f, fontScale = 1.5f)
             ) {
-                STTITEN IP TVTheme {
+                STTITENIPTVTheme {
                     MaterialTheme {
                         Row(
                             modifier = androidx.compose.ui.Modifier.fillMaxWidth(),
@@ -110,7 +110,7 @@ class CatalogPresentationBehaviorTest {
     @Test
     fun movieCard_keepsTextTypeBadgeByDefault() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 MaterialTheme {
                     MovieCard(
                         movie = Movie(id = 1L, name = "The Night Shift"),
@@ -128,7 +128,7 @@ class CatalogPresentationBehaviorTest {
     @Test
     fun movieCard_usesIconTypeBadgeWhenEnabled() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 MaterialTheme {
                     MovieCard(
                         movie = Movie(id = 1L, name = "The Night Shift"),

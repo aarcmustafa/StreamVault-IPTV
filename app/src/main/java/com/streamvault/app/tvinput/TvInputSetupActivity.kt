@@ -43,7 +43,7 @@ import com.streamvault.core.ui.theme.ErrorColor
 import com.streamvault.core.ui.theme.OnBackground
 import com.streamvault.core.ui.theme.OnSurfaceDim
 import com.streamvault.core.ui.theme.Primary
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.core.ui.theme.SurfaceElevated
 import com.streamvault.domain.model.LegacyProvider as Provider
 import com.streamvault.domain.model.AppTheme
@@ -73,7 +73,7 @@ class TvInputSetupActivity : ComponentActivity() {
         viewModel.startSetup(inputId)
         setContent {
             val appTheme by preferencesRepository.appTheme.collectAsStateWithLifecycle(initialValue = AppTheme.DEFAULT)
-            STTITEN IP TVTheme(themeId = appTheme.storageValue) {
+            STTITENIPTVTheme(themeId = appTheme.storageValue) {
                 TvInputSetupRoute(
                     onOpenProviderSetup = {
                         startActivity(

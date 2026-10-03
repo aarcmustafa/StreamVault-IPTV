@@ -11,7 +11,7 @@ import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.feature.system.api.InstalledSTTITENIPTVPlugin
 import com.streamvault.feature.system.api.PluginConfigurationAction
 import com.streamvault.feature.system.api.PluginConfigurationField
@@ -38,7 +38,7 @@ class PluginsPresentationTest {
         var refreshClicks = 0
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 PluginsContent(
                     uiState = PluginsUiState(isLoading = false),
                     scaffold = testScaffold,
@@ -72,7 +72,7 @@ class PluginsPresentationTest {
         val plugin = pluginFixture()
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 PluginsContent(
                     uiState = PluginsUiState(isLoading = false, plugins = listOf(plugin)),
                     scaffold = testScaffold,
@@ -135,7 +135,7 @@ class PluginsPresentationTest {
         )
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 PluginsContent(
                     uiState = PluginsUiState(configuration = configuration),
                     scaffold = testScaffold,

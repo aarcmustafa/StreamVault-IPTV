@@ -15,7 +15,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.streamvault.app.navigation.Routes
 import com.streamvault.app.ui.test.assertAgainstGolden
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.core.ui.components.shell.UiDestination
 import com.streamvault.domain.model.Channel
 import org.junit.Rule
@@ -40,7 +40,7 @@ class ShellGoldenTest {
                     )
                 )
             ) {
-                STTITEN IP TVTheme {
+                STTITENIPTVTheme {
                     AppScreenScaffold(
                         currentRoute = "injected",
                         onNavigate = {},
@@ -59,7 +59,7 @@ class ShellGoldenTest {
     @Test
     fun browseHeroPanel_matchesGolden() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -84,7 +84,7 @@ class ShellGoldenTest {
     @Test
     fun liveChannelRowSurface_matchesGolden() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -114,7 +114,7 @@ class ShellGoldenTest {
     fun appScreenScaffold_rtl_matchesGolden() {
         composeRule.setContent {
             CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
-                STTITEN IP TVTheme {
+                STTITENIPTVTheme {
                     AppScreenScaffold(
                         currentRoute = Routes.EPG,
                         onNavigate = {},

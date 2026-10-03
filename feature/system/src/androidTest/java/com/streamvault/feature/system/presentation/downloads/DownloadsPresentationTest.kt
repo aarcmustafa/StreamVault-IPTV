@@ -10,7 +10,7 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.click
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.domain.model.DownloadContentType
 import com.streamvault.domain.model.DownloadItem
 import com.streamvault.domain.model.DownloadStatus
@@ -29,7 +29,7 @@ class DownloadsPresentationTest {
         var folderClicks = 0
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 DownloadsContent(
                     uiState = DownloadsUiState(isLoading = false),
                     scaffold = testScaffold,
@@ -61,7 +61,7 @@ class DownloadsPresentationTest {
         val failed = downloadFixture("failed").copy(status = DownloadStatus.FAILED)
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 DownloadsContent(
                     uiState = DownloadsUiState(
                         isLoading = false,
@@ -96,7 +96,7 @@ class DownloadsPresentationTest {
         val completed = downloadFixture("completed").copy(status = DownloadStatus.COMPLETED)
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 DownloadsContent(
                     uiState = DownloadsUiState(
                         isLoading = false,

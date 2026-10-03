@@ -23,7 +23,7 @@ import com.streamvault.core.ui.components.SearchInput
 import com.streamvault.core.ui.components.dialogs.PinDialog
 import com.streamvault.core.ui.design.AppColors
 import com.streamvault.core.ui.design.AppPalette
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.domain.manager.BackupConflictStrategy
 import com.streamvault.domain.manager.BackupImportPlan
 import com.streamvault.domain.manager.BackupPreview
@@ -68,7 +68,7 @@ private fun SettingsPlaybackPairLightPreview() = SettingsPlaybackPairPreview(App
 @Preview(name = "Compact categories · Large text", widthDp = 412, heightDp = 892, fontScale = 1.3f)
 @Composable
 private fun SettingsCompactCategoriesPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         SettingsNavigationRail(
             selectedCategory = SettingsCategory.PLAYBACK.legacyId,
             focusRequester = remember { FocusRequester() },
@@ -81,7 +81,7 @@ private fun SettingsCompactCategoriesPreview() {
 @Preview(name = "Compact detail · RTL", widthDp = 412, heightDp = 892, locale = "ar")
 @Composable
 private fun SettingsCompactRtlDetailPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         SettingsPreviewShell(fillWidth = true) {
             SettingsLocalHeader(
                 title = "الصوت",
@@ -102,7 +102,7 @@ private fun SettingsCompactRtlDetailPreview() {
 @Preview(name = "Playback · General", widthDp = 960, heightDp = 540)
 @Composable
 private fun SettingsPlaybackDetailPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         SettingsPreviewShell {
             SettingsLocalHeader(
                 title = "General playback",
@@ -123,7 +123,7 @@ private fun SettingsPlaybackDetailPreview() {
 @Preview(name = "Search · Empty", widthDp = 960, heightDp = 540)
 @Composable
 private fun SettingsSearchEmptyPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         SettingsSearchSurface("", {}, {}, {})
     }
 }
@@ -131,7 +131,7 @@ private fun SettingsSearchEmptyPreview() {
 @Preview(name = "Search · Results", widthDp = 960, heightDp = 540)
 @Composable
 private fun SettingsSearchResultsPreview() {
-    STTITEN IP TVTheme(themeId = AppPalette.LIGHT_ID) {
+    STTITENIPTVTheme(themeId = AppPalette.LIGHT_ID) {
         SettingsSearchSurface("playback", {}, {}, {})
     }
 }
@@ -139,7 +139,7 @@ private fun SettingsSearchResultsPreview() {
 @Preview(name = "Search · No results", widthDp = 960, heightDp = 540)
 @Composable
 private fun SettingsSearchNoResultsPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         SettingsSearchSurface("no setting matches this", {}, {}, {})
     }
 }
@@ -147,7 +147,7 @@ private fun SettingsSearchNoResultsPreview() {
 @Preview(name = "Privacy and parental", widthDp = 960, heightDp = 540)
 @Composable
 private fun SettingsPrivacyPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         SettingsPreviewShell {
             SettingsLocalHeader(
                 title = "Privacy & parental",
@@ -169,7 +169,7 @@ private fun SettingsPrivacyPreview() {
 @Preview(name = "Parental category management", widthDp = 960, heightDp = 540)
 @Composable
 private fun SettingsParentalCategoriesPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         SettingsPreviewShell {
             SettingsLocalHeader(
                 title = "Category controls",
@@ -196,7 +196,7 @@ private fun SettingsParentalCategoriesPreview() {
 @Preview(name = "PIN dialog · Error", widthDp = 960, heightDp = 540)
 @Composable
 private fun SettingsPinDialogPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         PinDialog(
             onDismissRequest = {},
             onPinEntered = {},
@@ -210,7 +210,7 @@ private fun SettingsPinDialogPreview() {
 @Preview(name = "Source · Busy and error", widthDp = 960, heightDp = 540)
 @Composable
 private fun SettingsSourceStatesPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         SettingsPreviewShell {
             SettingsLocalHeader(
                 title = "Sources",
@@ -240,7 +240,7 @@ private fun SettingsSourceStatesPreview() {
 @Preview(name = "Backup import · Conflicts", widthDp = 960, heightDp = 540)
 @Composable
 private fun SettingsBackupConflictPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         BackupImportPreviewDialog(
             preview = BackupPreview(
                 version = 2,
@@ -276,7 +276,7 @@ private fun SettingsBackupConflictPreview() {
 @Preview(name = "Recording · Defaults", widthDp = 960, heightDp = 540)
 @Composable
 private fun SettingsRecordingDefaultsPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         SettingsPreviewShell {
             SettingsLocalHeader(
                 title = "Recording defaults",
@@ -298,7 +298,7 @@ private fun SettingsRecordingDefaultsPreview() {
 @Preview(name = "Updates · Downloading", widthDp = 960, heightDp = 540)
 @Composable
 private fun SettingsUpdateProgressPreview() {
-    STTITEN IP TVTheme {
+    STTITENIPTVTheme {
         SettingsPreviewShell {
             SettingsLocalHeader(
                 title = "App updates",
@@ -327,7 +327,7 @@ private fun SettingsUpdateProgressPreview() {
 
 @Composable
 private fun SettingsOverviewPreview(themeId: String) {
-    STTITEN IP TVTheme(themeId = themeId) {
+    STTITENIPTVTheme(themeId = themeId) {
         Row(Modifier.fillMaxSize().background(AppColors.Canvas)) {
             SettingsNavigationRail(
                 selectedCategory = SettingsCategory.LIVE_TV.legacyId,
@@ -379,7 +379,7 @@ private fun SettingsPairedPreview(
     page: SettingsPage,
     detailRows: @Composable ColumnScope.() -> Unit,
 ) {
-    STTITEN IP TVTheme(themeId = themeId) {
+    STTITENIPTVTheme(themeId = themeId) {
         Row(
             modifier = Modifier.fillMaxSize().background(AppColors.Canvas),
             horizontalArrangement = Arrangement.spacedBy(SettingsDesignTokens.space24),

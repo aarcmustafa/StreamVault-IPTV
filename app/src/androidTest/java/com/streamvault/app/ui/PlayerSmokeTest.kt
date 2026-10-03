@@ -17,7 +17,7 @@ import com.streamvault.app.ui.components.shell.CategoryRailPanel
 import com.streamvault.feature.playback.player.overlay.PlayerControlsOverlay
 import com.streamvault.feature.playback.player.overlay.PlayerTrackSelectionDialog
 import com.streamvault.app.ui.test.TestFixtures
-import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.core.ui.theme.STTITENIPTVTheme
 import com.streamvault.player.TrackType
 import org.junit.Rule
 import org.junit.Test
@@ -35,7 +35,7 @@ class PlayerSmokeTest {
 
         composeRule.setContent {
             val query = remember { mutableStateOf("") }
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 CategoryRailPanel(
                     title = "Guide",
                     searchValue = query.value,
@@ -61,7 +61,7 @@ class PlayerSmokeTest {
         val playButtonFocusRequester = FocusRequester()
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 PlayerControlsOverlay(
                     visible = true,
                     title = TestFixtures.vodTitle,
@@ -110,7 +110,7 @@ class PlayerSmokeTest {
     @Test
     fun playerControlsOverlay_showsMuteActionWhenMuted() {
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 PlayerControlsOverlay(
                     visible = true,
                     title = TestFixtures.liveTitle,
@@ -159,7 +159,7 @@ class PlayerSmokeTest {
         var selectedTrackId: String? = null
 
         composeRule.setContent {
-            STTITEN IP TVTheme {
+            STTITENIPTVTheme {
                 PlayerTrackSelectionDialog(
                     trackType = TrackType.AUDIO,
                     audioTracks = TestFixtures.audioTracks,
