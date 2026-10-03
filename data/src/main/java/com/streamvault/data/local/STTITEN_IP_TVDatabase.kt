@@ -9,9 +9,24 @@ import com.streamvault.data.local.dao.FavoriteDao
 import com.streamvault.data.local.dao.ProgramDao
 import com.streamvault.data.local.dao.ProgramReminderDao
 import com.streamvault.data.local.dao.SearchHistoryDao
+import com.streamvault.data.local.entity.ChannelEntity
+import com.streamvault.data.local.entity.EpgProgrammeEntity
+import com.streamvault.data.local.entity.EpisodeEntity
+import com.streamvault.data.local.entity.FavoriteEntity
+import com.streamvault.data.local.entity.ProgramEntity
+import com.streamvault.data.local.entity.ProgramReminderEntity
+import com.streamvault.data.local.entity.SearchHistoryEntity
 
 @Database(
-    entities = [], 
+    entities = [
+        ChannelEntity::class,
+        ProgramEntity::class,
+        EpgProgrammeEntity::class,
+        EpisodeEntity::class,
+        FavoriteEntity::class,
+        ProgramReminderEntity::class,
+        SearchHistoryEntity::class
+    ],
     version = 1,
     exportSchema = false
 )
