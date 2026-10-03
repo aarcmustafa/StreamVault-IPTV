@@ -1,85 +1,68 @@
 package com.streamvault.feature.system.api
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 @Serializable
-data class STTITENIPTVPluginManifest(
-    val schemaVersion: Int = 1,
+data class PluginConfigurationAction(
     val id: String,
-    val name: String,
-    val version: String = "",
-    val versionCode: Int = 1,
+    val label: String,
     val description: String = "",
-    val author: String = "",
-    val configurationMode: String = STTITENIPTVPluginContract.CONFIGURATION_MODE_NONE,
-    val configurationActivityAction: String? = null,
-    val configurationActivityComponent: String? = null,
-    val capabilities: List<String> = emptyList(),
-    val permissions: List<String> = emptyList()
-) {
-    fun hasCapability(capability: String): Boolean = capability in capabilities
-
-    val supportsConfigurationActivity: Boolean
-        get() = hasCapability(STTITENIPTVPluginContract.CAPABILITY_CONFIGURATION_ACTIVITY) &&
-            !configurationActivityAction.isNullOrBlank()
-
-    val usesActivityConfiguration: Boolean
-        get() = configurationMode == STTITENIPTVPluginContract.CONFIGURATION_MODE_ACTIVITY
-
-    val supportsHostRenderedConfiguration: Boolean
-        get() = configurationMode == STTITENIPTVPluginContract.CONFIGURATION_MODE_HOST_SCHEMA ||
-            (configurationMode != STTITENIPTVPluginContract.CONFIGURATION_MODE_ACTIVITY &&
-                hasCapability(STTITENIPTVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA))
-
-    val canConfigure: Boolean
-        get() = supportsHostRenderedConfiguration || supportsConfigurationActivity
-}
-
-data class InstalledSTTITENIPTVPlugin(
-    val packageName: String,
-    val serviceClassName: String,
-    val appLabel: String,
-    val manifest: STTITENIPTVPluginManifest,
-    val enabled: Boolean,
-    val statusLabel: String = "",
-    val lastMessage: String = "",
-    val discoveryState: PluginDiscoveryState = PluginDiscoveryState.READY
-) {
-    val displayName: String
-        get() = manifest.name.ifBlank { appLabel.ifBlank { packageName } }
-}
-
-data class STTITENIPTVPluginOwner(
-    val packageName: String,
-    val serviceClassName: String,
-    val manifestId: String
-) {
-    val component: STTITENIPTVPluginComponent
-        get() = STTITENIPTVPluginComponent(packageName, serviceClassName)
-}
-
-fun STTITENIPTVPluginOwner.toBundleSafeKey(): String = buildString {
-    appendLengthPrefixed(packageName)
-    appendLengthPrefixed(serviceClassName)
-    appendLengthPrefixed(manifestId)
-}
-
-data class STTITENIPTVPluginComponent(
-    val packageName: String,
-    val serviceClassName: String
+    val confirmation: String? = null
 )
 
-val InstalledSTTITENIPTVPlugin.owner: STTITENIPTVPluginOwner
-    get() = STTITENIPTVPluginOwner(packageName, serviceClassName, manifest.id)
-
-enum class PluginDiscoveryState {
-    READY,
-    UPDATING,
-    ERROR
+@Serializable
+data class PluginConfigurationField(
+    val key: String,
+    val label: String,
+    val type: String = TYPE_TEXT,
+    val description: String = "",
+    val placeholder: String = "",
+    val value: String = "",
+    val readOnly: Boolean = false,
+    val secret: Boolean = false,
+    val options: List<PluginConfigurationOption> = emptyList()
+) {
+    companion object {
+        const val TYPE_TEXT = "text"
+        const val TYPE_TEXTAREA = "textarea"
+        const val TYPE_NUMBER = "number"
+        const val TYPE_BOOLEAN = "boolean"
+        const val TYPE_SELECT = "select"
+        const val TYPE_PASSWORD = "password"
+        const val TYPE_URL = "url"
+        const val TYPE_INFO = "info"
+    }
 }
 
-private fun StringBuilder.appendLengthPrefixed(value: String) {
-    append(value.length)
-    append(':')
-    append(value)
-}
+@Serializable
+data class PluginConfigurationOption(
+    val label: String,
+    val value: String
+)
+
+@Serializable
+data class PluginConfigurationSection(
+    val id: String,
+    val title: String,
+    val description: String = "",
+    val fields: List<PluginConfigurationField> = emptyList()
+)
+
+@Serializable
+data class PluginConfigurationSchema(
+    val title: String = "",
+    val description: String = "",
+    val sections: List<PluginConfigurationSection> = emptyList(),
+    val actions: List<PluginConfigurationAction> = emptyList()
+)
+
+data class ActivePluginConfiguration(
+    val plugin: InstalledSTTITENIPTVPlugin,
+    val schema: PluginConfigurationSchema,
+    val draftValues: Map<String, String> = emptyMap(),
+    val validationErrors: Map<String, String> = emptyMap(),
+    val isDirty: Boolean = false,
+    val isSaving: Boolean = false,
+    val runningActionId: String? = null
+)
