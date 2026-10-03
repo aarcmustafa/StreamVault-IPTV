@@ -1,5 +1,6 @@
 package com.streamvault.data.local
 
+import androidx.room.withTransaction
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -8,12 +9,8 @@ class RoomDatabaseTransactionRunner @Inject constructor(
     private val database: StreamVaultDatabase
 ) {
     suspend operator fun invoke(block: suspend () -> Unit) {
-        if (database.inTransaction()) {
+        database.withTransaction {
             block()
-        } else {
-            database.runInTransaction {
-                // تنفيذ المعاملة البرمجية
-            }
         }
     }
 }
