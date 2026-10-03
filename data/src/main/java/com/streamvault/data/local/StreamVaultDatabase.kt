@@ -4,10 +4,10 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [],
+    entities = [], // سيتم إضافة الكيانات تباعاً مع تطوير الجداول
     version = 1,
     exportSchema = false
 )
 abstract class StreamVaultDatabase : RoomDatabase() {
-    // يمكن إضافة الـ DAOs هنا لاحقاً حسب الحاجة
+    // يمكن تعريف DAOs هنا لاحقاً
 }
