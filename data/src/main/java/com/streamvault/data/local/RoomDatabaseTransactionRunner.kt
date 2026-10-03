@@ -1,6 +1,5 @@
 package com.streamvault.data.local
 
-import androidx.room.RoomDatabase
 import javax.inject.Inject
 import javax.inject.Singleton
 
