@@ -29,13 +29,13 @@ import okhttp3.ResponseBody.Companion.toResponseBody
 /** Verifies that full and section-repair activation converge through the production Room DAOs. */
 @RunWith(AndroidJUnit4::class)
 class CatalogSyncEquivalenceIntegrationTest {
-    private lateinit var db: StreamVaultDatabase
+    private lateinit var db: STTITEN IP TVDatabase
     private lateinit var store: SyncCatalogStore
 
     @Before
     fun createDb() {
         val context = ApplicationProvider.getApplicationContext<Context>()
-        db = Room.inMemoryDatabaseBuilder(context, StreamVaultDatabase::class.java).build()
+        db = Room.inMemoryDatabaseBuilder(context, STTITEN IP TVDatabase::class.java).build()
         store = SyncCatalogStore(
             channelDao = db.channelDao(),
             movieDao = db.movieDao(),

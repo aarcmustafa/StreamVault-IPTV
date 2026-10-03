@@ -2,17 +2,17 @@ package com.streamvault.app.system
 
 import android.net.Uri
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.app.plugins.StreamVaultPluginManager
+import com.streamvault.app.plugins.STTITEN IP TVPluginManager
 import com.streamvault.domain.model.Result
 import com.streamvault.domain.model.ProviderType
 import com.streamvault.domain.provider.NativeProviderSource
 import com.streamvault.domain.provider.ProviderSource
-import com.streamvault.feature.system.api.InstalledStreamVaultPlugin
+import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
 import com.streamvault.feature.system.api.PluginActionResult
 import com.streamvault.feature.system.api.PluginConfigurationSchema
 import com.streamvault.feature.system.api.PluginConfigurationSnapshot
-import com.streamvault.feature.system.api.StreamVaultPluginContract
-import com.streamvault.feature.system.api.StreamVaultPluginManifest
+import com.streamvault.feature.system.api.STTITEN IP TVPluginContract
+import com.streamvault.feature.system.api.STTITEN IP TVPluginManifest
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.JsonObject
 import org.junit.Test
@@ -35,7 +35,7 @@ class AppSystemPluginManagementAdapterTest {
                 providerType = ProviderType.M3U,
             ),
         )
-        val manager = mock<StreamVaultPluginManager>()
+        val manager = mock<STTITEN IP TVPluginManager>()
         val registry = mock<com.streamvault.domain.provider.ProviderSourceRegistry>()
         wheneverBlocking { manager.discoverPlugins() }.thenReturn(plugins)
         wheneverBlocking { registry.sources() }.thenReturn(sources)
@@ -52,7 +52,7 @@ class AppSystemPluginManagementAdapterTest {
         val plugin = pluginFixture()
         val uri = mock<Uri>()
         val callback: (String) -> Unit = mock()
-        val manager = mock<StreamVaultPluginManager>()
+        val manager = mock<STTITEN IP TVPluginManager>()
         val registry = mock<com.streamvault.domain.provider.ProviderSourceRegistry>()
         val installUriResult = Result.success(Unit)
         val installUrlResult = Result.success(Unit)
@@ -102,14 +102,14 @@ class AppSystemPluginManagementAdapterTest {
         verifyBlocking(manager) { runPluginConfigurationAction(plugin, "refresh") }
     }
 
-    private fun pluginFixture() = InstalledStreamVaultPlugin(
+    private fun pluginFixture() = InstalledSTTITEN IP TVPlugin(
         packageName = "com.example.plugin",
         serviceClassName = "com.example.PluginService",
         appLabel = "Example plugin",
-        manifest = StreamVaultPluginManifest(
+        manifest = STTITEN IP TVPluginManifest(
             id = "example",
             name = "Example plugin",
-            capabilities = listOf(StreamVaultPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
+            capabilities = listOf(STTITEN IP TVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
         ),
         enabled = false,
     )

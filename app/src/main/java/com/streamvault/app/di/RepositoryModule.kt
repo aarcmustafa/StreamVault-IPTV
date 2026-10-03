@@ -35,7 +35,7 @@ import com.streamvault.domain.provider.PlayerPlaybackResolver
 import com.streamvault.domain.settings.PlayerPreferences
 import com.streamvault.domain.settings.SettingsPreferences
 import com.streamvault.app.playback.AppPlayerPlaybackResolver
-import com.streamvault.app.plugins.StreamVaultPluginManager
+import com.streamvault.app.plugins.STTITEN IP TVPluginManager
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -158,7 +158,7 @@ abstract class RepositoryModule {
     abstract fun bindCredentialCrypto(impl: AndroidKeystoreCredentialCrypto): CredentialCrypto
 
     @Binds @Singleton
-    abstract fun bindProviderSourceRegistry(impl: StreamVaultPluginManager): ProviderSourceRegistry
+    abstract fun bindProviderSourceRegistry(impl: STTITEN IP TVPluginManager): ProviderSourceRegistry
 
     @Binds @Singleton
     abstract fun bindPlaybackObservationSink(impl: PlaybackObservationCoordinator): PlaybackObservationSink

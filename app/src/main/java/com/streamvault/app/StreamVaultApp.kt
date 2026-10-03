@@ -28,7 +28,7 @@ import javax.inject.Provider
 import okhttp3.OkHttpClient
 
 @HiltAndroidApp
-class StreamVaultApp : Application(), SingletonImageLoader.Factory {
+class STTITEN IP TVApp : Application(), SingletonImageLoader.Factory {
     private val runtimeDiagnosticsManager by lazy { RuntimeDiagnosticsManager(this) }
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 

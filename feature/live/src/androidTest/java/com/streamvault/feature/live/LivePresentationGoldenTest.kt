@@ -17,7 +17,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.streamvault.core.ui.theme.StreamVaultTheme
+import com.streamvault.core.ui.theme.STTITEN IP TVTheme
 import com.streamvault.domain.model.ActiveLiveSource
 import com.streamvault.domain.model.ActiveLiveSourceOption
 import com.streamvault.domain.model.Category
@@ -174,7 +174,7 @@ class LivePresentationGoldenTest {
         content: @Composable () -> Unit
     ) {
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 Box(modifier = Modifier.fillMaxSize().testTag("golden")) {
                     content()
                 }

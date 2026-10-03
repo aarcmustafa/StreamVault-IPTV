@@ -42,7 +42,7 @@ import okhttp3.OkHttpClient
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class StreamVaultTvInputService : TvInputService() {
+class STTITEN IP TVTvInputService : TvInputService() {
 
     @Inject
     lateinit var channelRepository: ChannelRepository
@@ -58,9 +58,9 @@ class StreamVaultTvInputService : TvInputService() {
         ttlMillis = 15L * 60L * 1_000L
     )
 
-    override fun onCreateSession(inputId: String): Session = StreamVaultSession(this)
+    override fun onCreateSession(inputId: String): Session = STTITEN IP TVSession(this)
 
-    private inner class StreamVaultSession(context: Context) : Session(context) {
+    private inner class STTITEN IP TVSession(context: Context) : Session(context) {
         private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
         private val player: ExoPlayer = ExoPlayer.Builder(context).build().apply {
             addListener(object : Player.Listener {
@@ -234,8 +234,8 @@ class StreamVaultTvInputService : TvInputService() {
     )
 
     private companion object {
-        const val TAG = "StreamVaultTvInput"
-        const val DEFAULT_USER_AGENT = "StreamVaultTvInput"
+        const val TAG = "STTITEN IP TVTvInput"
+        const val DEFAULT_USER_AGENT = "STTITEN IP TVTvInput"
         const val CHANNEL_COLUMN_INTERNAL_PROVIDER_DATA = "internal_provider_data"
         const val ENTRY_SEPARATOR = ":"
     }

@@ -3,11 +3,11 @@ package com.streamvault.feature.system.presentation.plugins
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.streamvault.feature.system.api.InstalledStreamVaultPlugin
+import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
 import com.streamvault.feature.system.api.PluginConfigurationAction
 import com.streamvault.feature.system.api.PluginConfigurationField
 import com.streamvault.feature.system.api.PluginConfigurationSchema
-import com.streamvault.feature.system.api.StreamVaultPluginOwner
+import com.streamvault.feature.system.api.STTITEN IP TVPluginOwner
 import com.streamvault.feature.system.api.owner
 import com.streamvault.feature.system.api.SystemPluginManagementPort
 import com.streamvault.domain.model.Result
@@ -30,20 +30,20 @@ import kotlinx.serialization.json.longOrNull
 import kotlinx.serialization.json.put
 
 data class PluginsUiState(
-    val plugins: List<InstalledStreamVaultPlugin> = emptyList(),
+    val plugins: List<InstalledSTTITEN IP TVPlugin> = emptyList(),
     val providerSources: List<ProviderSource> = emptyList(),
     val installUrl: String = "",
     val isLoading: Boolean = false,
     val isInstalling: Boolean = false,
     val isConfigurationLoading: Boolean = false,
-    val activePluginOwner: StreamVaultPluginOwner? = null,
+    val activePluginOwner: STTITEN IP TVPluginOwner? = null,
     val configuration: ActivePluginConfiguration? = null,
     val syncProgress: String? = null,
     val userMessage: String? = null
 )
 
 data class ActivePluginConfiguration(
-    val plugin: InstalledStreamVaultPlugin,
+    val plugin: InstalledSTTITEN IP TVPlugin,
     val schema: PluginConfigurationSchema,
     val values: JsonObject,
     val draftValues: Map<String, String>,
@@ -125,7 +125,7 @@ class PluginsViewModel @Inject constructor(
         }
     }
 
-    fun setPluginEnabled(plugin: InstalledStreamVaultPlugin, enabled: Boolean) {
+    fun setPluginEnabled(plugin: InstalledSTTITEN IP TVPlugin, enabled: Boolean) {
         viewModelScope.launch {
             _uiState.update {
                 it.copy(
@@ -152,7 +152,7 @@ class PluginsViewModel @Inject constructor(
         }
     }
 
-    fun openPluginConfiguration(plugin: InstalledStreamVaultPlugin) {
+    fun openPluginConfiguration(plugin: InstalledSTTITEN IP TVPlugin) {
         if (plugin.manifest.usesActivityConfiguration || !plugin.manifest.supportsHostRenderedConfiguration) {
             val result = pluginManagement.openPluginConfiguration(plugin)
             _uiState.update { it.copy(userMessage = result.message) }

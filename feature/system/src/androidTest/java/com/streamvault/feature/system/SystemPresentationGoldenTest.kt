@@ -20,20 +20,20 @@ import com.streamvault.core.ui.components.shell.CoreAppScreenScaffold
 import com.streamvault.core.ui.components.shell.NavigationChrome
 import com.streamvault.core.ui.components.shell.UiDestination
 import com.streamvault.core.ui.design.AppColors
-import com.streamvault.core.ui.theme.StreamVaultTheme
+import com.streamvault.core.ui.theme.STTITEN IP TVTheme
 import com.streamvault.domain.model.DownloadContentType
 import com.streamvault.domain.model.DownloadItem
 import com.streamvault.domain.model.DownloadStatus
 import com.streamvault.domain.model.DownloadStorageConfig
 import com.streamvault.domain.sync.Section
-import com.streamvault.feature.system.api.InstalledStreamVaultPlugin
+import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
 import com.streamvault.feature.system.api.PluginConfigurationAction
 import com.streamvault.feature.system.api.PluginConfigurationField
 import com.streamvault.feature.system.api.PluginConfigurationOption
 import com.streamvault.feature.system.api.PluginConfigurationSchema
 import com.streamvault.feature.system.api.PluginConfigurationSection
-import com.streamvault.feature.system.api.StreamVaultPluginContract
-import com.streamvault.feature.system.api.StreamVaultPluginManifest
+import com.streamvault.feature.system.api.STTITEN IP TVPluginContract
+import com.streamvault.feature.system.api.STTITEN IP TVPluginManifest
 import com.streamvault.feature.system.api.SystemScaffoldContent
 import com.streamvault.feature.system.api.WelcomeSyncProgress
 import com.streamvault.feature.system.navigation.SystemRoutePatterns
@@ -88,7 +88,7 @@ class SystemPresentationGoldenTest {
         DownloadsContent(
             uiState = DownloadsUiState(
                 isLoading = false,
-                storageConfig = DownloadStorageConfig(displayName = "StreamVault Downloads"),
+                storageConfig = DownloadStorageConfig(displayName = "STTITEN IP TV Downloads"),
             ),
             scaffold = goldenScaffold,
             onChangeFolder = {},
@@ -105,7 +105,7 @@ class SystemPresentationGoldenTest {
         DownloadsContent(
             uiState = DownloadsUiState(
                 isLoading = false,
-                storageConfig = DownloadStorageConfig(displayName = "StreamVault Downloads"),
+                storageConfig = DownloadStorageConfig(displayName = "STTITEN IP TV Downloads"),
                 downloads = listOf(completedDownload()),
             ),
             scaffold = goldenScaffold,
@@ -221,7 +221,7 @@ class SystemPresentationGoldenTest {
         content: @androidx.compose.runtime.Composable () -> Unit,
     ) {
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 MaterialTheme {
                     Box(
                         modifier = Modifier
@@ -290,17 +290,17 @@ class SystemPresentationGoldenTest {
         onClearMessage = {},
     )
 
-    private fun pluginFixture() = InstalledStreamVaultPlugin(
+    private fun pluginFixture() = InstalledSTTITEN IP TVPlugin(
         packageName = "com.example.streamvault.plugin",
         serviceClassName = "com.example.streamvault.PluginService",
         appLabel = "Example plugin",
-        manifest = StreamVaultPluginManifest(
+        manifest = STTITEN IP TVPluginManifest(
             id = "example",
             name = "Example plugin",
             versionName = "2.4.1",
             description = "Companion provider synchronization",
-            capabilities = listOf(StreamVaultPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
-            configurationMode = StreamVaultPluginContract.CONFIGURATION_MODE_HOST_SCHEMA,
+            capabilities = listOf(STTITEN IP TVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
+            configurationMode = STTITEN IP TVPluginContract.CONFIGURATION_MODE_HOST_SCHEMA,
         ),
         enabled = true,
     )

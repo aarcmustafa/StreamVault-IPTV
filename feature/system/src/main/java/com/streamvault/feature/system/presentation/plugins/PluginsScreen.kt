@@ -53,7 +53,7 @@ import androidx.tv.material3.ButtonDefaults
 import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Text
 import com.streamvault.core.navigation.AppDestination
-import com.streamvault.feature.system.api.InstalledStreamVaultPlugin
+import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
 import com.streamvault.feature.system.api.PluginConfigurationAction
 import com.streamvault.feature.system.api.PluginConfigurationField
 import com.streamvault.feature.system.api.PluginConfigurationSection
@@ -133,8 +133,8 @@ internal data class PluginsActions(
     val onInstallFromLocalUri: (Uri) -> Unit,
     val onInstallFromUrl: () -> Unit,
     val onRefreshPlugins: () -> Unit,
-    val onSetPluginEnabled: (InstalledStreamVaultPlugin, Boolean) -> Unit,
-    val onOpenPluginConfiguration: (InstalledStreamVaultPlugin) -> Unit,
+    val onSetPluginEnabled: (InstalledSTTITEN IP TVPlugin, Boolean) -> Unit,
+    val onOpenPluginConfiguration: (InstalledSTTITEN IP TVPlugin) -> Unit,
     val onClosePluginConfiguration: () -> Unit,
     val onRefreshPluginConfiguration: () -> Unit,
     val onSavePluginConfiguration: () -> Unit,
@@ -217,7 +217,7 @@ internal fun PluginsContent(
                     if (uiState.plugins.isEmpty() && !uiState.isLoading) {
                         item {
                             Text(
-                                text = "No compatible StreamVault plugins are installed.",
+                                text = "No compatible STTITEN IP TV plugins are installed.",
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = AppColors.TextSecondary
                             )
@@ -334,7 +334,7 @@ private fun PluginInstallPanel(
             }
         }
         Text(
-            text = "Manual installs are detected when this screen refreshes. Compatible plugins expose the StreamVault plugin service.",
+            text = "Manual installs are detected when this screen refreshes. Compatible plugins expose the STTITEN IP TV plugin service.",
             style = MaterialTheme.typography.bodySmall,
             color = AppColors.TextTertiary
         )
@@ -367,7 +367,7 @@ private fun PluginInstallUrlDialog(
 
     PremiumDialog(
         title = "Install plugin from URL",
-        subtitle = "Enter the direct APK URL. StreamVault will download it and open the installer.",
+        subtitle = "Enter the direct APK URL. STTITEN IP TV will download it and open the installer.",
         onDismissRequest = {
             keyboardController?.hide()
             if (!isInstalling) onDismiss()
@@ -424,7 +424,7 @@ private fun PluginInstallUrlDialog(
 
 @Composable
 private fun PluginCard(
-    plugin: InstalledStreamVaultPlugin,
+    plugin: InstalledSTTITEN IP TVPlugin,
     busy: Boolean,
     onEnabledChange: (Boolean) -> Unit,
     onOpenConfiguration: () -> Unit

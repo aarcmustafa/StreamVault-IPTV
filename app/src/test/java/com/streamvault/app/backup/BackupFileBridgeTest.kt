@@ -86,7 +86,7 @@ class BackupFileBridgeTest {
     }
 
     @Test
-    fun managedBackups_listsAndDeletesOnlyStreamVaultCreatedFiles() {
+    fun managedBackups_listsAndDeletesOnlySTTITEN IP TVCreatedFiles() {
         val backup = BackupFileBridge.createExportFile(context).apply {
             writeText("{}")
         }

@@ -78,7 +78,7 @@ internal const val STREAM_VAULT_DATABASE_VERSION = 78
     exportSchema = true   // ← was false; schema JSON now tracked in version control
 )
 @TypeConverters(RoomEnumConverters::class)
-abstract class StreamVaultDatabase : RoomDatabase() {
+abstract class STTITEN IP TVDatabase : RoomDatabase() {
     abstract fun providerDao(): ProviderDao
     abstract fun providerSnapshotDao(): ProviderSnapshotDao
     abstract fun channelDao(): ChannelDao

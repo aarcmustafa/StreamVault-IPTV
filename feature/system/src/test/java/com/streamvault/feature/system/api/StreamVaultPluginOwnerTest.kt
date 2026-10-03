@@ -3,29 +3,29 @@ package com.streamvault.feature.system.api
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 
-class StreamVaultPluginOwnerTest {
+class STTITEN IP TVPluginOwnerTest {
 
     @Test
     fun `plugin owner remains distinct when packages reuse a manifest ID`() {
-        val first = StreamVaultPluginOwner("com.example.first", "FirstService", "shared-id")
-        val second = StreamVaultPluginOwner("com.example.second", "SecondService", "shared-id")
+        val first = STTITEN IP TVPluginOwner("com.example.first", "FirstService", "shared-id")
+        val second = STTITEN IP TVPluginOwner("com.example.second", "SecondService", "shared-id")
 
         assertThat(first).isNotEqualTo(second)
     }
 
     @Test
     fun `plugin owner remains distinct for two services in one package`() {
-        val first = StreamVaultPluginOwner("com.example.plugin", "FirstService", "shared-id")
-        val second = StreamVaultPluginOwner("com.example.plugin", "SecondService", "shared-id")
+        val first = STTITEN IP TVPluginOwner("com.example.plugin", "FirstService", "shared-id")
+        val second = STTITEN IP TVPluginOwner("com.example.plugin", "SecondService", "shared-id")
 
         assertThat(first).isNotEqualTo(second)
     }
 
     @Test
     fun `plugin owner lazy list key is a bundle safe string`() {
-        val owner = StreamVaultPluginOwner(
+        val owner = STTITEN IP TVPluginOwner(
             "com.streamvault.plugin.adaptivebridge",
-            "com.streamvault.plugin.adaptivebridge.StreamVaultAdaptiveBridgePluginService",
+            "com.streamvault.plugin.adaptivebridge.STTITEN IP TVAdaptiveBridgePluginService",
             "com.streamvault.plugins.adaptivebridge"
         )
 

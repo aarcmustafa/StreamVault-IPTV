@@ -37,16 +37,16 @@ import com.streamvault.domain.model.StreamType
 import com.streamvault.domain.repository.CombinedM3uRepository
 import com.streamvault.domain.repository.ProviderRepository
 import com.streamvault.domain.repository.ProviderSetupRequest
-import com.streamvault.feature.system.api.InstalledStreamVaultPlugin
+import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
 import com.streamvault.feature.system.api.PluginActionResult
 import com.streamvault.feature.system.api.PluginConfigurationSchema
 import com.streamvault.feature.system.api.PluginConfigurationSnapshot
 import com.streamvault.feature.system.api.PluginDiscoveryState
 import com.streamvault.feature.system.api.PluginDiscoveryStatus
-import com.streamvault.feature.system.api.StreamVaultPluginComponent
-import com.streamvault.feature.system.api.StreamVaultPluginContract
-import com.streamvault.feature.system.api.StreamVaultPluginManifest
-import com.streamvault.feature.system.api.StreamVaultPluginOwner
+import com.streamvault.feature.system.api.STTITEN IP TVPluginComponent
+import com.streamvault.feature.system.api.STTITEN IP TVPluginContract
+import com.streamvault.feature.system.api.STTITEN IP TVPluginManifest
+import com.streamvault.feature.system.api.STTITEN IP TVPluginOwner
 import com.streamvault.feature.system.api.owner
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
@@ -76,7 +76,7 @@ import okhttp3.Request
 import org.json.JSONObject
 
 @Singleton
-class StreamVaultPluginManager @Inject constructor(
+class STTITEN IP TVPluginManager @Inject constructor(
     @param:ApplicationContext private val context: Context,
     private val messengerClient: PluginMessengerClient,
     private val providerRepository: ProviderRepository,
@@ -91,12 +91,12 @@ class StreamVaultPluginManager @Inject constructor(
     private val discoveryLock = Any()
     private val pluginMutationMutex = Mutex()
     private val _discoveryStates =
-        MutableStateFlow<Map<StreamVaultPluginComponent, PluginDiscoveryStatus>>(emptyMap())
-    val discoveryStates: StateFlow<Map<StreamVaultPluginComponent, PluginDiscoveryStatus>> =
+        MutableStateFlow<Map<STTITEN IP TVPluginComponent, PluginDiscoveryStatus>>(emptyMap())
+    val discoveryStates: StateFlow<Map<STTITEN IP TVPluginComponent, PluginDiscoveryStatus>> =
         _discoveryStates.asStateFlow()
 
     @Volatile
-    private var cachedDiscovery: List<InstalledStreamVaultPlugin>? = null
+    private var cachedDiscovery: List<InstalledSTTITEN IP TVPlugin>? = null
 
     @Volatile
     private var discoveryExpiresAtMillis = 0L
@@ -136,7 +136,7 @@ class StreamVaultPluginManager @Inject constructor(
         )
     }
 
-    suspend fun discoverPlugins(): List<InstalledStreamVaultPlugin> = withContext(Dispatchers.IO) {
+    suspend fun discoverPlugins(): List<InstalledSTTITEN IP TVPlugin> = withContext(Dispatchers.IO) {
         cachedDiscovery?.takeIf { System.currentTimeMillis() < discoveryExpiresAtMillis }?.let { return@withContext it }
         val resolveInfos = queryPluginServices()
         _discoveryStates.value = resolveInfos.mapNotNull(::componentOf)
@@ -226,7 +226,7 @@ class StreamVaultPluginManager @Inject constructor(
                 .forEach { ownership ->
                     if (removeOwnedProvider(ownership) == null) {
                         clearPendingMutation(
-                            StreamVaultPluginOwner(
+                            STTITEN IP TVPluginOwner(
                                 ownership.packageName,
                                 ownership.serviceClassName,
                                 ownership.manifestId
@@ -246,13 +246,13 @@ class StreamVaultPluginManager @Inject constructor(
                     val response = runPluginCatching {
                         sendEnabledCommand(plugin, desiredEnabled)
                     }.getOrNull() ?: return@forEach
-                    if (!response.getBoolean(StreamVaultPluginContract.KEY_SUCCESS, true)) {
+                    if (!response.getBoolean(STTITEN IP TVPluginContract.KEY_SUCCESS, true)) {
                         clearPendingMutation(plugin.owner)
                         return@forEach
                     }
                     prefs.edit().putBoolean(enabledKey(plugin.owner), desiredEnabled).apply()
                 }
-                if (!plugin.manifest.hasCapability(StreamVaultPluginContract.CAPABILITY_PROVIDER_M3U)) {
+                if (!plugin.manifest.hasCapability(STTITEN IP TVPluginContract.CAPABILITY_PROVIDER_M3U)) {
                     if (pending != null) clearPendingMutation(plugin.owner)
                     return@forEach
                 }
@@ -274,7 +274,7 @@ class StreamVaultPluginManager @Inject constructor(
     }
 
     suspend fun setPluginEnabled(
-        plugin: InstalledStreamVaultPlugin,
+        plugin: InstalledSTTITEN IP TVPlugin,
         enabled: Boolean,
         onProgress: (String) -> Unit = {}
     ): PluginActionResult = withContext(Dispatchers.IO) {
@@ -288,17 +288,17 @@ class StreamVaultPluginManager @Inject constructor(
             return@mutation PluginActionResult(false, error.message ?: "Plugin did not respond")
         }
 
-        if (!response.getBoolean(StreamVaultPluginContract.KEY_SUCCESS, true)) {
+        if (!response.getBoolean(STTITEN IP TVPluginContract.KEY_SUCCESS, true)) {
             clearPendingMutation(plugin.owner)
             return@mutation PluginActionResult(
                 success = false,
-                message = response.getString(StreamVaultPluginContract.KEY_MESSAGE).orEmpty()
+                message = response.getString(STTITEN IP TVPluginContract.KEY_MESSAGE).orEmpty()
                     .ifBlank { "Plugin rejected the request" }
             )
         }
 
         prefs.edit().putBoolean(enabledKey(plugin.owner), enabled).apply()
-        if (enabled && plugin.manifest.hasCapability(StreamVaultPluginContract.CAPABILITY_PROVIDER_M3U)) {
+        if (enabled && plugin.manifest.hasCapability(STTITEN IP TVPluginContract.CAPABILITY_PROVIDER_M3U)) {
             syncPluginProvider(plugin, onProgress)?.let { return@mutation it }
         } else if (!enabled) {
             removePluginProvider(plugin)?.let { return@mutation it }
@@ -308,7 +308,7 @@ class StreamVaultPluginManager @Inject constructor(
         invalidateDiscovery()
         PluginActionResult(
             success = true,
-            message = response.getString(StreamVaultPluginContract.KEY_MESSAGE).orEmpty()
+            message = response.getString(STTITEN IP TVPluginContract.KEY_MESSAGE).orEmpty()
                 .ifBlank { if (enabled) "Plugin activated" else "Plugin deactivated" }
         )
         }
@@ -349,7 +349,7 @@ class StreamVaultPluginManager @Inject constructor(
         launchPackageInstaller(target)
     }
 
-    fun openPluginConfiguration(plugin: InstalledStreamVaultPlugin): PluginActionResult {
+    fun openPluginConfiguration(plugin: InstalledSTTITEN IP TVPlugin): PluginActionResult {
         val action = plugin.manifest.configurationActivityAction?.takeIf { it.isNotBlank() }
             ?: return PluginActionResult(false, "This plugin has no configuration screen")
         val intent = Intent(action).apply {
@@ -364,31 +364,31 @@ class StreamVaultPluginManager @Inject constructor(
         }
     }
 
-    suspend fun loadPluginConfiguration(plugin: InstalledStreamVaultPlugin): Result<PluginConfigurationSnapshot> =
+    suspend fun loadPluginConfiguration(plugin: InstalledSTTITEN IP TVPlugin): Result<PluginConfigurationSnapshot> =
         withContext(Dispatchers.IO) {
             if (!plugin.manifest.supportsHostRenderedConfiguration) {
-                return@withContext Result.error("This plugin does not expose a StreamVault configuration schema")
+                return@withContext Result.error("This plugin does not expose a STTITEN IP TV configuration schema")
             }
 
             val schemaResponse = runPluginCatching {
                 messengerClient.send(
                     packageName = plugin.packageName,
                     serviceClassName = plugin.serviceClassName,
-                    what = StreamVaultPluginContract.MSG_GET_CONFIGURATION_SCHEMA,
+                    what = STTITEN IP TVPluginContract.MSG_GET_CONFIGURATION_SCHEMA,
                     timeoutMillis = 10_000L
                 )
             }.getOrElse { error ->
                 return@withContext Result.error(error.message ?: "Plugin configuration schema is unavailable")
             }
-            if (!schemaResponse.getBoolean(StreamVaultPluginContract.KEY_SUCCESS, false)) {
+            if (!schemaResponse.getBoolean(STTITEN IP TVPluginContract.KEY_SUCCESS, false)) {
                 return@withContext Result.error(
-                    schemaResponse.getString(StreamVaultPluginContract.KEY_MESSAGE).orEmpty()
+                    schemaResponse.getString(STTITEN IP TVPluginContract.KEY_MESSAGE).orEmpty()
                         .ifBlank { "Plugin configuration schema is unavailable" }
                 )
             }
 
             val schemaJson = schemaResponse
-                .getString(StreamVaultPluginContract.KEY_CONFIGURATION_SCHEMA_JSON)
+                .getString(STTITEN IP TVPluginContract.KEY_CONFIGURATION_SCHEMA_JSON)
                 .orEmpty()
             val schema = runCatching { json.decodeFromString<PluginConfigurationSchema>(schemaJson) }
                 .getOrElse { error ->
@@ -402,27 +402,27 @@ class StreamVaultPluginManager @Inject constructor(
             Result.success(PluginConfigurationSnapshot(plugin, schema, values))
         }
 
-    suspend fun loadPluginConfigurationValues(plugin: InstalledStreamVaultPlugin): Result<JsonObject> =
+    suspend fun loadPluginConfigurationValues(plugin: InstalledSTTITEN IP TVPlugin): Result<JsonObject> =
         withContext(Dispatchers.IO) {
             val valuesResponse = runPluginCatching {
                 messengerClient.send(
                     packageName = plugin.packageName,
                     serviceClassName = plugin.serviceClassName,
-                    what = StreamVaultPluginContract.MSG_GET_CONFIGURATION_VALUES,
+                    what = STTITEN IP TVPluginContract.MSG_GET_CONFIGURATION_VALUES,
                     timeoutMillis = 10_000L
                 )
             }.getOrElse { error ->
                 return@withContext Result.error(error.message ?: "Plugin configuration values are unavailable")
             }
-            if (!valuesResponse.getBoolean(StreamVaultPluginContract.KEY_SUCCESS, false)) {
+            if (!valuesResponse.getBoolean(STTITEN IP TVPluginContract.KEY_SUCCESS, false)) {
                 return@withContext Result.error(
-                    valuesResponse.getString(StreamVaultPluginContract.KEY_MESSAGE).orEmpty()
+                    valuesResponse.getString(STTITEN IP TVPluginContract.KEY_MESSAGE).orEmpty()
                         .ifBlank { "Plugin configuration values are unavailable" }
                 )
             }
 
             val valuesJson = valuesResponse
-                .getString(StreamVaultPluginContract.KEY_CONFIGURATION_VALUES_JSON)
+                .getString(STTITEN IP TVPluginContract.KEY_CONFIGURATION_VALUES_JSON)
                 .orEmpty()
             val values = if (valuesJson.isBlank()) {
                 JsonObject(emptyMap())
@@ -436,16 +436,16 @@ class StreamVaultPluginManager @Inject constructor(
         }
 
     suspend fun savePluginConfiguration(
-        plugin: InstalledStreamVaultPlugin,
+        plugin: InstalledSTTITEN IP TVPlugin,
         valuesJson: String
     ): PluginActionResult = withContext(Dispatchers.IO) {
         val response = runPluginCatching {
             messengerClient.send(
                 packageName = plugin.packageName,
                 serviceClassName = plugin.serviceClassName,
-                what = StreamVaultPluginContract.MSG_SET_CONFIGURATION_VALUES,
+                what = STTITEN IP TVPluginContract.MSG_SET_CONFIGURATION_VALUES,
                 data = Bundle().apply {
-                    putString(StreamVaultPluginContract.KEY_CONFIGURATION_VALUES_JSON, valuesJson)
+                    putString(STTITEN IP TVPluginContract.KEY_CONFIGURATION_VALUES_JSON, valuesJson)
                 },
                 timeoutMillis = 60_000L
             )
@@ -456,16 +456,16 @@ class StreamVaultPluginManager @Inject constructor(
     }
 
     suspend fun runPluginConfigurationAction(
-        plugin: InstalledStreamVaultPlugin,
+        plugin: InstalledSTTITEN IP TVPlugin,
         actionId: String
     ): PluginActionResult = withContext(Dispatchers.IO) {
         val response = runPluginCatching {
             messengerClient.send(
                 packageName = plugin.packageName,
                 serviceClassName = plugin.serviceClassName,
-                what = StreamVaultPluginContract.MSG_RUN_CONFIGURATION_ACTION,
+                what = STTITEN IP TVPluginContract.MSG_RUN_CONFIGURATION_ACTION,
                 data = Bundle().apply {
-                    putString(StreamVaultPluginContract.KEY_CONFIGURATION_ACTION_ID, actionId)
+                    putString(STTITEN IP TVPluginContract.KEY_CONFIGURATION_ACTION_ID, actionId)
                 },
                 timeoutMillis = 120_000L
             )
@@ -483,7 +483,7 @@ class StreamVaultPluginManager @Inject constructor(
         if (url.isBlank()) return@withContext Result.success(streamInfo)
         val prepared = withPluginPlaybackDeadline(PLAYBACK_TOTAL_TIMEOUT_MILLIS) {
             val plugins = playbackCandidates(
-                discoverPlugins(), url, StreamVaultPluginContract.CAPABILITY_PLAYBACK_PREPARE
+                discoverPlugins(), url, STTITEN IP TVPluginContract.CAPABILITY_PLAYBACK_PREPARE
             )
             coroutineScope {
                 val requests = plugins.associateWith { plugin -> async {
@@ -491,20 +491,20 @@ class StreamVaultPluginManager @Inject constructor(
                         messengerClient.send(
                             packageName = plugin.packageName,
                             serviceClassName = plugin.serviceClassName,
-                            what = StreamVaultPluginContract.MSG_PREPARE_PLAYBACK,
-                            data = Bundle().apply { putString(StreamVaultPluginContract.KEY_INPUT_URL, url) },
+                            what = STTITEN IP TVPluginContract.MSG_PREPARE_PLAYBACK,
+                            data = Bundle().apply { putString(STTITEN IP TVPluginContract.KEY_INPUT_URL, url) },
                             timeoutMillis = PLAYBACK_HANDLER_TIMEOUT_MILLIS
                         )
                     }
                 } }
                 for (plugin in plugins) {
                     val response = requests.getValue(plugin).await() ?: continue
-                    if (!response.getBoolean(StreamVaultPluginContract.KEY_HANDLED, false)) continue
+                    if (!response.getBoolean(STTITEN IP TVPluginContract.KEY_HANDLED, false)) continue
                     requests.values.forEach { it.cancel() }
-                    return@coroutineScope if (response.getBoolean(StreamVaultPluginContract.KEY_SUCCESS, false)) {
+                    return@coroutineScope if (response.getBoolean(STTITEN IP TVPluginContract.KEY_SUCCESS, false)) {
                         Result.success(applyPlaybackPreparationResponse(streamInfo, response))
                     } else {
-                        Result.error(response.getString(StreamVaultPluginContract.KEY_MESSAGE).orEmpty()
+                        Result.error(response.getString(STTITEN IP TVPluginContract.KEY_MESSAGE).orEmpty()
                             .ifBlank { "${plugin.displayName} could not prepare playback" })
                     }
                 }
@@ -519,7 +519,7 @@ class StreamVaultPluginManager @Inject constructor(
         if (url.isBlank()) return@withContext url
         val rewritten = withPluginPlaybackDeadline(PLAYBACK_TOTAL_TIMEOUT_MILLIS) {
             val plugins = playbackCandidates(
-                discoverPlugins(), url, StreamVaultPluginContract.CAPABILITY_CAST_REWRITE_URL
+                discoverPlugins(), url, STTITEN IP TVPluginContract.CAPABILITY_CAST_REWRITE_URL
             )
             coroutineScope {
                 val requests = plugins.associateWith { plugin -> async {
@@ -527,7 +527,7 @@ class StreamVaultPluginManager @Inject constructor(
                         messengerClient.send(
                     packageName = plugin.packageName,
                     serviceClassName = plugin.serviceClassName,
-                    what = StreamVaultPluginContract.MSG_REWRITE_CAST_URL,
+                    what = STTITEN IP TVPluginContract.MSG_REWRITE_CAST_URL,
                     data = request.toCastRewriteBundle(),
                             timeoutMillis = PLAYBACK_HANDLER_TIMEOUT_MILLIS
                         )
@@ -535,10 +535,10 @@ class StreamVaultPluginManager @Inject constructor(
                 } }
                 for (plugin in plugins) {
                     val response = requests.getValue(plugin).await() ?: continue
-                    if (!response.getBoolean(StreamVaultPluginContract.KEY_HANDLED, false)) continue
+                    if (!response.getBoolean(STTITEN IP TVPluginContract.KEY_HANDLED, false)) continue
                     requests.values.forEach { it.cancel() }
-                    return@coroutineScope if (response.getBoolean(StreamVaultPluginContract.KEY_SUCCESS, false)) {
-                        response.getString(StreamVaultPluginContract.KEY_OUTPUT_URL).orEmpty().ifBlank { url }
+                    return@coroutineScope if (response.getBoolean(STTITEN IP TVPluginContract.KEY_SUCCESS, false)) {
+                        response.getString(STTITEN IP TVPluginContract.KEY_OUTPUT_URL).orEmpty().ifBlank { url }
                     } else null
                 }
                 url
@@ -548,20 +548,20 @@ class StreamVaultPluginManager @Inject constructor(
     }
 
     suspend fun rewriteCastUrl(url: String): String? =
-        rewriteCastUrl(CastMediaRequest(url = url, title = "StreamVault"))
+        rewriteCastUrl(CastMediaRequest(url = url, title = "STTITEN IP TV"))
 
     private fun applyPlaybackPreparationResponse(
         streamInfo: StreamInfo,
         response: Bundle
     ): StreamInfo {
-        val outputUrl = response.getString(StreamVaultPluginContract.KEY_OUTPUT_URL).orEmpty()
+        val outputUrl = response.getString(STTITEN IP TVPluginContract.KEY_OUTPUT_URL).orEmpty()
             .ifBlank { streamInfo.url }
-        val responseHeaders = parseHeadersJson(response.getString(StreamVaultPluginContract.KEY_HEADERS_JSON).orEmpty())
-        val responseUserAgent = response.getString(StreamVaultPluginContract.KEY_USER_AGENT)
+        val responseHeaders = parseHeadersJson(response.getString(STTITEN IP TVPluginContract.KEY_HEADERS_JSON).orEmpty())
+        val responseUserAgent = response.getString(STTITEN IP TVPluginContract.KEY_USER_AGENT)
             ?.takeIf { it.isNotBlank() }
-        val streamType = parsePluginStreamType(response.getString(StreamVaultPluginContract.KEY_STREAM_TYPE))
+        val streamType = parsePluginStreamType(response.getString(STTITEN IP TVPluginContract.KEY_STREAM_TYPE))
             ?: streamInfo.streamType
-        val drmInfo = parsePluginDrmInfo(response.getString(StreamVaultPluginContract.KEY_DRM_JSON))
+        val drmInfo = parsePluginDrmInfo(response.getString(STTITEN IP TVPluginContract.KEY_DRM_JSON))
             ?: streamInfo.drmInfo
         return streamInfo.copy(
             url = outputUrl,
@@ -574,22 +574,22 @@ class StreamVaultPluginManager @Inject constructor(
     }
 
     private fun CastMediaRequest.toCastRewriteBundle(): Bundle = Bundle().apply {
-        putString(StreamVaultPluginContract.KEY_INPUT_URL, url)
-        putString(StreamVaultPluginContract.KEY_STREAM_TYPE, mimeType.orEmpty())
-        putString(StreamVaultPluginContract.KEY_HEADERS_JSON, headers.toHeadersJson())
-        putString(StreamVaultPluginContract.KEY_USER_AGENT, userAgent.orEmpty())
-        putBoolean(StreamVaultPluginContract.KEY_ALLOW_INVALID_SSL, allowInvalidSsl)
+        putString(STTITEN IP TVPluginContract.KEY_INPUT_URL, url)
+        putString(STTITEN IP TVPluginContract.KEY_STREAM_TYPE, mimeType.orEmpty())
+        putString(STTITEN IP TVPluginContract.KEY_HEADERS_JSON, headers.toHeadersJson())
+        putString(STTITEN IP TVPluginContract.KEY_USER_AGENT, userAgent.orEmpty())
+        putBoolean(STTITEN IP TVPluginContract.KEY_ALLOW_INVALID_SSL, allowInvalidSsl)
         playbackTransportPolicy?.let { policy ->
-            putString(StreamVaultPluginContract.KEY_TRANSPORT_MODE, policy.mode.name)
-            putString(StreamVaultPluginContract.KEY_TRANSPORT_ORIGIN, policy.origin.authority)
+            putString(STTITEN IP TVPluginContract.KEY_TRANSPORT_MODE, policy.mode.name)
+            putString(STTITEN IP TVPluginContract.KEY_TRANSPORT_ORIGIN, policy.origin.authority)
             putString(
-                StreamVaultPluginContract.KEY_TRANSPORT_SPKI_SHA256,
+                STTITEN IP TVPluginContract.KEY_TRANSPORT_SPKI_SHA256,
                 policy.spkiSha256.orEmpty()
             )
         }
-        putString(StreamVaultPluginContract.KEY_PROXY_HOST, proxyHost)
-        proxyPort?.let { putInt(StreamVaultPluginContract.KEY_PROXY_PORT, it) }
-        putString(StreamVaultPluginContract.KEY_CAST_REWRITE_REASON, rewriteRequiredReason?.name.orEmpty())
+        putString(STTITEN IP TVPluginContract.KEY_PROXY_HOST, proxyHost)
+        proxyPort?.let { putInt(STTITEN IP TVPluginContract.KEY_PROXY_PORT, it) }
+        putString(STTITEN IP TVPluginContract.KEY_CAST_REWRITE_REASON, rewriteRequiredReason?.name.orEmpty())
     }
 
     private fun Map<String, String>.toHeadersJson(): String {
@@ -659,32 +659,32 @@ class StreamVaultPluginManager @Inject constructor(
     }
 
     private suspend fun syncPluginProvider(
-        plugin: InstalledStreamVaultPlugin,
+        plugin: InstalledSTTITEN IP TVPlugin,
         onProgress: (String) -> Unit
     ): PluginActionResult? {
         val providerResponse = runPluginCatching {
             messengerClient.send(
                 packageName = plugin.packageName,
                 serviceClassName = plugin.serviceClassName,
-                what = StreamVaultPluginContract.MSG_GET_PROVIDER_URL,
+                what = STTITEN IP TVPluginContract.MSG_GET_PROVIDER_URL,
                 timeoutMillis = 120_000L
             )
         }.getOrElse { error ->
             return PluginActionResult(false, error.message ?: "Plugin provider URL is unavailable")
         }
-        if (!providerResponse.getBoolean(StreamVaultPluginContract.KEY_SUCCESS, false)) {
+        if (!providerResponse.getBoolean(STTITEN IP TVPluginContract.KEY_SUCCESS, false)) {
             return PluginActionResult(
                 false,
-                providerResponse.getString(StreamVaultPluginContract.KEY_MESSAGE).orEmpty()
+                providerResponse.getString(STTITEN IP TVPluginContract.KEY_MESSAGE).orEmpty()
                     .ifBlank { "Plugin provider URL is unavailable" }
             )
         }
 
-        val providerUrl = providerResponse.getString(StreamVaultPluginContract.KEY_URL).orEmpty()
+        val providerUrl = providerResponse.getString(STTITEN IP TVPluginContract.KEY_URL).orEmpty()
         if (providerUrl.isBlank()) {
             return PluginActionResult(false, "Plugin did not return a provider URL")
         }
-        val providerName = providerResponse.getString(StreamVaultPluginContract.KEY_PROVIDER_NAME)
+        val providerName = providerResponse.getString(STTITEN IP TVPluginContract.KEY_PROVIDER_NAME)
             ?.takeIf { it.isNotBlank() }
             ?: plugin.manifest.providerName?.takeIf { it.isNotBlank() }
             ?: "${plugin.displayName} Plugin"
@@ -750,19 +750,19 @@ class StreamVaultPluginManager @Inject constructor(
     }
 
     private suspend fun sendEnabledCommand(
-        plugin: InstalledStreamVaultPlugin,
+        plugin: InstalledSTTITEN IP TVPlugin,
         enabled: Boolean
     ): Bundle = messengerClient.send(
         packageName = plugin.packageName,
         serviceClassName = plugin.serviceClassName,
-        what = StreamVaultPluginContract.MSG_SET_ENABLED,
+        what = STTITEN IP TVPluginContract.MSG_SET_ENABLED,
         data = Bundle().apply {
-            putBoolean(StreamVaultPluginContract.KEY_ENABLED, enabled)
+            putBoolean(STTITEN IP TVPluginContract.KEY_ENABLED, enabled)
         },
         timeoutMillis = 120_000L
     )
 
-    private suspend fun removePluginProvider(plugin: InstalledStreamVaultPlugin): PluginActionResult? {
+    private suspend fun removePluginProvider(plugin: InstalledSTTITEN IP TVPlugin): PluginActionResult? {
         val ownership = trackedOwnership(plugin) ?: return null
         return removeOwnedProvider(ownership)
     }
@@ -778,7 +778,7 @@ class StreamVaultPluginManager @Inject constructor(
         }
     }
 
-    private suspend fun trackedProvider(plugin: InstalledStreamVaultPlugin): Provider? {
+    private suspend fun trackedProvider(plugin: InstalledSTTITEN IP TVPlugin): Provider? {
         val ownership = trackedOwnership(plugin) ?: return null
         return providerRepository.getProvider(ownership.providerId)
     }
@@ -789,7 +789,7 @@ class StreamVaultPluginManager @Inject constructor(
      * never guessed between.
      */
     private suspend fun trackedOwnership(
-        plugin: InstalledStreamVaultPlugin
+        plugin: InstalledSTTITEN IP TVPlugin
     ): PluginProviderOwnershipEntity? {
         val owner = plugin.owner
         pluginProviderOwnershipDao.get(
@@ -812,7 +812,7 @@ class StreamVaultPluginManager @Inject constructor(
     override suspend fun sources(): List<ProviderSource> = withContext(Dispatchers.IO) {
         val pluginsByComponent = discoverPlugins().associateBy { it.owner.component }
         pluginProviderOwnershipDao.getAll().mapNotNull { ownership ->
-            val component = StreamVaultPluginComponent(ownership.packageName, ownership.serviceClassName)
+            val component = STTITEN IP TVPluginComponent(ownership.packageName, ownership.serviceClassName)
             val plugin = pluginsByComponent[component] ?: return@mapNotNull null
             PluginProviderSource(
                 identity = PluginSourceIdentity(
@@ -831,7 +831,7 @@ class StreamVaultPluginManager @Inject constructor(
     suspend fun pluginProviderSources(): List<PluginProviderSource> =
         sources().filterIsInstance<PluginProviderSource>()
 
-    private suspend fun resolvePlugin(resolveInfo: ResolveInfo): InstalledStreamVaultPlugin? = coroutineScope {
+    private suspend fun resolvePlugin(resolveInfo: ResolveInfo): InstalledSTTITEN IP TVPlugin? = coroutineScope {
         val serviceInfo = resolveInfo.serviceInfo ?: return@coroutineScope null
         val packageName = serviceInfo.packageName ?: return@coroutineScope null
         val serviceName = serviceInfo.name ?: return@coroutineScope null
@@ -843,27 +843,27 @@ class StreamVaultPluginManager @Inject constructor(
                 messengerClient.send(
                     packageName = packageName,
                     serviceClassName = serviceName,
-                    what = StreamVaultPluginContract.MSG_GET_STATUS,
+                    what = STTITEN IP TVPluginContract.MSG_GET_STATUS,
                     timeoutMillis = DISCOVERY_REQUEST_TIMEOUT_MILLIS
                 )
             }
         }
         val manifest = manifestResult.await()
             ?: metadataManifest
-            ?: StreamVaultPluginManifest(
+            ?: STTITEN IP TVPluginManifest(
                 id = packageName,
                 name = appLabel.ifBlank { packageName },
-                description = "StreamVault plugin"
+                description = "STTITEN IP TV plugin"
             )
         val status = statusResult.await()
-        InstalledStreamVaultPlugin(
+        InstalledSTTITEN IP TVPlugin(
             packageName = packageName,
             serviceClassName = serviceName,
             appLabel = appLabel,
             manifest = manifest,
             enabled = false,
-            statusLabel = status?.getString(StreamVaultPluginContract.KEY_STATUS_LABEL).orEmpty(),
-            lastMessage = status?.getString(StreamVaultPluginContract.KEY_MESSAGE).orEmpty(),
+            statusLabel = status?.getString(STTITEN IP TVPluginContract.KEY_STATUS_LABEL).orEmpty(),
+            lastMessage = status?.getString(STTITEN IP TVPluginContract.KEY_MESSAGE).orEmpty(),
             discoveryState = if (status == null || manifestResult.await() == null) {
                 PluginDiscoveryState.PARTIAL
             } else {
@@ -876,18 +876,18 @@ class StreamVaultPluginManager @Inject constructor(
         resolveInfo: ResolveInfo,
         errorMessage: String,
         discoveryState: PluginDiscoveryState = PluginDiscoveryState.TIMED_OUT
-    ): InstalledStreamVaultPlugin? {
+    ): InstalledSTTITEN IP TVPlugin? {
         val serviceInfo = resolveInfo.serviceInfo ?: return null
         val packageName = serviceInfo.packageName ?: return null
         val serviceName = serviceInfo.name ?: return null
         val appLabel = serviceInfo.loadLabel(context.packageManager)?.toString().orEmpty()
         val manifest = readManifestFromMetadata(serviceInfo.metaData)
-            ?: StreamVaultPluginManifest(
+            ?: STTITEN IP TVPluginManifest(
                 id = packageName,
                 name = appLabel.ifBlank { packageName },
-                description = "StreamVault plugin"
+                description = "STTITEN IP TV plugin"
             )
-        return InstalledStreamVaultPlugin(
+        return InstalledSTTITEN IP TVPlugin(
             packageName = packageName,
             serviceClassName = serviceName,
             appLabel = appLabel,
@@ -898,51 +898,51 @@ class StreamVaultPluginManager @Inject constructor(
         )
     }
 
-    private suspend fun readManifestFromService(packageName: String, serviceName: String): StreamVaultPluginManifest? =
+    private suspend fun readManifestFromService(packageName: String, serviceName: String): STTITEN IP TVPluginManifest? =
         runPluginCallOrNull {
             val response =
                 messengerClient.send(
                     packageName = packageName,
                     serviceClassName = serviceName,
-                    what = StreamVaultPluginContract.MSG_GET_MANIFEST,
+                    what = STTITEN IP TVPluginContract.MSG_GET_MANIFEST,
                     timeoutMillis = DISCOVERY_REQUEST_TIMEOUT_MILLIS
                 )
-            val manifestJson = response.getString(StreamVaultPluginContract.KEY_MANIFEST_JSON).orEmpty()
-            json.decodeFromString<StreamVaultPluginManifest>(manifestJson)
+            val manifestJson = response.getString(STTITEN IP TVPluginContract.KEY_MANIFEST_JSON).orEmpty()
+            json.decodeFromString<STTITEN IP TVPluginManifest>(manifestJson)
         }
 
-    private fun readManifestFromMetadata(metaData: Bundle?): StreamVaultPluginManifest? {
+    private fun readManifestFromMetadata(metaData: Bundle?): STTITEN IP TVPluginManifest? {
         if (metaData == null) return null
 
-        val manifestJson = metaData.metaString(StreamVaultPluginContract.META_MANIFEST_JSON)
+        val manifestJson = metaData.metaString(STTITEN IP TVPluginContract.META_MANIFEST_JSON)
         if (manifestJson.isNotBlank()) {
-            runCatching { json.decodeFromString<StreamVaultPluginManifest>(manifestJson) }
+            runCatching { json.decodeFromString<STTITEN IP TVPluginManifest>(manifestJson) }
                 .getOrNull()
                 ?.let { return it }
         }
 
-        val id = metaData.metaString(StreamVaultPluginContract.META_ID).takeIf { it.isNotBlank() }
+        val id = metaData.metaString(STTITEN IP TVPluginContract.META_ID).takeIf { it.isNotBlank() }
             ?: return null
-        val name = metaData.metaString(StreamVaultPluginContract.META_NAME).ifBlank { id }
-        return StreamVaultPluginManifest(
+        val name = metaData.metaString(STTITEN IP TVPluginContract.META_NAME).ifBlank { id }
+        return STTITEN IP TVPluginManifest(
             id = id,
             name = name,
-            versionName = metaData.metaString(StreamVaultPluginContract.META_VERSION_NAME),
-            versionCode = metaData.metaLong(StreamVaultPluginContract.META_VERSION_CODE),
-            description = metaData.metaString(StreamVaultPluginContract.META_DESCRIPTION),
-            capabilities = metaData.metaCsv(StreamVaultPluginContract.META_CAPABILITIES),
-            configurationMode = metaData.metaString(StreamVaultPluginContract.META_CONFIGURATION_MODE)
+            versionName = metaData.metaString(STTITEN IP TVPluginContract.META_VERSION_NAME),
+            versionCode = metaData.metaLong(STTITEN IP TVPluginContract.META_VERSION_CODE),
+            description = metaData.metaString(STTITEN IP TVPluginContract.META_DESCRIPTION),
+            capabilities = metaData.metaCsv(STTITEN IP TVPluginContract.META_CAPABILITIES),
+            configurationMode = metaData.metaString(STTITEN IP TVPluginContract.META_CONFIGURATION_MODE)
                 .takeIf { it.isNotBlank() },
             configurationActivityAction = metaData
-                .metaString(StreamVaultPluginContract.META_CONFIGURATION_ACTIVITY_ACTION)
+                .metaString(STTITEN IP TVPluginContract.META_CONFIGURATION_ACTIVITY_ACTION)
                 .takeIf { it.isNotBlank() },
-            providerName = metaData.metaString(StreamVaultPluginContract.META_PROVIDER_NAME)
+            providerName = metaData.metaString(STTITEN IP TVPluginContract.META_PROVIDER_NAME)
                 .takeIf { it.isNotBlank() }
         )
     }
 
     private fun queryPluginServices(): List<ResolveInfo> {
-        val intent = Intent(StreamVaultPluginContract.ACTION_PLUGIN_SERVICE)
+        val intent = Intent(STTITEN IP TVPluginContract.ACTION_PLUGIN_SERVICE)
         val packageManager = context.packageManager
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             packageManager.queryIntentServices(
@@ -955,11 +955,11 @@ class StreamVaultPluginManager @Inject constructor(
         }
     }
 
-    private fun componentOf(resolveInfo: ResolveInfo): StreamVaultPluginComponent? {
+    private fun componentOf(resolveInfo: ResolveInfo): STTITEN IP TVPluginComponent? {
         val serviceInfo = resolveInfo.serviceInfo ?: return null
         val packageName = serviceInfo.packageName ?: return null
         val serviceName = serviceInfo.name ?: return null
-        return StreamVaultPluginComponent(packageName, serviceName)
+        return STTITEN IP TVPluginComponent(packageName, serviceName)
     }
 
     private fun launchPackageInstaller(apkFile: File): Result<Unit> {
@@ -969,7 +969,7 @@ class StreamVaultPluginManager @Inject constructor(
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
             context.startActivity(settingsIntent)
-            return Result.error("Allow installs from StreamVault, then choose the plugin APK again")
+            return Result.error("Allow installs from STTITEN IP TV, then choose the plugin APK again")
         }
 
         val apkUri = FileProvider.getUriForFile(
@@ -1046,11 +1046,11 @@ class StreamVaultPluginManager @Inject constructor(
         return null
     }
 
-    private fun isEnabled(plugin: InstalledStreamVaultPlugin): Boolean =
+    private fun isEnabled(plugin: InstalledSTTITEN IP TVPlugin): Boolean =
         prefs.getBoolean(enabledKey(plugin.owner), false)
 
     /** Legacy state is safe to migrate only when no installed service shares its manifest ID. */
-    private fun migrateLegacyEnabledStates(plugins: List<InstalledStreamVaultPlugin>) {
+    private fun migrateLegacyEnabledStates(plugins: List<InstalledSTTITEN IP TVPlugin>) {
         val uniqueManifestIds = plugins.groupingBy { it.manifest.id }.eachCount()
             .filterValues { it == 1 }
             .keys
@@ -1065,26 +1065,26 @@ class StreamVaultPluginManager @Inject constructor(
         editor.apply()
     }
 
-    private fun enabledKey(owner: StreamVaultPluginOwner): String =
+    private fun enabledKey(owner: STTITEN IP TVPluginOwner): String =
         "enabled.${owner.packageName}.${owner.serviceClassName}.${owner.manifestId}"
 
-    private fun pendingMutationKey(owner: StreamVaultPluginOwner): String =
+    private fun pendingMutationKey(owner: STTITEN IP TVPluginOwner): String =
         "pending.${owner.packageName}|${owner.serviceClassName}|${owner.manifestId}"
 
-    private fun recordPendingMutation(owner: StreamVaultPluginOwner, enabled: Boolean): Boolean =
+    private fun recordPendingMutation(owner: STTITEN IP TVPluginOwner, enabled: Boolean): Boolean =
         prefs.edit().putBoolean(pendingMutationKey(owner), enabled).commit()
 
-    private fun pendingMutation(owner: StreamVaultPluginOwner): Boolean? =
+    private fun pendingMutation(owner: STTITEN IP TVPluginOwner): Boolean? =
         pendingMutationKey(owner).let { key ->
             if (prefs.contains(key)) prefs.getBoolean(key, false) else null
         }
 
-    private fun clearPendingMutation(owner: StreamVaultPluginOwner) {
+    private fun clearPendingMutation(owner: STTITEN IP TVPluginOwner) {
         prefs.edit().remove(pendingMutationKey(owner)).apply()
     }
 
     private fun clearPendingMutationsForMissingComponents(
-        installedComponents: Set<StreamVaultPluginComponent>
+        installedComponents: Set<STTITEN IP TVPluginComponent>
     ) {
         val editor = prefs.edit()
         prefs.all.keys.asSequence()
@@ -1092,7 +1092,7 @@ class StreamVaultPluginManager @Inject constructor(
             .forEach { key ->
                 val identity = key.removePrefix(PENDING_MUTATION_PREFIX).split('|', limit = 3)
                 if (identity.size < 2 ||
-                    StreamVaultPluginComponent(identity[0], identity[1]) !in installedComponents
+                    STTITEN IP TVPluginComponent(identity[0], identity[1]) !in installedComponents
                 ) {
                     editor.remove(key)
                 }
@@ -1141,13 +1141,13 @@ private fun String.isSafeHttpHeaderName(): Boolean =
 
 internal fun orphanedPluginOwnerships(
     ownerships: List<PluginProviderOwnershipEntity>,
-    installedComponents: Set<StreamVaultPluginComponent>
+    installedComponents: Set<STTITEN IP TVPluginComponent>
 ): List<PluginProviderOwnershipEntity> = ownerships.filter { ownership ->
-    StreamVaultPluginComponent(ownership.packageName, ownership.serviceClassName) !in installedComponents
+    STTITEN IP TVPluginComponent(ownership.packageName, ownership.serviceClassName) !in installedComponents
 }
 
 internal fun selectPluginOwnership(
-    owner: StreamVaultPluginOwner,
+    owner: STTITEN IP TVPluginOwner,
     componentOwnerships: List<PluginProviderOwnershipEntity>
 ): PluginProviderOwnershipEntity? {
     componentOwnerships.firstOrNull { ownership ->
@@ -1189,10 +1189,10 @@ private fun Bundle.metaCsv(key: String): List<String> =
         .filter { it.isNotBlank() }
 
 private fun Bundle.toPluginActionResult(successMessage: String): PluginActionResult {
-    val success = getBoolean(StreamVaultPluginContract.KEY_SUCCESS, false)
+    val success = getBoolean(STTITEN IP TVPluginContract.KEY_SUCCESS, false)
     return PluginActionResult(
         success = success,
-        message = getString(StreamVaultPluginContract.KEY_MESSAGE).orEmpty()
+        message = getString(STTITEN IP TVPluginContract.KEY_MESSAGE).orEmpty()
             .ifBlank { if (success) successMessage else "Plugin operation failed" }
     )
 }

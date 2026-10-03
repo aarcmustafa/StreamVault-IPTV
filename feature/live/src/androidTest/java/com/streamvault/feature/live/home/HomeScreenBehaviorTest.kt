@@ -19,7 +19,7 @@ import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.core.ui.theme.StreamVaultTheme
+import com.streamvault.core.ui.theme.STTITEN IP TVTheme
 import com.streamvault.domain.model.ActiveLiveSource
 import com.streamvault.domain.model.ActiveLiveSourceOption
 import com.streamvault.domain.model.LiveTvQuickFilterVisibilityMode
@@ -38,7 +38,7 @@ class HomeScreenBehaviorTest {
     @Test
     fun channelContentHost_rendersLoadingState() {
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 LiveChannelContentHost(
                     isLoading = true,
                     errorMessage = null,
@@ -59,7 +59,7 @@ class HomeScreenBehaviorTest {
     @Test
     fun channelContentHost_rendersErrorState() {
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 LiveChannelContentHost(
                     isLoading = false,
                     errorMessage = "Channel request failed",
@@ -79,7 +79,7 @@ class HomeScreenBehaviorTest {
     @Test
     fun channelContentHost_rendersLockedEmptyStateWithoutEmptyHints() {
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 LiveChannelContentHost(
                     isLoading = false,
                     errorMessage = null,
@@ -102,7 +102,7 @@ class HomeScreenBehaviorTest {
     @Test
     fun channelContentHost_rendersChannelContentWhenChannelsExist() {
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 LiveChannelContentHost(
                     isLoading = false,
                     errorMessage = null,
@@ -125,7 +125,7 @@ class HomeScreenBehaviorTest {
         val categorySearchFocusRequester = FocusRequester()
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 LiveCategorySidebarHeader(
                     title = "Live TV",
                     currentSource = ActiveLiveSource.ProviderSource(1L),
@@ -180,7 +180,7 @@ class HomeScreenBehaviorTest {
     @Test
     fun categorySidebarHeader_titleUsesLightOnSurfaceText() {
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -254,7 +254,7 @@ class HomeScreenBehaviorTest {
         )
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 LiveChannelListHost(
                     channels = channels,
                     hasMoreChannels = false,

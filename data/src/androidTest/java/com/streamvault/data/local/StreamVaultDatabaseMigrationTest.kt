@@ -14,14 +14,14 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class StreamVaultDatabaseMigrationTest {
+class STTITEN IP TVDatabaseMigrationTest {
 
     private val testDbName = "streamvault-migration-test"
 
     @get:Rule
     val migrationTestHelper: MigrationTestHelper = MigrationTestHelper(
         InstrumentationRegistry.getInstrumentation(),
-        StreamVaultDatabase::class.java,
+        STTITEN IP TVDatabase::class.java,
         emptyList(),
         FrameworkSQLiteOpenHelperFactory()
     )
@@ -30,18 +30,18 @@ class StreamVaultDatabaseMigrationTest {
     fun everyExportedHistoricalSchemaMigratesToCurrent() {
         // Version 2 was never exported; validate every historical artifact that can ship.
         val exportedHistoricalVersions =
-            (StreamVaultDatabaseMigrationRegistry.CURRENT_VERSION - 1 downTo 3).toList() + 1
+            (STTITEN IP TVDatabaseMigrationRegistry.CURRENT_VERSION - 1 downTo 3).toList() + 1
 
         exportedHistoricalVersions.forEach { startVersion ->
             val databaseName = "streamvault-every-schema-$startVersion"
             migrationTestHelper.createDatabase(databaseName, startVersion).close()
-            val pathToCurrent = StreamVaultDatabaseMigrationRegistry.all
+            val pathToCurrent = STTITEN IP TVDatabaseMigrationRegistry.all
                 .filter { migration -> migration.startVersion >= startVersion }
 
             try {
                 migrationTestHelper.runMigrationsAndValidate(
                     databaseName,
-                    StreamVaultDatabaseMigrationRegistry.CURRENT_VERSION,
+                    STTITEN IP TVDatabaseMigrationRegistry.CURRENT_VERSION,
                     true,
                     *pathToCurrent.toTypedArray()
                 ).close()
@@ -84,7 +84,7 @@ class StreamVaultDatabaseMigrationTest {
             testDbName,
             10,
             true,
-            StreamVaultDatabase.MIGRATION_9_10
+            STTITEN IP TVDatabase.MIGRATION_9_10
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM channels_fts WHERE channels_fts MATCH 'news*'"))
@@ -118,49 +118,49 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-full-chain-test",
             42,
             true,
-            StreamVaultDatabase.MIGRATION_1_2,
-            StreamVaultDatabase.MIGRATION_2_3,
-            StreamVaultDatabase.MIGRATION_3_4,
-            StreamVaultDatabase.MIGRATION_4_5,
-            StreamVaultDatabase.MIGRATION_5_6,
-            StreamVaultDatabase.MIGRATION_6_7,
-            StreamVaultDatabase.MIGRATION_7_8,
-            StreamVaultDatabase.MIGRATION_8_9,
-            StreamVaultDatabase.MIGRATION_9_10,
-            StreamVaultDatabase.MIGRATION_10_11,
-            StreamVaultDatabase.MIGRATION_11_12,
-            StreamVaultDatabase.MIGRATION_12_13,
-            StreamVaultDatabase.MIGRATION_13_14,
-            StreamVaultDatabase.MIGRATION_14_15,
-            StreamVaultDatabase.MIGRATION_15_16,
-            StreamVaultDatabase.MIGRATION_16_17,
-            StreamVaultDatabase.MIGRATION_17_18,
-            StreamVaultDatabase.MIGRATION_18_19,
-            StreamVaultDatabase.MIGRATION_19_20,
-            StreamVaultDatabase.MIGRATION_20_21,
-            StreamVaultDatabase.MIGRATION_21_22,
-            StreamVaultDatabase.MIGRATION_22_23,
-            StreamVaultDatabase.MIGRATION_23_24,
-            StreamVaultDatabase.MIGRATION_24_25,
-            StreamVaultDatabase.MIGRATION_25_26,
-            StreamVaultDatabase.MIGRATION_26_27,
-            StreamVaultDatabase.MIGRATION_27_28,
-            StreamVaultDatabase.MIGRATION_28_29,
-            StreamVaultDatabase.MIGRATION_29_30,
-            StreamVaultDatabase.MIGRATION_30_31,
-            StreamVaultDatabase.MIGRATION_31_32,
-            StreamVaultDatabase.MIGRATION_32_33,
-            StreamVaultDatabase.MIGRATION_33_34,
-            StreamVaultDatabase.MIGRATION_34_35,
-            StreamVaultDatabase.MIGRATION_35_36,
-            StreamVaultDatabase.MIGRATION_36_37,
-            StreamVaultDatabase.MIGRATION_37_38,
-            StreamVaultDatabase.MIGRATION_38_39,
-            StreamVaultDatabase.MIGRATION_39_40,
-            StreamVaultDatabase.MIGRATION_40_41,
-            StreamVaultDatabase.MIGRATION_41_42,
-            StreamVaultDatabase.MIGRATION_42_43,
-            StreamVaultDatabase.MIGRATION_43_44
+            STTITEN IP TVDatabase.MIGRATION_1_2,
+            STTITEN IP TVDatabase.MIGRATION_2_3,
+            STTITEN IP TVDatabase.MIGRATION_3_4,
+            STTITEN IP TVDatabase.MIGRATION_4_5,
+            STTITEN IP TVDatabase.MIGRATION_5_6,
+            STTITEN IP TVDatabase.MIGRATION_6_7,
+            STTITEN IP TVDatabase.MIGRATION_7_8,
+            STTITEN IP TVDatabase.MIGRATION_8_9,
+            STTITEN IP TVDatabase.MIGRATION_9_10,
+            STTITEN IP TVDatabase.MIGRATION_10_11,
+            STTITEN IP TVDatabase.MIGRATION_11_12,
+            STTITEN IP TVDatabase.MIGRATION_12_13,
+            STTITEN IP TVDatabase.MIGRATION_13_14,
+            STTITEN IP TVDatabase.MIGRATION_14_15,
+            STTITEN IP TVDatabase.MIGRATION_15_16,
+            STTITEN IP TVDatabase.MIGRATION_16_17,
+            STTITEN IP TVDatabase.MIGRATION_17_18,
+            STTITEN IP TVDatabase.MIGRATION_18_19,
+            STTITEN IP TVDatabase.MIGRATION_19_20,
+            STTITEN IP TVDatabase.MIGRATION_20_21,
+            STTITEN IP TVDatabase.MIGRATION_21_22,
+            STTITEN IP TVDatabase.MIGRATION_22_23,
+            STTITEN IP TVDatabase.MIGRATION_23_24,
+            STTITEN IP TVDatabase.MIGRATION_24_25,
+            STTITEN IP TVDatabase.MIGRATION_25_26,
+            STTITEN IP TVDatabase.MIGRATION_26_27,
+            STTITEN IP TVDatabase.MIGRATION_27_28,
+            STTITEN IP TVDatabase.MIGRATION_28_29,
+            STTITEN IP TVDatabase.MIGRATION_29_30,
+            STTITEN IP TVDatabase.MIGRATION_30_31,
+            STTITEN IP TVDatabase.MIGRATION_31_32,
+            STTITEN IP TVDatabase.MIGRATION_32_33,
+            STTITEN IP TVDatabase.MIGRATION_33_34,
+            STTITEN IP TVDatabase.MIGRATION_34_35,
+            STTITEN IP TVDatabase.MIGRATION_35_36,
+            STTITEN IP TVDatabase.MIGRATION_36_37,
+            STTITEN IP TVDatabase.MIGRATION_37_38,
+            STTITEN IP TVDatabase.MIGRATION_38_39,
+            STTITEN IP TVDatabase.MIGRATION_39_40,
+            STTITEN IP TVDatabase.MIGRATION_40_41,
+            STTITEN IP TVDatabase.MIGRATION_41_42,
+            STTITEN IP TVDatabase.MIGRATION_42_43,
+            STTITEN IP TVDatabase.MIGRATION_43_44
         ).close()
     }
 
@@ -185,14 +185,14 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-public-master-44-51-test",
             52,
             true,
-            StreamVaultDatabase.MIGRATION_44_45,
-            StreamVaultDatabase.MIGRATION_45_46,
-            StreamVaultDatabase.MIGRATION_46_47,
-            StreamVaultDatabase.MIGRATION_47_48,
-            StreamVaultDatabase.MIGRATION_48_49,
-            StreamVaultDatabase.MIGRATION_49_50,
-            StreamVaultDatabase.MIGRATION_50_51,
-            StreamVaultDatabase.MIGRATION_51_52
+            STTITEN IP TVDatabase.MIGRATION_44_45,
+            STTITEN IP TVDatabase.MIGRATION_45_46,
+            STTITEN IP TVDatabase.MIGRATION_46_47,
+            STTITEN IP TVDatabase.MIGRATION_47_48,
+            STTITEN IP TVDatabase.MIGRATION_48_49,
+            STTITEN IP TVDatabase.MIGRATION_49_50,
+            STTITEN IP TVDatabase.MIGRATION_50_51,
+            STTITEN IP TVDatabase.MIGRATION_51_52
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM providers WHERE id = 1 AND name = 'Public Master Provider'"))
@@ -232,7 +232,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-48-49-test",
             49,
             true,
-            StreamVaultDatabase.MIGRATION_48_49
+            STTITEN IP TVDatabase.MIGRATION_48_49
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('providers') WHERE name = 'http_user_agent'"))
@@ -250,7 +250,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-49-50-test",
             50,
             true,
-            StreamVaultDatabase.MIGRATION_49_50
+            STTITEN IP TVDatabase.MIGRATION_49_50
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM sqlite_master WHERE type = 'table' AND name = 'xtream_live_onboarding_state'"))
@@ -268,7 +268,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-50-51-test",
             51,
             true,
-            StreamVaultDatabase.MIGRATION_50_51
+            STTITEN IP TVDatabase.MIGRATION_50_51
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('xtream_live_onboarding_state') WHERE name = 'sync_profile_tier'"))
@@ -289,7 +289,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-51-52-test",
             52,
             true,
-            StreamVaultDatabase.MIGRATION_51_52
+            STTITEN IP TVDatabase.MIGRATION_51_52
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('providers') WHERE name = 'xtream_live_sync_mode'"))
@@ -305,7 +305,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-52-53-test",
             53,
             true,
-            StreamVaultDatabase.MIGRATION_52_53
+            STTITEN IP TVDatabase.MIGRATION_52_53
         )
 
         val movieTable = "movie_category_hydration"
@@ -351,7 +351,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-53-54-test",
             54,
             true,
-            StreamVaultDatabase.MIGRATION_53_54
+            STTITEN IP TVDatabase.MIGRATION_53_54
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('providers') WHERE name = 'stalker_serial_number'"))
@@ -377,7 +377,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-40-41-test",
             41,
             true,
-            StreamVaultDatabase.MIGRATION_40_41
+            STTITEN IP TVDatabase.MIGRATION_40_41
         )
 
         assertEquals(
@@ -399,7 +399,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-41-42-test",
             42,
             true,
-            StreamVaultDatabase.MIGRATION_41_42
+            STTITEN IP TVDatabase.MIGRATION_41_42
         )
 
         assertEquals(
@@ -428,7 +428,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-42-43-test",
             43,
             true,
-            StreamVaultDatabase.MIGRATION_42_43
+            STTITEN IP TVDatabase.MIGRATION_42_43
         )
 
         assertEquals(
@@ -450,7 +450,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-43-44-test",
             44,
             true,
-            StreamVaultDatabase.MIGRATION_43_44
+            STTITEN IP TVDatabase.MIGRATION_43_44
         )
 
         listOf("movie_category_hydration", "series_category_hydration").forEach { table ->
@@ -489,7 +489,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-38-39-test",
             39,
             true,
-            StreamVaultDatabase.MIGRATION_38_39
+            STTITEN IP TVDatabase.MIGRATION_38_39
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('providers') WHERE name = 'stalker_mac_address'"))
@@ -551,7 +551,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-32-33-test",
             33,
             true,
-            StreamVaultDatabase.MIGRATION_32_33
+            STTITEN IP TVDatabase.MIGRATION_32_33
         )
 
         assertEquals(6, countRows(migratedDb, "SELECT watch_count FROM movies WHERE id = 10"))
@@ -599,7 +599,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-33-34-test",
             34,
             true,
-            StreamVaultDatabase.MIGRATION_33_34
+            STTITEN IP TVDatabase.MIGRATION_33_34
         )
 
         assertEquals(11, countRows(migratedDb, "SELECT last_live_success FROM sync_metadata WHERE provider_id = 1"))
@@ -649,7 +649,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-44-45-test",
             45,
             true,
-            StreamVaultDatabase.MIGRATION_44_45
+            STTITEN IP TVDatabase.MIGRATION_44_45
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM favorites WHERE provider_id = 1 AND content_id = 10 AND content_type = 'MOVIE' AND group_id IS NULL"))
@@ -698,7 +698,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-45-46-test",
             46,
             true,
-            StreamVaultDatabase.MIGRATION_45_46
+            STTITEN IP TVDatabase.MIGRATION_45_46
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('series_import_stage') WHERE name = 'provider_series_id'"))
@@ -716,7 +716,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-46-47-test",
             47,
             true,
-            StreamVaultDatabase.MIGRATION_46_47
+            STTITEN IP TVDatabase.MIGRATION_46_47
         )
 
         assertEquals(
@@ -925,7 +925,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-47-48-test",
             48,
             true,
-            StreamVaultDatabase.MIGRATION_47_48
+            STTITEN IP TVDatabase.MIGRATION_47_48
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM sqlite_master WHERE type = 'table' AND name = 'xtream_content_index'"))
@@ -960,7 +960,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-34-35-test",
             35,
             true,
-            StreamVaultDatabase.MIGRATION_34_35
+            STTITEN IP TVDatabase.MIGRATION_34_35
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('search_history') WHERE name = 'query'"))
@@ -1024,7 +1024,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-31-32-test",
             32,
             true,
-            StreamVaultDatabase.MIGRATION_31_32
+            STTITEN IP TVDatabase.MIGRATION_31_32
         )
 
         assertEquals(2, countRows(migratedDb, "SELECT COUNT(*) FROM virtual_groups WHERE name = 'Mixed Group'"))
@@ -1078,7 +1078,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-31-32-no-active-test",
             32,
             true,
-            StreamVaultDatabase.MIGRATION_31_32
+            STTITEN IP TVDatabase.MIGRATION_31_32
         )
 
         assertEquals(0, countRows(migratedDb, "SELECT COUNT(*) FROM virtual_groups WHERE provider_id = 0 OR provider_id IS NULL"))
@@ -1095,7 +1095,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-35-36-test",
             36,
             true,
-            StreamVaultDatabase.MIGRATION_35_36
+            STTITEN IP TVDatabase.MIGRATION_35_36
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('channel_epg_mappings') WHERE name = 'matched_at'"))
@@ -1148,7 +1148,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-36-37-test",
             37,
             true,
-            StreamVaultDatabase.MIGRATION_36_37
+            STTITEN IP TVDatabase.MIGRATION_36_37
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM sqlite_master WHERE type = 'table' AND name = 'tmdb_identity'"))
@@ -1184,7 +1184,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-14-15-test",
             15,
             true,
-            StreamVaultDatabase.MIGRATION_14_15
+            STTITEN IP TVDatabase.MIGRATION_14_15
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('providers') WHERE name = 'api_version'"))
@@ -1282,9 +1282,9 @@ class StreamVaultDatabaseMigrationTest {
 
             val migrated = migrationTestHelper.runMigrationsAndValidate(
                 name,
-                StreamVaultDatabaseMigrationRegistry.CURRENT_VERSION,
+                STTITEN IP TVDatabaseMigrationRegistry.CURRENT_VERSION,
                 true,
-                *StreamVaultDatabaseMigrationRegistry.all
+                *STTITEN IP TVDatabaseMigrationRegistry.all
                     .filter { migration -> migration.startVersion >= startVersion }
                     .toTypedArray()
             )
@@ -1315,7 +1315,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-59-60-test",
             60,
             true,
-            StreamVaultDatabase.MIGRATION_59_60
+            STTITEN IP TVDatabase.MIGRATION_59_60
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('downloads') WHERE name = 'source_stream_url'"))
@@ -1333,10 +1333,10 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-57-61-test",
             61,
             true,
-            StreamVaultDatabase.MIGRATION_57_58,
-            StreamVaultDatabase.MIGRATION_58_59,
-            StreamVaultDatabase.MIGRATION_59_60,
-            StreamVaultDatabase.MIGRATION_60_61
+            STTITEN IP TVDatabase.MIGRATION_57_58,
+            STTITEN IP TVDatabase.MIGRATION_58_59,
+            STTITEN IP TVDatabase.MIGRATION_59_60,
+            STTITEN IP TVDatabase.MIGRATION_60_61
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('downloads') WHERE name = 'source_stream_url'"))
@@ -1390,7 +1390,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-release-114-115-test",
             61,
             true,
-            StreamVaultDatabase.MIGRATION_60_61
+            STTITEN IP TVDatabase.MIGRATION_60_61
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('providers') WHERE name = 'stalker_advanced_options_json'"))
@@ -1413,7 +1413,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-60-61-test",
             61,
             true,
-            StreamVaultDatabase.MIGRATION_60_61
+            STTITEN IP TVDatabase.MIGRATION_60_61
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('providers') WHERE name = 'stalker_advanced_options_json'"))
@@ -1478,8 +1478,8 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-62-64-test",
             64,
             true,
-            StreamVaultDatabase.MIGRATION_62_63,
-            StreamVaultDatabase.MIGRATION_63_64
+            STTITEN IP TVDatabase.MIGRATION_62_63,
+            STTITEN IP TVDatabase.MIGRATION_63_64
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('providers') WHERE name = 'stalker_catalog_mode'"))
@@ -1544,7 +1544,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-64-65-test",
             65,
             true,
-            StreamVaultDatabase.MIGRATION_64_65
+            STTITEN IP TVDatabase.MIGRATION_64_65
         )
 
         assertEquals(1, countRows(migratedDb, "SELECT COUNT(*) FROM pragma_table_info('providers') WHERE name = 'stalker_transport_mode'"))
@@ -1579,7 +1579,7 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-65-66-test",
             66,
             true,
-            StreamVaultDatabase.MIGRATION_65_66
+            STTITEN IP TVDatabase.MIGRATION_65_66
         )
 
         assertEquals(
@@ -1663,16 +1663,16 @@ class StreamVaultDatabaseMigrationTest {
             "streamvault-62-72-combined-test",
             72,
             true,
-            StreamVaultDatabase.MIGRATION_62_63,
-            StreamVaultDatabase.MIGRATION_63_64,
-            StreamVaultDatabase.MIGRATION_64_65,
-            StreamVaultDatabase.MIGRATION_65_66,
-            StreamVaultDatabase.MIGRATION_66_67,
-            StreamVaultDatabase.MIGRATION_67_68,
-            StreamVaultDatabase.MIGRATION_68_69,
-            StreamVaultDatabase.MIGRATION_69_70,
-            StreamVaultDatabase.MIGRATION_70_71,
-            StreamVaultDatabase.MIGRATION_71_72
+            STTITEN IP TVDatabase.MIGRATION_62_63,
+            STTITEN IP TVDatabase.MIGRATION_63_64,
+            STTITEN IP TVDatabase.MIGRATION_64_65,
+            STTITEN IP TVDatabase.MIGRATION_65_66,
+            STTITEN IP TVDatabase.MIGRATION_66_67,
+            STTITEN IP TVDatabase.MIGRATION_67_68,
+            STTITEN IP TVDatabase.MIGRATION_68_69,
+            STTITEN IP TVDatabase.MIGRATION_69_70,
+            STTITEN IP TVDatabase.MIGRATION_70_71,
+            STTITEN IP TVDatabase.MIGRATION_71_72
         )
 
         listOf(
@@ -1717,7 +1717,7 @@ class StreamVaultDatabaseMigrationTest {
             name,
             73,
             true,
-            StreamVaultDatabase.MIGRATION_72_73
+            STTITEN IP TVDatabase.MIGRATION_72_73
         )
 
         assertEquals(4, countRows(migrated, "SELECT COUNT(*) FROM provider_configs"))
@@ -1746,7 +1746,7 @@ class StreamVaultDatabaseMigrationTest {
             name,
             73,
             true,
-            StreamVaultDatabase.MIGRATION_72_73
+            STTITEN IP TVDatabase.MIGRATION_72_73
         )
 
         assertEquals(2, countRows(migrated, "SELECT COUNT(*) FROM providers"))
@@ -1775,7 +1775,7 @@ class StreamVaultDatabaseMigrationTest {
             name,
             73,
             true,
-            StreamVaultDatabase.MIGRATION_72_73
+            STTITEN IP TVDatabase.MIGRATION_72_73
         )
 
         assertEquals(1, countRows(migrated, "SELECT COUNT(*) FROM providers WHERE id=1 AND type='XTREAM_CODES'"))
@@ -1808,8 +1808,8 @@ class StreamVaultDatabaseMigrationTest {
             name,
             74,
             true,
-            StreamVaultDatabase.MIGRATION_72_73,
-            StreamVaultDatabase.MIGRATION_73_74
+            STTITEN IP TVDatabase.MIGRATION_72_73,
+            STTITEN IP TVDatabase.MIGRATION_73_74
         )
 
         assertEquals(4, countRows(migrated, "SELECT COUNT(*) FROM providers"))
@@ -1934,9 +1934,9 @@ class StreamVaultDatabaseMigrationTest {
 
         val migrated = migrationTestHelper.runMigrationsAndValidate(
             name,
-            StreamVaultDatabaseMigrationRegistry.CURRENT_VERSION,
+            STTITEN IP TVDatabaseMigrationRegistry.CURRENT_VERSION,
             true,
-            *StreamVaultDatabaseMigrationRegistry.all
+            *STTITEN IP TVDatabaseMigrationRegistry.all
                 .filter { migration -> migration.startVersion >= 62 }
                 .toTypedArray()
         )
@@ -1968,7 +1968,7 @@ class StreamVaultDatabaseMigrationTest {
             name,
             77,
             true,
-            *StreamVaultDatabaseMigrationRegistry.all.toTypedArray()
+            *STTITEN IP TVDatabaseMigrationRegistry.all.toTypedArray()
         )
 
         assertEquals(1, countRows(migrated, "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='backup_restore_jobs'"))

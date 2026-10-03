@@ -289,11 +289,11 @@ class ProviderQrPairingManager @Inject constructor(
                 ProviderPairingSubmitResult.Error(result.message)
             is ValidateAndAddProviderResult.TransportConsentRequired ->
                 ProviderPairingSubmitResult.Error(
-                    "Open StreamVault on the TV to review this provider's connection warning."
+                    "Open STTITEN IP TV on the TV to review this provider's connection warning."
                 )
             is ValidateAndAddProviderResult.VerificationInconclusive ->
                 ProviderPairingSubmitResult.Error(
-                    "Open StreamVault on the TV to decide whether to save this provider with verification pending."
+                    "Open STTITEN IP TV on the TV to decide whether to save this provider with verification pending."
                 )
             is ValidateAndAddProviderResult.Error ->
                 ProviderPairingSubmitResult.Error(result.message)
@@ -419,7 +419,7 @@ class ProviderQrPairingManager @Inject constructor(
         <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>StreamVault Pairing</title>
+          <title>STTITEN IP TV Pairing</title>
           <style>
             body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#101820;color:#f8fafc;margin:0;padding:24px}
             main{max-width:560px;margin:0 auto;background:#172635;border:1px solid #2b4258;border-radius:22px;padding:22px;box-shadow:0 18px 60px rgba(0,0,0,.35)}
@@ -432,7 +432,7 @@ class ProviderQrPairingManager @Inject constructor(
         </head>
         <body>
         <main>
-          <h1>Add provider to StreamVault</h1>
+          <h1>Add provider to STTITEN IP TV</h1>
           <p>Enter details on your phone. They are sent directly to your TV over your local Wi-Fi only.</p>
           <form method="post" action="/submit">
             <input type="hidden" name="token" value="${token.escapeHtml()}">
@@ -484,7 +484,7 @@ class ProviderQrPairingManager @Inject constructor(
     private fun successPage(providerName: String): String = """
         <!doctype html><html><head><meta name="viewport" content="width=device-width, initial-scale=1">
         <style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#101820;color:#f8fafc;padding:28px}main{max-width:520px;margin:auto;background:#172635;border-radius:22px;padding:24px}h1{color:#32d6a0}</style>
-        </head><body><main><h1>Sent to TV</h1><p>${providerName.escapeHtml()} was added to StreamVault. You can close this page.</p></main></body></html>
+        </head><body><main><h1>Sent to TV</h1><p>${providerName.escapeHtml()} was added to STTITEN IP TV. You can close this page.</p></main></body></html>
     """.trimIndent()
 
     private fun errorPage(message: String): String = """

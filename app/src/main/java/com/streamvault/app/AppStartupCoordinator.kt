@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Build
 import android.os.Trace
 import android.util.Log
-import com.streamvault.app.plugins.StreamVaultPluginManager
+import com.streamvault.app.plugins.STTITEN IP TVPluginManager
 import com.streamvault.app.tv.LauncherRecommendationsManager
 import com.streamvault.app.tv.WatchNextManager
 import com.streamvault.data.manager.PendingBackupRestoreCoordinator
@@ -57,7 +57,7 @@ internal class AppStartupCoordinator internal constructor(
         @ApplicationContext context: Context,
         startupWorkRegistry: Provider<StartupWorkRegistry>,
         downloadManager: Provider<DownloadManager>,
-        streamVaultPluginManager: Provider<StreamVaultPluginManager>,
+        streamVaultPluginManager: Provider<STTITEN IP TVPluginManager>,
         programReminderManager: Provider<ProgramReminderManager>,
         providerSyncLifecycle: Provider<ProviderSyncLifecycle>,
         pendingBackupRestoreCoordinator: Provider<PendingBackupRestoreCoordinator>,

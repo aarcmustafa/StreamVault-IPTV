@@ -42,7 +42,7 @@
     </queries>
 
     <application
-        android:name=".StreamVaultApp"
+        android:name=".STTITEN IP TVApp"
         android:allowBackup="false"
         android:banner="@drawable/app_banner"
         android:icon="@mipmap/ic_launcher_vault"
@@ -51,7 +51,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:usesCleartextTraffic="false"
         android:supportsRtl="true"
-        android:theme="@style/Theme.StreamVault">
+        android:theme="@style/Theme.STTITEN IP TV">
 
         <activity
             android:name=".MainActivity"
@@ -127,25 +127,25 @@
             android:exported="false"
             android:excludeFromRecents="true"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.StreamVault.CastChooser" />
+            android:theme="@style/Theme.STTITEN IP TV.CastChooser" />
 
         <activity
             android:name=".tvinput.TvInputSetupActivity"
             android:exported="true"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.StreamVault" />
+            android:theme="@style/Theme.STTITEN IP TV" />
 
         <activity
             android:name=".diagnostics.ExternalPlayerProbeActivity"
             android:exported="false"
             android:excludeFromRecents="true"
-            android:theme="@style/Theme.StreamVault" />
+            android:theme="@style/Theme.STTITEN IP TV" />
 
         <service
-            android:name=".tvinput.StreamVaultTvInputService"
+            android:name=".tvinput.STTITEN IP TVTvInputService"
             android:exported="true"
-            android:label="StreamVault Live Channels"
+            android:label="STTITEN IP TV Live Channels"
             android:permission="android.permission.BIND_TV_INPUT">
 
             <intent-filter>
@@ -164,7 +164,7 @@
 
         <meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-            android:value="com.streamvault.app.cast.StreamVaultCastOptionsProvider" />
+            android:value="com.streamvault.app.cast.STTITEN IP TVCastOptionsProvider" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -1,6 +1,6 @@
 package com.streamvault.app.playback
 
-import com.streamvault.app.plugins.StreamVaultPluginManager
+import com.streamvault.app.plugins.STTITEN IP TVPluginManager
 import com.streamvault.app.tv.LauncherRecommendationsManager
 import com.streamvault.app.tv.WatchNextManager
 import com.streamvault.domain.model.PlaybackHistory
@@ -14,12 +14,12 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class StreamVaultPluginPlaybackServiceAdapter internal constructor(
-    private val operations: StreamVaultPluginPlaybackOperations
+class STTITEN IP TVPluginPlaybackServiceAdapter internal constructor(
+    private val operations: STTITEN IP TVPluginPlaybackOperations
 ) : PlaybackStreamPreparer, CastUrlRewriter {
     @Inject
-    constructor(pluginManager: StreamVaultPluginManager) : this(
-        StreamVaultPluginPlaybackManager(pluginManager)
+    constructor(pluginManager: STTITEN IP TVPluginManager) : this(
+        STTITEN IP TVPluginPlaybackManager(pluginManager)
     )
 
     override suspend fun prepare(streamInfo: StreamInfo): Result<StreamInfo> =
@@ -55,7 +55,7 @@ class AppPlaybackSurfaceRefreshAdapter internal constructor(
     }
 }
 
-internal interface StreamVaultPluginPlaybackOperations {
+internal interface STTITEN IP TVPluginPlaybackOperations {
     suspend fun preparePlaybackStreamInfo(streamInfo: StreamInfo): Result<StreamInfo>
 
     suspend fun rewriteCastUrl(request: CastMediaRequest): String?
@@ -71,9 +71,9 @@ internal interface LauncherRecommendationsOperations {
     suspend fun refreshRecommendations()
 }
 
-private class StreamVaultPluginPlaybackManager(
-    private val pluginManager: StreamVaultPluginManager
-) : StreamVaultPluginPlaybackOperations {
+private class STTITEN IP TVPluginPlaybackManager(
+    private val pluginManager: STTITEN IP TVPluginManager
+) : STTITEN IP TVPluginPlaybackOperations {
     override suspend fun preparePlaybackStreamInfo(streamInfo: StreamInfo): Result<StreamInfo> =
         pluginManager.preparePlaybackStreamInfo(streamInfo)
 

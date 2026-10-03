@@ -54,7 +54,7 @@ The move unit has 140 distinct project imports. App implementation imports are:
 com.streamvault.app.R
 com.streamvault.app.device.rememberIsTelevisionDevice
 com.streamvault.app.navigation.Routes
-com.streamvault.app.plugins.StreamVaultPluginManager
+com.streamvault.app.plugins.STTITEN IP TVPluginManager
 com.streamvault.app.tvinput.TvInputChannelSyncManager
 com.streamvault.app.ui.components.*
 com.streamvault.app.ui.components.dialogs.*
@@ -71,7 +71,7 @@ Direct implementation dependencies that need an ownership seam are:
 |---|---|---|
 | `PreferencesRepository` | Home/EPG preference flows and preview engine configuration | Retain as temporary ledgered `:data` dependency |
 | `ProviderSyncStateSource` | Home provider-sync state | Retain as temporary ledgered `:data` dependency |
-| `StreamVaultPluginManager` | Preview stream preparation | `LivePreviewStreamPreparer` port + app adapter |
+| `STTITEN IP TVPluginManager` | Preview stream preparation | `LivePreviewStreamPreparer` port + app adapter |
 | `TvInputChannelSyncManager` | TV-input refresh after Home data refresh | `LiveSurfaceRefreshPort` + app adapter |
 | `LivePreviewHandoffManager` | Fullscreen/reverse preview handoff | `LivePreviewHandoffPort` + app adapter |
 | `MultiViewManager` | Home slot count/capacity | `LiveMultiViewStatusPort` + app adapter |

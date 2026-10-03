@@ -185,7 +185,7 @@ class ValidateAndAddProviderTest {
                         username = "alice",
                         password = "normalized-secret",
                         name = "Premium",
-                        httpUserAgent = "StreamVaultTest/1.0",
+                        httpUserAgent = "STTITEN IP TVTest/1.0",
                         httpHeaders = "Referer: https://example.com"
                     )
                 )
@@ -199,7 +199,7 @@ class ValidateAndAddProviderTest {
                 username = " alice ",
                 password = "secret\u0000",
                 name = " Premium ",
-                httpUserAgent = " StreamVaultTest/1.0 ",
+                httpUserAgent = " STTITEN IP TVTest/1.0 ",
                 httpHeaders = " Referer: https://example.com ",
                 xtreamFastSyncEnabled = true,
                 epgSyncMode = ProviderEpgSyncMode.BACKGROUND,
@@ -214,7 +214,7 @@ class ValidateAndAddProviderTest {
                 username = "alice",
                 password = "normalized-secret",
                 name = "Premium",
-                httpUserAgent = "StreamVaultTest/1.0",
+                httpUserAgent = "STTITEN IP TVTest/1.0",
                 httpHeaders = "Referer: https://example.com",
                 xtreamFastSyncEnabled = true,
                 epgSyncMode = ProviderEpgSyncMode.BACKGROUND,

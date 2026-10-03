@@ -11,14 +11,14 @@ import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.core.ui.theme.StreamVaultTheme
-import com.streamvault.feature.system.api.InstalledStreamVaultPlugin
+import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
 import com.streamvault.feature.system.api.PluginConfigurationAction
 import com.streamvault.feature.system.api.PluginConfigurationField
 import com.streamvault.feature.system.api.PluginConfigurationSchema
 import com.streamvault.feature.system.api.PluginConfigurationSection
-import com.streamvault.feature.system.api.StreamVaultPluginContract
-import com.streamvault.feature.system.api.StreamVaultPluginManifest
+import com.streamvault.feature.system.api.STTITEN IP TVPluginContract
+import com.streamvault.feature.system.api.STTITEN IP TVPluginManifest
 import com.streamvault.feature.system.api.SystemScaffoldContent
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
@@ -38,7 +38,7 @@ class PluginsPresentationTest {
         var refreshClicks = 0
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 PluginsContent(
                     uiState = PluginsUiState(isLoading = false),
                     scaffold = testScaffold,
@@ -51,7 +51,7 @@ class PluginsPresentationTest {
             }
         }
 
-        composeRule.onNodeWithText("No compatible StreamVault plugins are installed.")
+        composeRule.onNodeWithText("No compatible STTITEN IP TV plugins are installed.")
             .assertIsDisplayed()
         composeRule.onNode(hasText("Install URL") and hasClickAction())
             .performSemanticsAction(SemanticsActions.OnClick)
@@ -72,7 +72,7 @@ class PluginsPresentationTest {
         val plugin = pluginFixture()
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 PluginsContent(
                     uiState = PluginsUiState(isLoading = false, plugins = listOf(plugin)),
                     scaffold = testScaffold,
@@ -135,7 +135,7 @@ class PluginsPresentationTest {
         )
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 PluginsContent(
                     uiState = PluginsUiState(configuration = configuration),
                     scaffold = testScaffold,
@@ -165,8 +165,8 @@ class PluginsPresentationTest {
 
     private fun noOpActions(
         onRefreshPlugins: () -> Unit = {},
-        onSetPluginEnabled: (InstalledStreamVaultPlugin, Boolean) -> Unit = { _, _ -> },
-        onOpenPluginConfiguration: (InstalledStreamVaultPlugin) -> Unit = {},
+        onSetPluginEnabled: (InstalledSTTITEN IP TVPlugin, Boolean) -> Unit = { _, _ -> },
+        onOpenPluginConfiguration: (InstalledSTTITEN IP TVPlugin) -> Unit = {},
         onSavePluginConfiguration: () -> Unit = {},
     ) = PluginsActions(
         onUpdateInstallUrl = {},
@@ -183,15 +183,15 @@ class PluginsPresentationTest {
         onClearMessage = {},
     )
 
-    private fun pluginFixture() = InstalledStreamVaultPlugin(
+    private fun pluginFixture() = InstalledSTTITEN IP TVPlugin(
         packageName = "com.example.plugin",
         serviceClassName = "com.example.PluginService",
         appLabel = "Example plugin",
-        manifest = StreamVaultPluginManifest(
+        manifest = STTITEN IP TVPluginManifest(
             id = "example",
             name = "Example plugin",
-            capabilities = listOf(StreamVaultPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
-            configurationMode = StreamVaultPluginContract.CONFIGURATION_MODE_HOST_SCHEMA,
+            capabilities = listOf(STTITEN IP TVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA),
+            configurationMode = STTITEN IP TVPluginContract.CONFIGURATION_MODE_HOST_SCHEMA,
         ),
         enabled = false,
     )

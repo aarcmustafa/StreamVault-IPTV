@@ -2,7 +2,7 @@ package com.streamvault.data.repository
 
 import androidx.room.Room
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.data.local.StreamVaultDatabase
+import com.streamvault.data.local.STTITEN IP TVDatabase
 import com.streamvault.data.local.entity.CategoryEntity
 import com.streamvault.data.local.entity.ChannelEntity
 import com.streamvault.data.local.entity.FavoriteEntity
@@ -24,14 +24,14 @@ import org.robolectric.RuntimeEnvironment
 @RunWith(RobolectricTestRunner::class)
 class M3uClassificationRepositoryTest {
 
-    private lateinit var database: StreamVaultDatabase
+    private lateinit var database: STTITEN IP TVDatabase
     private lateinit var repository: M3uClassificationRepositoryImpl
 
     @Before
     fun setUp() {
         database = Room.inMemoryDatabaseBuilder(
             RuntimeEnvironment.getApplication(),
-            StreamVaultDatabase::class.java
+            STTITEN IP TVDatabase::class.java
         ).allowMainThreadQueries().build()
         runBlocking {
             database.providerDao().insert(

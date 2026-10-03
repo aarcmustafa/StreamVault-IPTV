@@ -273,7 +273,7 @@ class TvInputChannelSyncManager @Inject constructor(
         applyBatches(operations, "channel deletions")
     }
 
-    private fun inputId(): String = ComponentName(context, StreamVaultTvInputService::class.java).flattenToShortString()
+    private fun inputId(): String = ComponentName(context, STTITEN IP TVTvInputService::class.java).flattenToShortString()
 
     private fun encodeChannelData(providerId: Long, channel: Channel): String =
         listOf(

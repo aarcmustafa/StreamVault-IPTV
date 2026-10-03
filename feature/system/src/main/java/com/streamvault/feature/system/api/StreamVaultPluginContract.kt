@@ -1,6 +1,6 @@
 package com.streamvault.feature.system.api
 
-object StreamVaultPluginContract {
+object STTITEN IP TVPluginContract {
     const val API_VERSION = 1
 
     const val ACTION_PLUGIN_SERVICE = "com.streamvault.plugin.API"

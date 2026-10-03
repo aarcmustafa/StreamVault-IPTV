@@ -18,7 +18,7 @@ import com.streamvault.core.ui.design.LocalAppSpacing
 import com.streamvault.core.ui.design.rememberAppTypography
 
 @Composable
-fun StreamVaultTheme(
+fun STTITEN IP TVTheme(
     themeId: String = AppPalette.CLASSIC_BLUE_ID,
     content: @Composable () -> Unit
 ) {

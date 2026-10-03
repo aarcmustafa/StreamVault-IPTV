@@ -18,7 +18,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class ProviderWorkflowIntegrationTest {
     private val context: Context = InstrumentationRegistry.getInstrumentation().targetContext
-    private var database: StreamVaultDatabase? = null
+    private var database: STTITEN IP TVDatabase? = null
 
     @Before
     fun setUp() {
@@ -167,10 +167,10 @@ class ProviderWorkflowIntegrationTest {
             .isEqualTo(ProviderWorkflowReason.CONFIG_CHANGE)
     }
 
-    private fun openDatabase(): StreamVaultDatabase {
+    private fun openDatabase(): STTITEN IP TVDatabase {
         return Room.databaseBuilder(
             context,
-            StreamVaultDatabase::class.java,
+            STTITEN IP TVDatabase::class.java,
             DATABASE_NAME
         ).allowMainThreadQueries().build().also { database = it }
     }

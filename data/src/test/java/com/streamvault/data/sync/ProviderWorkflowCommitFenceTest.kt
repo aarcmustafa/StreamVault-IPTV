@@ -4,7 +4,7 @@ import androidx.room.Room
 import com.google.common.truth.Truth.assertThat
 import com.streamvault.data.local.DatabaseTransactionRunner
 import com.streamvault.data.local.RoomDatabaseTransactionRunner
-import com.streamvault.data.local.StreamVaultDatabase
+import com.streamvault.data.local.STTITEN IP TVDatabase
 import com.streamvault.data.local.entity.ChannelEntity
 import com.streamvault.data.local.entity.ProviderEntity
 import com.streamvault.data.local.entity.ProviderWorkflowPhase
@@ -22,13 +22,13 @@ import org.robolectric.RuntimeEnvironment
 
 @RunWith(RobolectricTestRunner::class)
 class ProviderWorkflowCommitFenceTest {
-    private lateinit var database: StreamVaultDatabase
+    private lateinit var database: STTITEN IP TVDatabase
 
     @Before
     fun setUp() {
         database = Room.inMemoryDatabaseBuilder(
             RuntimeEnvironment.getApplication(),
-            StreamVaultDatabase::class.java
+            STTITEN IP TVDatabase::class.java
         ).allowMainThreadQueries().build()
     }
 

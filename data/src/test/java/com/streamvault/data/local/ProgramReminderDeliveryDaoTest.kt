@@ -19,13 +19,13 @@ import org.robolectric.RuntimeEnvironment
 @RunWith(RobolectricTestRunner::class)
 class ProgramReminderDeliveryDaoTest {
 
-    private lateinit var database: StreamVaultDatabase
+    private lateinit var database: STTITEN IP TVDatabase
 
     @Before
     fun setUp() {
         database = Room.inMemoryDatabaseBuilder(
             RuntimeEnvironment.getApplication(),
-            StreamVaultDatabase::class.java
+            STTITEN IP TVDatabase::class.java
         ).allowMainThreadQueries().build()
         database.openHelper.writableDatabase.execSQL("PRAGMA foreign_keys = OFF")
     }

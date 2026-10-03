@@ -2,7 +2,7 @@ package com.streamvault.data.sync
 
 import android.util.Log
 import androidx.annotation.WorkerThread
-import com.streamvault.data.local.StreamVaultDatabase
+import com.streamvault.data.local.STTITEN IP TVDatabase
 import com.streamvault.data.local.dao.ChannelDao
 import com.streamvault.data.local.dao.EpgProgrammeDao
 import com.streamvault.data.local.dao.EpisodeDao
@@ -26,7 +26,7 @@ internal fun calculateProgramRetentionMillis(catchUpDays: Int): Long =
 
 @Singleton
 class DatabaseMaintenanceManager @Inject constructor(
-    private val database: StreamVaultDatabase,
+    private val database: STTITEN IP TVDatabase,
     private val channelDao: ChannelDao,
     private val programDao: ProgramDao,
     private val epgProgrammeDao: EpgProgrammeDao,

@@ -1,6 +1,6 @@
 package com.streamvault.app.live
 
-import com.streamvault.app.plugins.StreamVaultPluginManager
+import com.streamvault.app.plugins.STTITEN IP TVPluginManager
 import com.streamvault.app.tvinput.TvInputChannelSyncManager
 import com.streamvault.data.preferences.PreferencesRepository
 import com.streamvault.domain.model.Channel
@@ -28,7 +28,7 @@ class AppLivePreviewStreamPreparer internal constructor(
     private val delegate: LivePreviewStreamPreparationDelegate,
 ) : LivePreviewStreamPreparer {
     @Inject
-    constructor(pluginManager: StreamVaultPluginManager) : this(
+    constructor(pluginManager: STTITEN IP TVPluginManager) : this(
         LivePreviewStreamPreparationDelegate(pluginManager::preparePlaybackStreamInfo),
     )
 

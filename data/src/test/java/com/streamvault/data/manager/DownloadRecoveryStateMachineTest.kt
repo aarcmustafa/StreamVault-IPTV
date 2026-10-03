@@ -101,13 +101,13 @@ class DownloadRecoveryStateMachineTest {
         val request = buildDownloadHttpRequest(
             url = "https://example.com/movie.mp4",
             headers = mapOf("Authorization" to "Bearer refreshed"),
-            userAgent = "StreamVault Test",
+            userAgent = "STTITEN IP TV Test",
             resumeFrom = 512L
         )
 
         assertThat(request.header("Range")).isEqualTo("bytes=512-")
         assertThat(request.header("Authorization")).isEqualTo("Bearer refreshed")
-        assertThat(request.header("User-Agent")).isEqualTo("StreamVault Test")
+        assertThat(request.header("User-Agent")).isEqualTo("STTITEN IP TV Test")
     }
 
     @Test

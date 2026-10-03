@@ -62,7 +62,7 @@ The focused `dashboardVerticalScroll` benchmark was rerun against the same API
 
 ```text
 ./gradlew.bat :benchmark:connectedBenchmarkBenchmarkAndroidTest `
-  '-Pandroid.testInstrumentationRunnerArguments.class=com.streamvault.benchmark.StreamVaultMacrobenchmark#dashboardVerticalScroll' `
+  '-Pandroid.testInstrumentationRunnerArguments.class=com.streamvault.benchmark.STTITEN IP TVMacrobenchmark#dashboardVerticalScroll' `
   --no-daemon --console=plain --warning-mode=none
 ```
 

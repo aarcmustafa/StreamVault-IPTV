@@ -107,7 +107,7 @@ class SettingsAppUpdateModelsTest {
     fun downloadedLatestShowsInstallAction() {
         val update = AppUpdateUiModel(
             latestVersionName = "1.0.12",
-            downloadUrl = "https://example.com/StreamVault.apk",
+            downloadUrl = "https://example.com/STTITEN IP TV.apk",
             isUpdateAvailable = true,
             downloadStatus = SettingsUpdateDownloadStatus.DOWNLOADED,
             downloadedVersionName = "1.0.12"
@@ -120,7 +120,7 @@ class SettingsAppUpdateModelsTest {
     fun staleDownloadedUpdateShowsDownloadAction() {
         val update = AppUpdateUiModel(
             latestVersionName = "1.0.13",
-            downloadUrl = "https://example.com/StreamVault.apk",
+            downloadUrl = "https://example.com/STTITEN IP TV.apk",
             isUpdateAvailable = true,
             downloadStatus = SettingsUpdateDownloadStatus.DOWNLOADED,
             downloadedVersionName = "1.0.12"
@@ -133,7 +133,7 @@ class SettingsAppUpdateModelsTest {
     fun downloadedLatestWithMissingInstallPermissionShowsPermissionAction() {
         val update = AppUpdateUiModel(
             latestVersionName = "1.0.12",
-            downloadUrl = "https://example.com/StreamVault.apk",
+            downloadUrl = "https://example.com/STTITEN IP TV.apk",
             isUpdateAvailable = true,
             downloadStatus = SettingsUpdateDownloadStatus.DOWNLOADED,
             downloadedVersionName = "1.0.12",
@@ -147,7 +147,7 @@ class SettingsAppUpdateModelsTest {
     fun downloadingLatestShowsDownloadingAction() {
         val update = AppUpdateUiModel(
             latestVersionName = "1.0.12",
-            downloadUrl = "https://example.com/StreamVault.apk",
+            downloadUrl = "https://example.com/STTITEN IP TV.apk",
             isUpdateAvailable = true,
             downloadStatus = SettingsUpdateDownloadStatus.DOWNLOADING,
             downloadedVersionName = "1.0.12"

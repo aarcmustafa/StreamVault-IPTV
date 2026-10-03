@@ -3,7 +3,7 @@ package com.streamvault.data.sync
 import androidx.room.Room
 import com.google.common.truth.Truth.assertThat
 import com.google.common.truth.Truth.assertWithMessage
-import com.streamvault.data.local.StreamVaultDatabase
+import com.streamvault.data.local.STTITEN IP TVDatabase
 import com.streamvault.data.local.entity.ProviderEntity
 import com.streamvault.data.local.entity.ProviderWorkflowPhase
 import com.streamvault.data.local.entity.ProviderWorkflowPhaseState
@@ -30,14 +30,14 @@ import org.robolectric.RuntimeEnvironment
 
 @RunWith(RobolectricTestRunner::class)
 class ProviderWorkflowRunnerTest {
-    private lateinit var database: StreamVaultDatabase
+    private lateinit var database: STTITEN IP TVDatabase
     private lateinit var runner: ProviderWorkflowRunner
 
     @Before
     fun setUp() {
         database = Room.inMemoryDatabaseBuilder(
             RuntimeEnvironment.getApplication(),
-            StreamVaultDatabase::class.java
+            STTITEN IP TVDatabase::class.java
         ).allowMainThreadQueries().build()
         runner = ProviderWorkflowRunner(database.providerWorkflowDao())
     }

@@ -1,9 +1,9 @@
 package com.streamvault.app.plugins
 
 import com.google.common.truth.Truth.assertThat
-import com.streamvault.feature.system.api.InstalledStreamVaultPlugin
-import com.streamvault.feature.system.api.StreamVaultPluginContract
-import com.streamvault.feature.system.api.StreamVaultPluginManifest
+import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
+import com.streamvault.feature.system.api.STTITEN IP TVPluginContract
+import com.streamvault.feature.system.api.STTITEN IP TVPluginManifest
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -23,7 +23,7 @@ class PluginPlaybackRoutingTest {
         val candidates = playbackCandidates(
             listOf(generic, wrongHost, legacyUnscoped, matching),
             "https://video.example/live.m3u8",
-            StreamVaultPluginContract.CAPABILITY_PLAYBACK_PREPARE
+            STTITEN IP TVPluginContract.CAPABILITY_PLAYBACK_PREPARE
         )
 
         assertThat(candidates.map { it.manifest.id }).containsExactly("match", "generic").inOrder()
@@ -33,8 +33,8 @@ class PluginPlaybackRoutingTest {
     fun `invalid or unowned URLs have no playback handler`() {
         val plugin = plugin("scoped", schemes = listOf("https"), hosts = listOf("video.example"))
 
-        assertThat(playbackCandidates(listOf(plugin), "not a url", StreamVaultPluginContract.CAPABILITY_PLAYBACK_PREPARE)).isEmpty()
-        assertThat(playbackCandidates(listOf(plugin), "https://other.example/live", StreamVaultPluginContract.CAPABILITY_PLAYBACK_PREPARE)).isEmpty()
+        assertThat(playbackCandidates(listOf(plugin), "not a url", STTITEN IP TVPluginContract.CAPABILITY_PLAYBACK_PREPARE)).isEmpty()
+        assertThat(playbackCandidates(listOf(plugin), "https://other.example/live", STTITEN IP TVPluginContract.CAPABILITY_PLAYBACK_PREPARE)).isEmpty()
     }
 
     @Test
@@ -55,14 +55,14 @@ class PluginPlaybackRoutingTest {
         schemes: List<String> = emptyList(),
         hosts: List<String> = emptyList(),
         priority: Int = 0
-    ) = InstalledStreamVaultPlugin(
+    ) = InstalledSTTITEN IP TVPlugin(
         packageName = "com.example.$id",
         serviceClassName = "$id.Service",
         appLabel = id,
-        manifest = StreamVaultPluginManifest(
+        manifest = STTITEN IP TVPluginManifest(
             id = id,
             name = id,
-            capabilities = listOf(StreamVaultPluginContract.CAPABILITY_PLAYBACK_PREPARE),
+            capabilities = listOf(STTITEN IP TVPluginContract.CAPABILITY_PLAYBACK_PREPARE),
             playbackUrlSchemes = schemes,
             playbackUrlHosts = hosts,
             playbackPriority = priority

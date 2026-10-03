@@ -27,7 +27,7 @@ class ProviderActivePersistenceTest {
     private lateinit var context: Context
     private lateinit var databaseDirectory: File
     private lateinit var databaseFile: File
-    private lateinit var database: StreamVaultDatabase
+    private lateinit var database: STTITEN IP TVDatabase
 
     @Before
     fun setUp() {
@@ -63,9 +63,9 @@ class ProviderActivePersistenceTest {
         assertThat(reopenedDao.getActive().first()?.id).isEqualTo(3L)
     }
 
-    private fun openDatabase(): StreamVaultDatabase = Room.databaseBuilder(
+    private fun openDatabase(): STTITEN IP TVDatabase = Room.databaseBuilder(
         context,
-        StreamVaultDatabase::class.java,
+        STTITEN IP TVDatabase::class.java,
         databaseName
     )
         .setJournalMode(RoomDatabase.JournalMode.TRUNCATE)

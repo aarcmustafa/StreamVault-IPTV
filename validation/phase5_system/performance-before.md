@@ -11,7 +11,7 @@ Captured: 2026-09-04 on `feature/improveCompose`, rollback SHA
 - The first source run refreshed configuration state; subsequent runs reused
   configuration cache. Each run followed a reversible one-blank-line edit in
   the named source and the file was restored before the next run.
-- `WelcomeScreen.kt` and `StreamVaultPluginOwnerTest.kt` have the same Git blob
+- `WelcomeScreen.kt` and `STTITEN IP TVPluginOwnerTest.kt` have the same Git blob
   hashes as `HEAD` after restoration (`fc8ea1e6...` and `62933d46...`).
 - The focused pre-baseline build completed successfully in 3m 30s before these
   samples; its detailed task result is in `task0-inventory.md`.

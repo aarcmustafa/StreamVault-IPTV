@@ -17,7 +17,7 @@ class PlayerCatchUpActionsTest {
             url = "https://provider.example/archive.ts",
             title = null,
             headers = mapOf("Authorization" to "Bearer token"),
-            userAgent = "StreamVaultTest",
+            userAgent = "STTITEN IP TVTest",
             streamType = StreamType.HLS,
             containerExtension = "m3u8",
             expirationTime = 123_456L
@@ -38,7 +38,7 @@ class PlayerCatchUpActionsTest {
         assertThat(requestedContentType).isEqualTo(ContentType.LIVE)
         assertThat(result).isEqualTo(resolved.copy(title = "Replay title"))
         assertThat(result?.headers).containsEntry("Authorization", "Bearer token")
-        assertThat(result?.userAgent).isEqualTo("StreamVaultTest")
+        assertThat(result?.userAgent).isEqualTo("STTITEN IP TVTest")
         assertThat(result?.expirationTime).isEqualTo(123_456L)
     }
 }

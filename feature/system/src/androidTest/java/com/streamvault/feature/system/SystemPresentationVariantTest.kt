@@ -18,8 +18,8 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.tv.material3.MaterialTheme
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.streamvault.core.ui.theme.StreamVaultTheme
-import com.streamvault.feature.system.api.InstalledStreamVaultPlugin
+import com.streamvault.core.ui.theme.STTITEN IP TVTheme
+import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
 import com.streamvault.feature.system.api.SystemScaffoldContent
 import com.streamvault.feature.system.presentation.downloads.DownloadsContent
 import com.streamvault.feature.system.presentation.downloads.DownloadsUiState
@@ -43,7 +43,7 @@ class SystemPresentationVariantTest {
                 LocalLayoutDirection provides LayoutDirection.Rtl,
                 LocalDensity provides Density(density = 1f, fontScale = 1.3f),
             ) {
-                StreamVaultTheme {
+                STTITEN IP TVTheme {
                     MaterialTheme {
                         WelcomeContent(
                             hasProviders = false,
@@ -72,7 +72,7 @@ class SystemPresentationVariantTest {
                 LocalLayoutDirection provides LayoutDirection.Rtl,
                 LocalDensity provides Density(density = 1f, fontScale = 1.3f),
             ) {
-                StreamVaultTheme {
+                STTITEN IP TVTheme {
                     MaterialTheme {
                         Column(modifier = Modifier.fillMaxSize()) {
                             DownloadsContent(
@@ -105,7 +105,7 @@ class SystemPresentationVariantTest {
                 LocalLayoutDirection provides LayoutDirection.Rtl,
                 LocalDensity provides Density(density = 1f, fontScale = 1.3f),
             ) {
-                StreamVaultTheme {
+                STTITEN IP TVTheme {
                     MaterialTheme {
                         PluginsContent(
                             uiState = com.streamvault.feature.system.presentation.plugins.PluginsUiState(
@@ -123,7 +123,7 @@ class SystemPresentationVariantTest {
             }
         }
 
-        composeRule.onNodeWithText("No compatible StreamVault plugins are installed.")
+        composeRule.onNodeWithText("No compatible STTITEN IP TV plugins are installed.")
             .assertIsDisplayed()
         composeRule.onNode(hasText("Refresh") and hasClickAction())
             .assertIsDisplayed()
@@ -139,7 +139,7 @@ class SystemPresentationVariantTest {
         onInstallFromLocalUri = {},
         onInstallFromUrl = {},
         onRefreshPlugins = {},
-        onSetPluginEnabled = { _: InstalledStreamVaultPlugin, _: Boolean -> },
+        onSetPluginEnabled = { _: InstalledSTTITEN IP TVPlugin, _: Boolean -> },
         onOpenPluginConfiguration = {},
         onClosePluginConfiguration = {},
         onRefreshPluginConfiguration = {},

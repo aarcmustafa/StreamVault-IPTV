@@ -1,7 +1,7 @@
 package com.streamvault.app.plugins
 
-import com.streamvault.feature.system.api.InstalledStreamVaultPlugin
-import com.streamvault.feature.system.api.StreamVaultPluginManifest
+import com.streamvault.feature.system.api.InstalledSTTITEN IP TVPlugin
+import com.streamvault.feature.system.api.STTITEN IP TVPluginManifest
 import java.net.URI
 import kotlinx.coroutines.withTimeoutOrNull
 
@@ -15,10 +15,10 @@ internal suspend fun <T> withPluginPlaybackDeadline(
  * deliberately not a wildcard: old generic handlers must not capture traffic.
  */
 internal fun playbackCandidates(
-    plugins: List<InstalledStreamVaultPlugin>,
+    plugins: List<InstalledSTTITEN IP TVPlugin>,
     url: String,
     capability: String
-): List<InstalledStreamVaultPlugin> {
+): List<InstalledSTTITEN IP TVPlugin> {
     val parsed = runCatching { URI(url) }.getOrNull() ?: return emptyList()
     val scheme = parsed.scheme?.lowercase() ?: return emptyList()
     val host = parsed.host?.lowercase()
@@ -26,7 +26,7 @@ internal fun playbackCandidates(
         .filter { it.enabled && it.manifest.hasCapability(capability) }
         .filter { plugin -> plugin.manifest.ownsPlaybackUrl(scheme, host) }
         .sortedWith(
-            compareByDescending<InstalledStreamVaultPlugin> { it.manifest.playbackPriority }
+            compareByDescending<InstalledSTTITEN IP TVPlugin> { it.manifest.playbackPriority }
                 .thenBy { it.packageName }
                 .thenBy { it.serviceClassName }
                 .thenBy { it.manifest.id }
@@ -34,7 +34,7 @@ internal fun playbackCandidates(
         .toList()
 }
 
-private fun StreamVaultPluginManifest.ownsPlaybackUrl(scheme: String, host: String?): Boolean {
+private fun STTITEN IP TVPluginManifest.ownsPlaybackUrl(scheme: String, host: String?): Boolean {
     val schemeOwned = playbackUrlSchemes.any { it.equals("*", true) || it.equals(scheme, true) }
     if (!schemeOwned) return false
     // Hostless schemes (for example, a custom URI) can be owned by scheme alone.

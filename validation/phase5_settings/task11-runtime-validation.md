@@ -227,9 +227,9 @@ Safe journeys completed:
 - Opened Enter New PIN without entering or changing a PIN. The existing PIN
   state was preserved.
 - Opened Manage local backups; the UI correctly reported no
-  StreamVault-created local backups. Import Data was also opened safely and
-  reported: `No local StreamVault backups found. Export one first or open a
-  backup file with StreamVault.` No restore or destructive operation was run.
+  STTITEN IP TV-created local backups. Import Data was also opened safely and
+  reported: `No local STTITEN IP TV backups found. Export one first or open a
+  backup file with STTITEN IP TV.` No restore or destructive operation was run.
 - Opened EPG Sources; the UI reported no external EPG sources configured.
 - Opened the About update screen; before the fix, the first Check now action
   reproduced the crash below. After reinstalling the patched build without
@@ -308,7 +308,7 @@ restored. Export Data stayed within the TV-safe picker-free path and surfaced
 the exact message:
 
 ```text
-Backup saved locally. On supported TVs it is in Downloads/StreamVault; open it with a file manager.
+Backup saved locally. On supported TVs it is in Downloads/STTITEN IP TV; open it with a file manager.
 ```
 
 Manage local backups subsequently listed these generated entries. Delete and

@@ -89,9 +89,9 @@ All notable product changes are recorded in this document.
 
 ### Added
 
-- Added picker-free Android TV local backup export and restore, publishing exports to `Downloads/StreamVault` when available and falling back to app-managed storage when a system document picker is unavailable.
+- Added picker-free Android TV local backup export and restore, publishing exports to `Downloads/STTITEN IP TV` when available and falling back to app-managed storage when a system document picker is unavailable.
 - Added provider credential snapshots to new local backup exports so restored providers can sync without manual password re-entry.
-- Added local backup management with confirmation-based deletion for StreamVault-created Downloads, app-private, registered SAF, and supported Fire TV USB exports.
+- Added local backup management with confirmation-based deletion for STTITEN IP TV-created Downloads, app-private, registered SAF, and supported Fire TV USB exports.
 - Added timestamped Google Drive backup bundles containing the exact exported JSON and its matching provider credentials, with newest-first snapshot selection, ten-backup retention, and compatibility with legacy Drive backup formats.
 - Added Google Drive snapshot management and deletion in Settings, plus multi-snapshot selection in both Settings and provider onboarding before the normal import preview.
 - Added portable provider and catalog identities for favorites and playback history, including series and episode relationships, so restores can resolve records after local database IDs change.
@@ -330,7 +330,7 @@ All notable product changes are recorded in this document.
 
 ### Changed
 
-- Refreshed the Plugins screen with denser StreamVault-styled controls and a dedicated icon.
+- Refreshed the Plugins screen with denser STTITEN IP TV-styled controls and a dedicated icon.
 - Expanded plugin API docs for manifests, installation, IPC, configuration, and UI integration.
 - Clarified the Google Drive maintainer guide for `drive.appdata` and production rollout.
 

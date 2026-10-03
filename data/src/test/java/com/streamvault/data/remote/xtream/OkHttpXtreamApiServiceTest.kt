@@ -225,10 +225,10 @@ class OkHttpXtreamApiServiceTest {
 
         service.getLiveCategories(
             endpoint = "https://example.test/player_api.php",
-            requestProfile = HttpRequestProfile(userAgent = "StreamVaultTest/1.0", ownerTag = "provider:7/xtream")
+            requestProfile = HttpRequestProfile(userAgent = "STTITEN IP TVTest/1.0", ownerTag = "provider:7/xtream")
         )
 
-        assertThat(seenUserAgent).isEqualTo("StreamVaultTest/1.0")
+        assertThat(seenUserAgent).isEqualTo("STTITEN IP TVTest/1.0")
     }
 
     @Test

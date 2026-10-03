@@ -7,7 +7,7 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.streamvault.core.ui.theme.StreamVaultTheme
+import com.streamvault.core.ui.theme.STTITEN IP TVTheme
 import com.streamvault.domain.model.Category
 import com.streamvault.domain.model.Channel
 import com.streamvault.domain.model.Program
@@ -44,7 +44,7 @@ class HomePresentationBehaviorTest {
         )
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 LiveChannelRowSurface(
                     channel = channel,
                     nowMs = 30_000L,
@@ -73,7 +73,7 @@ class HomePresentationBehaviorTest {
         )
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 LiveChannelRowSurface(
                     channel = channel,
                     nowMs = 0L,
@@ -93,7 +93,7 @@ class HomePresentationBehaviorTest {
     @Test
     fun categoryRow_retainsCategoryContent() {
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 LiveCategoryRow(
                     title = "News",
                     items = listOf(Category(id = 10L, name = "World")),

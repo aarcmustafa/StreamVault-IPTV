@@ -27,10 +27,10 @@ The app retains these runtime implementations:
 app/src/main/java/com/streamvault/app/plugins/PluginMessengerClient.kt
 app/src/main/java/com/streamvault/app/plugins/PluginPlaybackRouting.kt
 app/src/main/java/com/streamvault/app/plugins/PluginWorkCoordinator.kt
-app/src/main/java/com/streamvault/app/plugins/StreamVaultPluginManager.kt
+app/src/main/java/com/streamvault/app/plugins/STTITEN IP TVPluginManager.kt
 ```
 
-The feature source contains no `StreamVaultPluginManager`,
+The feature source contains no `STTITEN IP TVPluginManager`,
 `PluginMessengerClient`, `PluginWorkCoordinator`, or `playbackCandidates`
 definition. Plugin IPC, provider ownership, work coordination, and playback
 routing remain app-owned; the feature owns only presentation and neutral API

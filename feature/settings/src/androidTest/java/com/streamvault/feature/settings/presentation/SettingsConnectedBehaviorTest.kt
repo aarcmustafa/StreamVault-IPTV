@@ -42,7 +42,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
 import com.streamvault.core.ui.components.SearchInput
 import com.streamvault.core.ui.components.dialogs.PinDialog
-import com.streamvault.core.ui.theme.StreamVaultTheme
+import com.streamvault.core.ui.theme.STTITEN IP TVTheme
 import com.streamvault.domain.manager.BackupConflictStrategy
 import com.streamvault.domain.manager.BackupImportPlan
 import com.streamvault.domain.manager.BackupPreview
@@ -67,7 +67,7 @@ class SettingsConnectedBehaviorTest {
         val settingsFocusRequester = FocusRequester()
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 Row(modifier = Modifier.fillMaxSize()) {
                     SettingsNavigationRail(
                         selectedCategory = selectedCategory,
@@ -107,7 +107,7 @@ class SettingsConnectedBehaviorTest {
         val focusRequester = FocusRequester()
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
                     Row(modifier = Modifier.fillMaxSize()) {
                         SettingsNavigationRail(
@@ -134,7 +134,7 @@ class SettingsConnectedBehaviorTest {
     @Test
     fun settingsSearch_exposesAccessibleLabelAndCurrentValue() {
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 SearchInput(
                     value = "sports",
                     onValueChange = {},
@@ -155,7 +155,7 @@ class SettingsConnectedBehaviorTest {
         var dismissCount = 0
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 if (visible) {
                     SettingsSearchSurface(
                         query = "",
@@ -190,7 +190,7 @@ class SettingsConnectedBehaviorTest {
         val label = composeRule.activity.getString(R.string.settings_external_playback)
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 SettingsSearchSurface(
                     query = label,
                     onQueryChange = {},
@@ -212,7 +212,7 @@ class SettingsConnectedBehaviorTest {
         var backCount = 0
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 SettingsLocalHeader(
                     title = "General playback",
                     description = "Player behavior",
@@ -236,7 +236,7 @@ class SettingsConnectedBehaviorTest {
         var confirmed = false
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 BackupImportPreviewDialog(
                     preview = testBackupPreview(),
                     plan = BackupImportPlan(),
@@ -276,7 +276,7 @@ class SettingsConnectedBehaviorTest {
         var selectedUri: String? = null
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 if (visible) {
                     BackupSelectionDialog(
                         title = "Choose backup",
@@ -313,7 +313,7 @@ class SettingsConnectedBehaviorTest {
         var dismissCount = 0
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 if (visible) {
                     BackupSelectionDialog(
                         title = "Dismiss with Back",
@@ -348,7 +348,7 @@ class SettingsConnectedBehaviorTest {
         var changeActionCount = 0
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 ParentalControlCard(
                     level = 0,
                     hasParentalPin = hasPin,
@@ -379,7 +379,7 @@ class SettingsConnectedBehaviorTest {
         val enteredPin = AtomicReference<String?>(null)
 
         composeRule.setContent {
-            StreamVaultTheme {
+            STTITEN IP TVTheme {
                 PinDialog(
                     title = "Enter PIN",
                     cancelLabel = "Cancel",

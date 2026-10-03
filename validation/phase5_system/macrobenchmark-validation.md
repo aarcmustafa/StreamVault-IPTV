@@ -8,7 +8,7 @@ Captured 2026-09-05 on the API 36 `Television_1080p(AVD) - 16` emulator
 ```text
 gradlew.bat :benchmark:connectedNonMinifiedReleaseAndroidTest \
   -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=Macrobenchmark \
-  -Pandroid.testInstrumentationRunnerArguments.class=com.streamvault.benchmark.StreamVaultMacrobenchmark \
+  -Pandroid.testInstrumentationRunnerArguments.class=com.streamvault.benchmark.STTITEN IP TVMacrobenchmark \
   --no-daemon --console=plain --warning-mode=none
 ```
 

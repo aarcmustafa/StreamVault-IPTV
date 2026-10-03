@@ -35,7 +35,7 @@ authoritative pre-extraction baseline.
 - Downloads directly imports app `R` and `AppScreenScaffold`; its domain
   dependency is the existing `DownloadManager`.
 - Plugins directly imports app shell/routes, plugin presentation models, and
-  `StreamVaultPluginManager`; runtime discovery, IPC, provider ownership, and
+  `STTITEN IP TVPluginManager`; runtime discovery, IPC, provider ownership, and
   playback routing remain app-owned.
 - The System module has no approved direct `:data` dependency. Sync progress
   and development seeding cross `SystemWelcomePort`; plugin operations cross
@@ -47,7 +47,7 @@ authoritative pre-extraction baseline.
 Command:
 
 ```text
-./gradlew.bat :app:testDebugUnitTest --tests com.streamvault.app.plugins.StreamVaultPluginOwnerTest --tests com.streamvault.app.plugins.PluginPlaybackRoutingTest :app:compileDebugKotlin --no-daemon --console=plain --warning-mode=none
+./gradlew.bat :app:testDebugUnitTest --tests com.streamvault.app.plugins.STTITEN IP TVPluginOwnerTest --tests com.streamvault.app.plugins.PluginPlaybackRoutingTest :app:compileDebugKotlin --no-daemon --console=plain --warning-mode=none
 ```
 
 Result: `BUILD SUCCESSFUL in 3m 30s`; 170 actionable tasks, 10 executed,

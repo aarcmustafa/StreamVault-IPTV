@@ -2,7 +2,7 @@ package com.streamvault.app
 
 import android.content.Context
 import com.streamvault.app.diagnostics.CrashReportStore
-import com.streamvault.data.local.StreamVaultDatabase
+import com.streamvault.data.local.STTITEN IP TVDatabase
 import dagger.Lazy
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CancellationException
@@ -61,7 +61,7 @@ internal class DatabaseStartupGate(
 
 @Singleton
 class DatabaseStartupCoordinator @Inject constructor(
-    database: Lazy<StreamVaultDatabase>,
+    database: Lazy<STTITEN IP TVDatabase>,
     @ApplicationContext context: Context
 ) {
     private val startupScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)

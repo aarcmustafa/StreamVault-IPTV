@@ -43,7 +43,7 @@ import com.streamvault.core.ui.theme.ErrorColor
 import com.streamvault.core.ui.theme.OnBackground
 import com.streamvault.core.ui.theme.OnSurfaceDim
 import com.streamvault.core.ui.theme.Primary
-import com.streamvault.core.ui.theme.StreamVaultTheme
+import com.streamvault.core.ui.theme.STTITEN IP TVTheme
 import com.streamvault.core.ui.theme.SurfaceElevated
 import com.streamvault.domain.model.LegacyProvider as Provider
 import com.streamvault.domain.model.AppTheme
@@ -69,11 +69,11 @@ class TvInputSetupActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val inputId = intent.getStringExtra(TvInputInfo.EXTRA_INPUT_ID)
-            ?: ComponentName(this, StreamVaultTvInputService::class.java).flattenToShortString()
+            ?: ComponentName(this, STTITEN IP TVTvInputService::class.java).flattenToShortString()
         viewModel.startSetup(inputId)
         setContent {
             val appTheme by preferencesRepository.appTheme.collectAsStateWithLifecycle(initialValue = AppTheme.DEFAULT)
-            StreamVaultTheme(themeId = appTheme.storageValue) {
+            STTITEN IP TVTheme(themeId = appTheme.storageValue) {
                 TvInputSetupRoute(
                     onOpenProviderSetup = {
                         startActivity(

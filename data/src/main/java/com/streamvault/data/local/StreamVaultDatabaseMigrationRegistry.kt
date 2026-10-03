@@ -6,7 +6,7 @@ import androidx.room.migration.Migration
  * The single migration topology consumed by production. Definitions are grouped into auditable
  * version-era files; this registry verifies that no adjacent release hop is missing or duplicated.
  */
-object StreamVaultDatabaseMigrationRegistry {
+object STTITEN IP TVDatabaseMigrationRegistry {
     const val CURRENT_VERSION = STREAM_VAULT_DATABASE_VERSION
 
     val v1To24: List<Migration> = LegacyMigrationsV1To24.all

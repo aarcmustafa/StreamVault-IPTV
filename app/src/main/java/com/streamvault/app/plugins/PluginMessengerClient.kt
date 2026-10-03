@@ -12,7 +12,7 @@ import android.os.Message
 import android.os.Messenger
 import android.os.RemoteException
 import dagger.hilt.android.qualifiers.ApplicationContext
-import com.streamvault.feature.system.api.StreamVaultPluginContract
+import com.streamvault.feature.system.api.STTITEN IP TVPluginContract
 import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -41,7 +41,7 @@ class PluginMessengerClient @Inject constructor(
 
         val replyMessenger = Messenger(Handler(Looper.getMainLooper()) { message ->
             val response = message.data ?: Bundle.EMPTY
-            if (response.getString(StreamVaultPluginContract.KEY_REQUEST_ID) == requestId &&
+            if (response.getString(STTITEN IP TVPluginContract.KEY_REQUEST_ID) == requestId &&
                 !responseDeferred.isCompleted
             ) {
                 responseDeferred.complete(Bundle(response))
@@ -70,7 +70,7 @@ class PluginMessengerClient @Inject constructor(
 
         try {
             withContext(Dispatchers.Main.immediate) {
-                val intent = Intent(StreamVaultPluginContract.ACTION_PLUGIN_SERVICE).apply {
+                val intent = Intent(STTITEN IP TVPluginContract.ACTION_PLUGIN_SERVICE).apply {
                     component = ComponentName(packageName, serviceClassName)
                 }
                 bound = appContext.bindService(intent, connection, Context.BIND_AUTO_CREATE)
@@ -84,8 +84,8 @@ class PluginMessengerClient @Inject constructor(
             val request = Message.obtain(null, what).apply {
                 replyTo = replyMessenger
                 this.data = Bundle(data).apply {
-                    putInt(StreamVaultPluginContract.KEY_API_VERSION, StreamVaultPluginContract.API_VERSION)
-                    putString(StreamVaultPluginContract.KEY_REQUEST_ID, requestId)
+                    putInt(STTITEN IP TVPluginContract.KEY_API_VERSION, STTITEN IP TVPluginContract.API_VERSION)
+                    putString(STTITEN IP TVPluginContract.KEY_REQUEST_ID, requestId)
                 }
             }
             try {

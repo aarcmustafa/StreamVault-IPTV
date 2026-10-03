@@ -6,7 +6,7 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 
 @Serializable
-data class StreamVaultPluginManifest(
+data class STTITEN IP TVPluginManifest(
     val schemaVersion: Int = 1,
     val id: String,
     val name: String,
@@ -25,26 +25,26 @@ data class StreamVaultPluginManifest(
     fun hasCapability(capability: String): Boolean = capability in capabilities
 
     val supportsConfigurationActivity: Boolean
-        get() = hasCapability(StreamVaultPluginContract.CAPABILITY_CONFIGURATION_ACTIVITY) &&
+        get() = hasCapability(STTITEN IP TVPluginContract.CAPABILITY_CONFIGURATION_ACTIVITY) &&
             !configurationActivityAction.isNullOrBlank()
 
     val usesActivityConfiguration: Boolean
-        get() = configurationMode == StreamVaultPluginContract.CONFIGURATION_MODE_ACTIVITY
+        get() = configurationMode == STTITEN IP TVPluginContract.CONFIGURATION_MODE_ACTIVITY
 
     val supportsHostRenderedConfiguration: Boolean
-        get() = configurationMode == StreamVaultPluginContract.CONFIGURATION_MODE_HOST_SCHEMA ||
-            (configurationMode != StreamVaultPluginContract.CONFIGURATION_MODE_ACTIVITY &&
-                hasCapability(StreamVaultPluginContract.CAPABILITY_CONFIGURATION_SCHEMA))
+        get() = configurationMode == STTITEN IP TVPluginContract.CONFIGURATION_MODE_HOST_SCHEMA ||
+            (configurationMode != STTITEN IP TVPluginContract.CONFIGURATION_MODE_ACTIVITY &&
+                hasCapability(STTITEN IP TVPluginContract.CAPABILITY_CONFIGURATION_SCHEMA))
 
     val canConfigure: Boolean
         get() = supportsHostRenderedConfiguration || supportsConfigurationActivity
 }
 
-data class InstalledStreamVaultPlugin(
+data class InstalledSTTITEN IP TVPlugin(
     val packageName: String,
     val serviceClassName: String,
     val appLabel: String,
-    val manifest: StreamVaultPluginManifest,
+    val manifest: STTITEN IP TVPluginManifest,
     val enabled: Boolean,
     val statusLabel: String = "",
     val lastMessage: String = "",
@@ -62,13 +62,13 @@ data class PluginDiscoveryStatus(
 )
 
 
-data class StreamVaultPluginOwner(
+data class STTITEN IP TVPluginOwner(
     val packageName: String,
     val serviceClassName: String,
     val manifestId: String
 ) {
-    val component: StreamVaultPluginComponent
-        get() = StreamVaultPluginComponent(packageName, serviceClassName)
+    val component: STTITEN IP TVPluginComponent
+        get() = STTITEN IP TVPluginComponent(packageName, serviceClassName)
 }
 
 /**
@@ -78,7 +78,7 @@ data class StreamVaultPluginOwner(
  * class and cannot be written to a Bundle, so encode each component into a String while keeping
  * the fields unambiguous even if plugin metadata contains separator characters.
  */
-fun StreamVaultPluginOwner.toBundleSafeKey(): String = buildString {
+fun STTITEN IP TVPluginOwner.toBundleSafeKey(): String = buildString {
     appendLengthPrefixed(packageName)
     appendLengthPrefixed(serviceClassName)
     appendLengthPrefixed(manifestId)
@@ -90,13 +90,13 @@ private fun StringBuilder.appendLengthPrefixed(value: String) {
     append(value)
 }
 
-data class StreamVaultPluginComponent(
+data class STTITEN IP TVPluginComponent(
     val packageName: String,
     val serviceClassName: String
 )
 
-val InstalledStreamVaultPlugin.owner: StreamVaultPluginOwner
-    get() = StreamVaultPluginOwner(packageName, serviceClassName, manifest.id)
+val InstalledSTTITEN IP TVPlugin.owner: STTITEN IP TVPluginOwner
+    get() = STTITEN IP TVPluginOwner(packageName, serviceClassName, manifest.id)
 
 data class PluginActionResult(
     val success: Boolean,
@@ -104,7 +104,7 @@ data class PluginActionResult(
 )
 
 data class PluginConfigurationSnapshot(
-    val plugin: InstalledStreamVaultPlugin,
+    val plugin: InstalledSTTITEN IP TVPlugin,
     val schema: PluginConfigurationSchema,
     val values: JsonObject
 )

@@ -12,7 +12,7 @@ class PlayerPlaybackUrlSupportTest {
             url = "https://resolved.example/live.m3u8",
             title = "Resolved title",
             headers = mapOf("Authorization" to "Bearer token"),
-            userAgent = "StreamVaultTest",
+            userAgent = "STTITEN IP TVTest",
             expirationTime = 123_456L
         )
 
@@ -27,7 +27,7 @@ class PlayerPlaybackUrlSupportTest {
 
         assertThat(result).isEqualTo(resolved)
         assertThat(result?.headers).containsEntry("Authorization", "Bearer token")
-        assertThat(result?.userAgent).isEqualTo("StreamVaultTest")
+        assertThat(result?.userAgent).isEqualTo("STTITEN IP TVTest")
         assertThat(result?.expirationTime).isEqualTo(123_456L)
     }
 
