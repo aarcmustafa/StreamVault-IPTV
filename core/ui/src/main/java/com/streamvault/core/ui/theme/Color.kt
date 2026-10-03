@@ -9,6 +9,7 @@ val SurfaceElevated = Color(0xFF121212)
 val OnSurface = Color(0xFFFFFFFF)
 val SurfaceHighlight = Color(0xFFF5F5F5)
 val OnSurfaceDim = Color(0xFF1C1C1C)
+val TextSecondary = OnSurface.copy(alpha = 0.72f)
 
 val Pink80 = Color(0xFFFFB1DC)
 val Pink40 = Color(0xFF7D5260)
