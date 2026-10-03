@@ -4,7 +4,7 @@
         <activity
             android:name=".benchmark.BackupPreviewBenchmarkActivity"
             android:exported="true"
-            android:theme="@style/Theme.STTITEN IP TV">
+            android:theme="@style/Theme.STTITENIPTV">
             <intent-filter>
                 <action android:name="com.streamvault.app.debug.BACKUP_PREVIEW_BENCHMARK" />
                 <category android:name="android.intent.category.DEFAULT" />
