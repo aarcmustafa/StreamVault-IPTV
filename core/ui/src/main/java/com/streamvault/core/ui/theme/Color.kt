@@ -2,10 +2,17 @@ package com.streamvault.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+// الألوان القياسية لـ Material 3
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
+val Purple40 = Color(0xFF6750A4)
+val PurpleGrey40 = Color(0xFF625B71)
 val Pink40 = Color(0xFF7D5260)
+
+// الألوان الاحترافية المخصصة لتطبيقات الـ IPTV والبحث (SearchInput)
+val Primary = Color(0xFF6366F1)        // لون أساسي عصري وجذاب (Indigo)
+val OnSurface = Color(0xFFF1F5F9)      // لون نصوص واضح على الخلفيات الداكنة
+val OnSurfaceDim = Color(0xFF94A3B8)   // لون نصوص خافت للعناصر غير النشطة
+val FocusBorder = Color(0xFF38BDF8)    // لون حدود التركيز عند التفاعل (Cyan)
