@@ -22,6 +22,9 @@ import com.streamvault.data.local.entity.VirtualGroupEntity
 import com.streamvault.data.local.entity.CategoryEntity
 import com.streamvault.data.local.entity.PlaybackHistoryEntity
 import com.streamvault.data.local.entity.MovieEntity
+import com.streamvault.data.local.entity.EpgSourceEntity
+import com.streamvault.data.local.entity.ChannelEpgMappingEntity
+import com.streamvault.data.local.entity.ChannelsFtsEntity
 
 @Database(
     entities = [
@@ -37,7 +40,10 @@ import com.streamvault.data.local.entity.MovieEntity
         VirtualGroupEntity::class,
         CategoryEntity::class,
         PlaybackHistoryEntity::class,
-        MovieEntity::class
+        MovieEntity::class,
+        EpgSourceEntity::class,
+        ChannelEpgMappingEntity::class,
+        ChannelsFtsEntity::class
     ],
     version = 1,
     exportSchema = false
