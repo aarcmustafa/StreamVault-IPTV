@@ -2,7 +2,7 @@ package com.streamvault.data.di
 
 import android.content.Context
 import androidx.room.Room
-import com.streamvault.data.local.StreamVaultDatabase
+import com.streamvault.data.local.STTITEN_IP_TVDatabase
 import com.streamvault.data.local.RoomDatabaseTransactionRunner
 import dagger.Module
 import dagger.Provides
@@ -17,20 +17,20 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideStreamVaultDatabase(
+    fun provideSTTITENIPTVDatabase(
         @ApplicationContext context: Context
-    ): StreamVaultDatabase {
+    ): STTITEN_IP_TVDatabase {
         return Room.databaseBuilder(
             context,
-            StreamVaultDatabase::class.java,
-            "streamvault.db"
+            STTITEN_IP_TVDatabase::class.java,
+            "sttiten_iptv.db"
         ).fallbackToDestructiveMigration().build()
     }
 
     @Provides
     @Singleton
     fun provideDatabaseTransactionRunner(
-        database: StreamVaultDatabase
+        database: STTITEN_IP_TVDatabase
     ): RoomDatabaseTransactionRunner {
         return RoomDatabaseTransactionRunner(database)
     }

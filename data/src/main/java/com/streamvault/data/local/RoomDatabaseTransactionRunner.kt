@@ -6,7 +6,7 @@ import javax.inject.Singleton
 
 @Singleton
 class RoomDatabaseTransactionRunner @Inject constructor(
-    private val database: StreamVaultDatabase
+    private val database: STTITEN_IP_TVDatabase
 ) {
     suspend operator fun invoke(block: suspend () -> Unit) {
         database.withTransaction {
