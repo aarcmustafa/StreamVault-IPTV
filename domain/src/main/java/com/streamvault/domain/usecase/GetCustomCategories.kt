@@ -8,6 +8,7 @@ import com.streamvault.domain.model.VirtualCategoryIds
 import com.streamvault.domain.model.VirtualGroup
 import com.streamvault.domain.repository.ChannelRepository
 import com.streamvault.domain.repository.FavoriteRepository
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
@@ -26,6 +27,7 @@ class GetCustomCategories @Inject constructor(
     operator fun invoke(providerId: Long, contentType: ContentType = ContentType.LIVE): Flow<List<Category>> =
         invoke(listOf(providerId), contentType)
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     operator fun invoke(providerIds: List<Long>, contentType: ContentType = ContentType.LIVE): Flow<List<Category>> {
         if (providerIds.isEmpty()) {
             return flowOf(emptyList())
