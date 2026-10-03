@@ -22,18 +22,20 @@ import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
     primary = Primary,
-    secondary = FocusBorder,
+    secondary = Secondary,
     tertiary = Pink80,
     surface = SurfaceElevated,
-    onSurface = OnSurface
+    onSurface = OnSurface,
+    error = ErrorColor
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Primary,
-    secondary = FocusBorder,
+    secondary = Secondary,
     tertiary = Pink40,
     surface = SurfaceHighlight,
-    onSurface = OnSurfaceDim
+    onSurface = OnSurfaceDim,
+    error = ErrorColor
 )
 
 val AppTypography = Typography(
