@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.STTITENIPTV" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your theme here -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
     </style>
     
     <style name="Theme.STTITENIPTV.CastChooser" parent="Theme.STTITENIPTV">
