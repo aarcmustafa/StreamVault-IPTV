@@ -11,7 +11,7 @@ val Purple40 = Color(0xFF6750A4)
 val PurpleGrey40 = Color(0xFF625B71)
 val Pink40 = Color(0xFF7D5260)
 
-// الألوان الاحترافية والمطلوبة في المكونات والوحدات المختلفة
+// الألوان الأساسية والمطلوبة في الواجهات
 val Primary = Color(0xFF6366F1)        // لون أساسي عصري (Indigo)
 val PrimaryLight = Color(0xFF818CF8)   // درجة فاتحة من اللون الأساسي
 val OnBackground = Color(0xFF0F172A)   // لون العناصر على الخلفية
@@ -20,7 +20,9 @@ val OnSurfaceDim = Color(0xFF94A3B8)   // لون نصوص خافت للعناص�
 val FocusBorder = Color(0xFF38BDF8)    // لون حدود التركيز عند التفاعل (Cyan)
 
 // الألوان الإضافية للمكونات والبطاقات
+val Surface = Color(0xFF0F172A)          // لون السطح الرئيسي
 val SurfaceElevated = Color(0xFF1E293B)  // خلفية مرتفعة قليلاً
 val SurfaceHighlight = Color(0xFF334155) // لون التمييز والتحديد
+val TextPrimary = Color(0xFFF8FAFC)      // النصوص الأساسية
 val TextSecondary = Color(0xFF94A3B8)    // النصوص الثانوية
 val ErrorColor = Color(0xFFEF4444)       // لون الأخطاء (Red)
